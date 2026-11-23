@@ -39,7 +39,7 @@ Claude asks a few short questions (about ten minutes), helps you connect one or 
 and gives you a link to your dashboard. Come back any time and say "add my Shopify to my
 dashboard", "my goal has changed" or "refresh my dashboard".
 
-## Status: 0.1, in testing
+## Status: 0.2, in testing
 
 Works today:
 - The interview, the tool finding and connecting steps, and the dashboard page.
