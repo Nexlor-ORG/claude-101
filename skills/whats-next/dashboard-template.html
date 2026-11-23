@@ -1,117 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What's next</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <style>
-/* Palette from nexlor.co. The founder's brand colour, when
-   there is one, replaces --accent (set from SETUP.accent). Accent is only ever a ring, a wash
-   or a glow, never text, so any hue stays readable. */
+/* Central Inbox's system (a framed surface, tiles lit from the top edge, a lead and a queue, pill
+   buttons) on Nexlor's colours. Light is the default; dark follows the device or the switch.
+   The founder's brand colour is the accent: --accent-light on light, --accent-dark on dark. */
 :root {
-  --bg: #F3F1FA; --surface: #FFFFFF; --surface-2: #ECE8F7;
-  --text: #17132E; --dim: rgba(23, 19, 46, .68); --hair: rgba(23, 19, 46, .10);
-  --accent: #FF7A55; --warm: #B4541F;
-  --coral: #FF6B3D; --magenta: #ED1E84; --violet: #7B2FF7;
-  --shadow: 0 1px 2px rgba(23, 19, 46, .06), 0 12px 40px rgba(23, 19, 46, .08);
-  --ease-out: cubic-bezier(.23, 1, .32, 1);
-  --display: "Bricolage Grotesque", "Hanken Grotesk", system-ui, sans-serif;
-  --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent-light: #B23A16; --accent-dark: #FF9A7A; --accent: var(--accent-light);
+  --surface: #FFFFFF; --text: #17132E; --dim: rgba(23,19,46,.68); --hair: rgba(23,19,46,.09); --ink: #FFFFFF;
+  --night: #EFEBF7; --g1: #D8C9F6; --g2: #F6D2E3; --halo: rgba(123,47,247,.10);
+  --wash: color-mix(in srgb, var(--accent) 12%, transparent); --ring: color-mix(in srgb, var(--accent) 38%, transparent);
+  --tile: rgba(23,19,46,.025); --tile-edge: inset 0 0 0 1px rgba(23,19,46,.07); --tile-lead-edge: inset 0 0 0 1px var(--ring);
+  --quiet: rgba(23,19,46,.06); --quiet-edge: inset 0 0 0 1px rgba(23,19,46,.06); --quiet-hover: rgba(23,19,46,.11);
+  --btn-hover: #2E2858; --chip: rgba(23,19,46,.07); --current: rgba(23,19,46,.06); --row-hover: rgba(23,19,46,.035); --track: rgba(23,19,46,.08);
+  --good: #1E6B45; --good-bg: rgba(30,107,69,.10); --watch: #8A5300; --watch-bg: rgba(214,138,36,.16); --act: #A3261E; --act-bg: rgba(163,38,30,.09);
+  --act-tile: radial-gradient(90% 80% at 100% 0%, rgba(163,38,30,.07), transparent 70%), #FFFFFF; --act-edge: inset 0 0 0 1px rgba(163,38,30,.22);
+  --underline: rgba(23,19,46,.35); --ease-out: cubic-bezier(.23, 1, .32, 1);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0C0A1A; --surface: #1B1730; --surface-2: #25203D;
-    --text: #F5F4FA; --dim: rgba(245, 244, 250, .70); --hair: rgba(255, 255, 255, .10);
-    --warm: #FFB57A; --shadow: 0 0 0 1px rgba(255, 255, 255, .06), 0 0 90px rgba(123, 47, 247, .16);
+    --accent: var(--accent-dark);
+    --surface: #0D0B16; --text: #FCF7FD; --dim: rgba(252,247,253,.68); --hair: rgba(252,247,253,.08); --ink: #150A33;
+    --night: #0B0918; --g1: #3B1A78; --g2: #6A1C4C; --halo: rgba(110,48,193,.40);
+    --wash: color-mix(in srgb, var(--accent) 30%, transparent); --ring: color-mix(in srgb, var(--accent) 42%, transparent);
+    --tile: rgba(252,247,253,.04); --tile-edge: inset 0 1px 0 rgba(252,247,253,.11), inset 0 0 0 1px rgba(252,247,253,.045);
+    --tile-lead-edge: inset 0 1px 0 rgba(252,247,253,.16), inset 0 0 0 1px var(--ring);
+    --quiet: rgba(252,247,253,.09); --quiet-edge: inset 0 1px 0 rgba(252,247,253,.14); --quiet-hover: rgba(252,247,253,.16);
+    --btn-hover: #FFFFFF; --chip: rgba(252,247,253,.07); --current: rgba(252,247,253,.10); --row-hover: rgba(252,247,253,.06); --track: rgba(252,247,253,.08);
+    --good: #8EE0B2; --good-bg: rgba(142,224,178,.12); --watch: #FFB57A; --watch-bg: rgba(255,181,122,.13); --act: #FF9A8F; --act-bg: rgba(255,154,143,.14);
+    --act-tile: radial-gradient(90% 80% at 100% 0%, rgba(255,154,143,.14), transparent 70%), rgba(252,247,253,.04);
+    --act-edge: inset 0 1px 0 rgba(255,154,143,.35), inset 0 0 0 1px rgba(255,154,143,.22);
+    --underline: rgba(252,247,253,.35);
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0C0A1A; --surface: #1B1730; --surface-2: #25203D;
-  --text: #F5F4FA; --dim: rgba(245, 244, 250, .70); --hair: rgba(255, 255, 255, .10);
-  --warm: #FFB57A; --shadow: 0 0 0 1px rgba(255, 255, 255, .06), 0 0 90px rgba(123, 47, 247, .16);
+  --accent: var(--accent-dark);
+  --surface: #0D0B16; --text: #FCF7FD; --dim: rgba(252,247,253,.68); --hair: rgba(252,247,253,.08); --ink: #150A33;
+  --night: #0B0918; --g1: #3B1A78; --g2: #6A1C4C; --halo: rgba(110,48,193,.40);
+  --wash: color-mix(in srgb, var(--accent) 30%, transparent); --ring: color-mix(in srgb, var(--accent) 42%, transparent);
+  --tile: rgba(252,247,253,.04); --tile-edge: inset 0 1px 0 rgba(252,247,253,.11), inset 0 0 0 1px rgba(252,247,253,.045);
+  --tile-lead-edge: inset 0 1px 0 rgba(252,247,253,.16), inset 0 0 0 1px var(--ring);
+  --quiet: rgba(252,247,253,.09); --quiet-edge: inset 0 1px 0 rgba(252,247,253,.14); --quiet-hover: rgba(252,247,253,.16);
+  --btn-hover: #FFFFFF; --chip: rgba(252,247,253,.07); --current: rgba(252,247,253,.10); --row-hover: rgba(252,247,253,.06); --track: rgba(252,247,253,.08);
+  --good: #8EE0B2; --good-bg: rgba(142,224,178,.12); --watch: #FFB57A; --watch-bg: rgba(255,181,122,.13); --act: #FF9A8F; --act-bg: rgba(255,154,143,.14);
+  --act-tile: radial-gradient(90% 80% at 100% 0%, rgba(255,154,143,.14), transparent 70%), rgba(252,247,253,.04);
+  --act-edge: inset 0 1px 0 rgba(255,154,143,.35), inset 0 0 0 1px rgba(255,154,143,.22);
+  --underline: rgba(252,247,253,.35);
 }
 * { box-sizing: border-box; }
-body { margin: 0; padding: 16px; background: var(--bg); color: var(--text);
-  font: 15px/1.5 var(--body); font-variant-numeric: tabular-nums; -webkit-text-size-adjust: 100%; }
-h1, h2, p, ol, ul { margin: 0; }
-ol, ul { padding: 0; list-style: none; }
-button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
+body { margin: 0; padding: 12px; min-height: 100vh; color: var(--text); background-color: var(--night);
+  background: radial-gradient(55% 60% at 8% 100%, var(--g1) 0%, transparent 62%), radial-gradient(50% 55% at 95% 0%, var(--g2) 0%, transparent 60%), var(--night);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; font-optical-sizing: auto; font-variant-numeric: tabular-nums; -webkit-text-size-adjust: 100%; }
+:where(h1, h2, h3, p, ul, ol) { margin: 0; }
+:where(ul, ol) { padding: 0; list-style: none; }
+:where(button) { font: inherit; color: inherit; border: 0; background: none; padding: 0; text-align: left; cursor: pointer; }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-.frame { max-width: 760px; margin: 0 auto; background: var(--surface); border-radius: 24px;
-  box-shadow: var(--shadow); overflow: hidden; }
-.ribbon { height: 4px; background: linear-gradient(115deg, var(--coral), var(--magenta) 48%, var(--violet)); }
-.pad { padding: 18px 18px 20px; display: grid; gap: 20px; }
-
-.top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 13px; color: var(--dim); }
-.brand { font-weight: 600; color: var(--text); }
-.hero h1 { font: 500 clamp(28px, 6vw, 40px)/1.08 var(--display); letter-spacing: -.03em; }
-.hero p { color: var(--dim); margin-top: 6px; }
-
-.label { font: 600 12.5px/1 var(--body); letter-spacing: .02em; color: var(--dim); margin-bottom: 10px; }
-.next { display: grid; gap: 10px; }
-.item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; padding: 16px;
-  border-radius: 18px; background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--hair); }
-.item.lead { box-shadow: inset 0 0 0 1.5px var(--accent);
-  background: radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%), var(--surface-2); }
-.n { grid-row: span 2; align-self: start; width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center;
-  font: 600 14px/1 var(--display); box-shadow: inset 0 0 0 1.5px var(--accent); }
-.line { font: 600 17px/1.3 var(--body); letter-spacing: -.01em; overflow-wrap: anywhere; }
-.fact { color: var(--dim); overflow-wrap: anywhere; }
-.item .line, .item .fact { grid-column: 2; }
-.acts { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
-.btn { display: inline-block; padding: 9px 18px; border-radius: 99px; font-weight: 600; font-size: 14px; text-decoration: none;
-  background: var(--text); color: var(--surface); transition: transform 160ms var(--ease-out); }
-.btn.quiet { background: transparent; color: var(--dim); box-shadow: inset 0 0 0 1px var(--hair); font-weight: 500; }
-.btn.sm { padding: 6px 13px; font-size: 13px; }
-.btn:active { transform: scale(.97); }
-
-.hand li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px;
-  padding: 12px 16px; border-radius: 16px; box-shadow: inset 0 0 0 1px var(--hair); }
-.hand li + li { margin-top: 8px; }
-.empty { padding: 18px 16px; border-radius: 18px; background: var(--surface-2); color: var(--dim); }
-
-.notices { display: grid; gap: 6px; font-size: 13.5px; }
-.notices li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px;
-  padding: 9px 14px; border-radius: 14px; color: var(--warm); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--warm) 35%, transparent); }
-.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; font-size: 13px; color: var(--dim);
-  padding-top: 14px; border-top: 1px solid var(--hair); }
-#toast { position: fixed; left: 50%; bottom: 20px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
-  padding: 10px 18px; border-radius: 99px; background: var(--text); color: var(--surface); font-weight: 600; font-size: 14px;
-  transition: opacity 200ms ease, transform 200ms var(--ease-out); max-width: calc(100vw - 32px); }
-#toast.on { opacity: 1; transform: translate(-50%, 0); }
 [hidden] { display: none !important; }
 
-@media (min-width: 640px) {
-  body { padding: 28px; }
-  .pad { padding: 24px 30px 26px; gap: 24px; }
-  .item { grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; padding: 18px 20px; }
-  .n { grid-row: span 2; }
-  .acts { grid-column: 3; grid-row: 1 / span 2; margin-top: 0; justify-content: flex-end; max-width: 300px; }
+.frame { max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; padding: 12px 26px 16px; border-radius: 28px;
+  background: var(--surface); box-shadow: 0 0 0 1px var(--ring), 0 0 90px var(--halo); }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 36px; }
+.brand { font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
+.right { display: flex; align-items: center; gap: 14px; color: var(--dim); font-size: 13px; }
+.seg { display: flex; gap: 2px; padding: 4px; border-radius: 99px; background: var(--quiet); box-shadow: var(--quiet-edge); }
+.seg button { min-height: 30px; padding: 0 13px; border-radius: 99px; color: var(--dim); font-size: 12.5px; transition: background-color 160ms ease, color 160ms ease; }
+.seg button[aria-pressed="true"] { background: var(--current); color: var(--text); box-shadow: var(--quiet-edge); }
+.live { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.live i { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px var(--good-bg); }
+.live.old i { background: var(--watch); box-shadow: 0 0 0 3px var(--watch-bg); }
+
+.hero { display: flex; align-items: end; justify-content: space-between; gap: 30px; padding: 10px 2px 4px; }
+.hero h1 { font-size: clamp(32px, 3.6vw, 52px); font-weight: 400; letter-spacing: -.04em; line-height: 1.02; text-wrap: balance; }
+.hero .n { display: inline-grid; place-items: center; min-width: 1.5em; height: 1.12em; padding: 0 .3em; margin-right: .22em; border-radius: .34em; vertical-align: -.12em;
+  box-shadow: inset 0 0 0 1.5px var(--accent); background: linear-gradient(160deg, var(--wash), transparent); font-size: .82em; }
+.hero p { color: var(--dim); text-align: right; max-width: 44ch; }
+.notices { display: grid; gap: 6px; font-size: 13px; }
+.notices li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; padding: 7px 8px 7px 16px; border-radius: 99px;
+  color: var(--watch); background: var(--watch-bg); }
+
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; }
+.tile { min-width: 0; border-radius: 20px; padding: 16px 18px; background: var(--tile); box-shadow: var(--tile-edge); }
+.label { font-size: 12.5px; font-weight: 500; letter-spacing: .01em; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.tag { display: inline-block; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 99px; background: var(--wash); color: var(--accent); white-space: nowrap; }
+
+.goal { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 28px; align-items: center; padding: 16px 22px; }
+.goal h2 { font-size: 17px; font-weight: 500; letter-spacing: -.01em; line-height: 1.25; }
+.goal .big { font-size: 40px; font-weight: 400; letter-spacing: -.04em; line-height: 1; }
+.goal .of { color: var(--dim); font-size: 13px; margin-left: 6px; }
+.goal .count { display: flex; align-items: baseline; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+.goal .bar, .goal .pace, .goal .key { grid-column: 1 / -1; }
+.key { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; color: var(--dim); }
+.key b { color: var(--text); font-weight: 600; }
+.bar { height: 8px; border-radius: 99px; background: var(--track); overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: 99px; background: var(--accent); }
+
+.lead { grid-column: 1 / 8; grid-row: span 2; display: flex; flex-direction: column; gap: 14px; padding: 20px 22px;
+  background: radial-gradient(90% 70% at 0% 0%, var(--wash), transparent 70%), var(--tile); box-shadow: var(--tile-lead-edge); }
+.lead-body { display: flex; flex-direction: column; gap: 14px; flex: 1; animation: 240ms var(--ease-out) both; }
+@keyframes in-a { from { opacity: 0; transform: translateY(5px); filter: blur(2px); } }
+@keyframes in-b { from { opacity: 0; transform: translateY(5px); filter: blur(2px); } }
+.who { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; color: var(--dim); font-size: 13px; }
+.lead h2 { font-size: clamp(22px, 2.3vw, 32px); font-weight: 500; letter-spacing: -.03em; line-height: 1.08; text-wrap: balance; overflow-wrap: anywhere; }
+.said { color: var(--dim); font-size: 15px; max-width: 52ch; overflow-wrap: anywhere; }
+.ctx li { display: flex; gap: 10px; padding: 7px 0; box-shadow: inset 0 1px 0 var(--hair); font-size: 13.5px; overflow-wrap: anywhere; }
+.ctx li::before { content: ""; flex: none; width: 5px; height: 5px; margin-top: 7px; border-radius: 50%; background: var(--accent); }
+.acts { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.acts .pos { margin-left: auto; color: var(--dim); font-size: 12.5px; }
+.btn { display: inline-flex; align-items: center; min-height: 40px; padding: 0 20px; border-radius: 99px; font-weight: 600; font-size: 13.5px; text-decoration: none;
+  background: var(--text); color: var(--ink); white-space: nowrap; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
+.btn.quiet { background: var(--quiet); color: var(--text); box-shadow: var(--quiet-edge); }
+.btn.sm { min-height: 34px; padding: 0 14px; font-size: 12.5px; }
+.btn:active { transform: scale(.97); }
+.zero { display: grid; place-content: center; text-align: center; gap: 8px; min-height: 240px; }
+.zero h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 400; letter-spacing: -.04em; }
+.zero p { color: var(--dim); }
+
+.queue { grid-column: 8 / 13; padding: 16px 10px; }
+.queue .label { padding: 0 8px; }
+.qi { width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: center; padding: 8px; border-radius: 12px; transition: background-color 160ms ease; }
+.qi[aria-current="true"] { background: var(--current); }
+.qi .num { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--chip); font-size: 12px; font-weight: 600; }
+.qi[aria-current="true"] .num { box-shadow: inset 0 0 0 1.5px var(--accent); background: var(--wash); }
+.qi .t { display: block; font-size: 14.5px; font-weight: 500; letter-spacing: -.01em; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qi .f { display: block; font-size: 12.5px; color: var(--dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.side { grid-column: 8 / 13; display: flex; flex-direction: column; gap: 4px; }
+.side h3 { font-size: 17px; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; overflow-wrap: anywhere; }
+.side p { font-size: 13px; color: var(--dim); margin-bottom: 10px; }
+.side .acts { margin-top: 0; }
+.side.act { background: var(--act-tile); box-shadow: var(--act-edge); }
+.side.act .label { color: var(--act); }
+
+.section-head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 2px 0; font-size: 12.5px; color: var(--dim); }
+.section-head h2 { font-size: 15px; font-weight: 600; letter-spacing: -.01em; color: var(--text); }
+.metrics { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.metric { display: flex; flex-direction: column; gap: 6px; }
+.metric .label { margin-bottom: 2px; align-items: center; }
+.metric .row { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; }
+.metric .big { font-size: 30px; font-weight: 400; letter-spacing: -.04em; line-height: 1.05; }
+.metric .note { font-size: 12.5px; color: var(--dim); line-height: 1.45; }
+.tone { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 2px 9px; border-radius: 99px; white-space: nowrap; }
+.good { color: var(--good); } .watch { color: var(--watch); } .act { color: var(--act); }
+.tone.good { background: var(--good-bg); } .tone.watch { background: var(--watch-bg); } .tone.act { background: var(--act-bg); }
+.spark { flex: none; stroke: currentColor; }
+.quietlink { align-self: flex-start; min-height: 32px; color: var(--dim); font-size: 12.5px; text-decoration: underline dotted var(--underline); text-underline-offset: 3px; transition: color 160ms ease; }
+.how { padding-top: 8px; box-shadow: inset 0 1px 0 var(--hair); font-size: 12.5px; line-height: 1.5; color: var(--dim); transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out); }
+@starting-style { .how { opacity: 0; transform: translateY(-4px); } }
+.connect { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; padding: 20px 22px;
+  background: radial-gradient(90% 90% at 0% 0%, var(--wash), transparent 70%), var(--tile); }
+.connect h3 { font-size: 20px; font-weight: 500; letter-spacing: -.02em; }
+.connect p { color: var(--dim); max-width: 62ch; margin-bottom: 6px; }
+.strip { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding: 12px 4px 0; box-shadow: inset 0 1px 0 var(--hair); font-size: 12.5px; color: var(--dim); }
+#toast { position: fixed; left: 50%; bottom: 20px; transform: translate(-50%, 16px); opacity: 0; pointer-events: none; z-index: 5; max-width: calc(100vw - 32px);
+  padding: 10px 18px; border-radius: 99px; background: var(--text); color: var(--ink); font-weight: 600; font-size: 13.5px;
+  transition: opacity 200ms ease, transform 200ms var(--ease-out); }
+#toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { background: var(--btn-hover); }
+  .btn.quiet:hover { background: var(--quiet-hover); }
+  .qi:hover { background: var(--row-hover); }
+  .qi[aria-current="true"]:hover { background: var(--current); }
+  .quietlink:hover, .seg button:hover { color: var(--text); }
 }
-@media (prefers-reduced-motion: reduce) { .btn, #toast { transition: none; } }
+@media (max-width: 860px) {
+  body { padding: 8px; }
+  .frame { padding: 10px 16px 16px; border-radius: 24px; }
+  .top { flex-wrap: wrap; }
+  .hero { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .hero p { text-align: left; }
+  .lead, .queue, .side { grid-column: 1 / -1; grid-row: auto; }
+  .goal { grid-template-columns: minmax(0, 1fr); }
+  .goal .count { justify-content: flex-start; }
+  .right .date { display: none; }
+  .right { width: 100%; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  .acts .pos { width: 100%; margin-left: 0; order: -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  @keyframes in-a { from { opacity: 0; } }
+  @keyframes in-b { from { opacity: 0; } }
+  .btn, .qi, .quietlink, .seg button, #toast { transition: none; }
+  .btn:active { transform: none; }
+  .how { transition: opacity 150ms ease; }
+  @starting-style { .how { opacity: 0; transform: none; } }
+}
 </style>
 </head>
 <body>
-<main class="frame">
-  <div class="ribbon"></div>
-  <div class="pad">
-    <header class="top"><span class="brand" id="biz"></span><span id="status"></span></header>
-    <section class="hero"><h1 id="hello"></h1><p id="goal"></p></section>
-    <section>
-      <h2 class="label">What's next</h2>
-      <ol class="next" id="next"></ol>
-      <p class="empty" id="empty" hidden>Nothing needs you right now.</p>
-    </section>
-    <section id="hand-wrap" hidden>
-      <h2 class="label">Claude can take this off your hands</h2>
-      <ul class="hand" id="hand"></ul>
-    </section>
-    <ul class="notices" id="notices"></ul>
-    <footer class="foot"><span id="more"></span><span>Claude 101 by Nexlor</span></footer>
+<div class="frame">
+  <header class="top">
+    <span class="brand" id="biz"></span>
+    <span class="right">
+      <span class="date" id="date"></span>
+      <span class="live" id="status"><i aria-hidden="true"></i><span></span></span>
+      <span class="seg" role="group" aria-label="Appearance" id="theme">
+        <button type="button" data-theme="auto">Auto</button><button type="button" data-theme="light">Light</button><button type="button" data-theme="dark">Dark</button>
+      </span>
+    </span>
+  </header>
+  <section class="hero"><h1 id="headline"></h1><p id="hello"></p></section>
+  <ul class="notices" id="notices"></ul>
+  <div class="grid">
+    <section class="tile goal" id="goal" aria-label="Your goal"></section>
+    <article class="tile lead" id="lead" aria-label="What's next"></article>
+    <section class="tile queue" id="queue" aria-label="Up next"></section>
+    <section class="tile side" id="side" hidden></section>
+    <div class="section-head" id="health-head"><h2>Business health</h2><span id="health-src"></span></div>
+    <div class="metrics" id="health"></div>
+    <div class="section-head" id="growth-head"><h2>Growth</h2><span id="growth-src"></span></div>
+    <div class="metrics" id="growth"></div>
+    <section class="tile connect" id="connect" aria-label="Business health" hidden></section>
   </div>
-</main>
+  <footer class="strip"><span id="foot"></span><span>Claude 101 by Nexlor</span></footer>
+</div>
 <div id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -121,52 +225,80 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
    ============================================================================================ */
 const SETUP = {
   demo: true,
-  version: 1,
+  version: 2,
   founder: "Thandi",
   business: "Demo Uniforms",
   model: "invoices",
   customerWord: "school",
-  goal: { title: "15 schools on contract by June", measure: "schools with an active contract",
-          source: "Xero", now: 11, target: 15, by: "2027-06-30" },
+  goal: { title: "15 schools on contract by June", measure: "schools with an active contract", source: "Xero",
+          now: 11, target: 15, by: "2027-06-30", unit: "schools", money: false, ratePerMonth: 0.17,
+          key: [{ b: "5", t: "quotes open" }, { b: "22%", t: "of quotes win" }, { b: "About 18", t: "more quotes needed" }] },
   // What counts as important for this founder. Labels: win-customers, keep-customers,
   // get-paid, deliver-work, save-time.
   focus: ["win-customers", "keep-customers"],
-  // The "here's what I heard" lines, kept so setup can be resumed and updated later.
   heard: [
-    "You make school uniforms and sell mostly to schools around Cape Town.",
-    "A great six months is 15 schools on contract, up from 11.",
+    "You make school uniforms; schools sign a contract and you invoice them each term.",
+    "A great six months is 15 schools on contract by June, up from 11, counted in Xero.",
     "What matters most is keeping your biggest schools ordering.",
     "You would hand off chasing payments tomorrow.",
-    "Day to day you use Gmail, Google Calendar, Xero and Shopify."
+    "Your books are in Xero and up to date to October; schools get 30 days to pay."
   ],
   books: { current: true, upTo: "2026-10" },
   terms: 30,
-  tools: { connected: ["Gmail", "Google Calendar"], next: ["Shopify"], notYet: ["Payfast"] },
+  tools: { connected: ["Xero", "Gmail", "Google Calendar"], next: ["Shopify"], notYet: ["Payfast"] },
   accent: "#8FB3F0",
   accentLight: "#2B4C8C",
-  // What the plays found the last time Claude ran them. Shown until live data arrives, and
-  // whenever live data is not available.
+  // What the plays and measures found the last time Claude ran them. Shown until live data
+  // arrives, and whenever live data is not available.
   snapshot: {
     takenAt: "2026-11-23T07:02:00+02:00",
+    summary: "You are making a profit, but cash is tight because schools take 52 days to pay. Winning 4 more schools by June needs more quotes out.",
     items: [
-      { id: "demo-quiet-customers", play: "demo", helps: ["keep-customers"], urgent: false,
-        line: "Call your three biggest customers", fact: "None has ordered in two months",
-        button: "Have Claude draft the messages",
-        prompt: "Draft a short, friendly check-in message to each of my three biggest customers, who have not ordered in two months. Show me the drafts before anything is sent." },
-      { id: "demo-quote", play: "demo", helps: ["win-customers"], urgent: true,
-        line: "Renew the Hillside Primary quote", fact: "It expires tomorrow",
-        button: "Have Claude draft it",
-        prompt: "Draft an email renewing my quote to Hillside Primary, which expires tomorrow. Show me the draft before anything is sent." },
-      { id: "demo-follow-up", play: "demo", helps: ["win-customers"], urgent: false,
-        line: "Follow up Friday's call with Sipho", fact: "No email to him since the call",
-        button: "Have Claude draft it",
-        prompt: "Draft a follow-up email to Sipho after our call on Friday. Show me the draft before anything is sent." },
-      { id: "demo-invoices", play: "demo", helps: ["get-paid"], urgent: true,
-        line: "Chase 2 overdue invoices", fact: "R48,200 outstanding",
-        button: "Draft reminders",
-        prompt: "Draft polite payment reminders for my two overdue invoices. Show me the drafts before anything is sent." },
-      { id: "demo-newsletter", play: "demo", helps: ["save-time"], urgent: false,
-        line: "Read last month's newsletter stats", fact: "Open rate was 31%" }
+      { id: "u-hillside", play: "demo", helps: ["win-customers"], urgent: true, moves: "Your goal",
+        line: "Renew the Hillside Primary quote", fact: "Worth R240,000 a year, and it expires tomorrow.",
+        ctx: ["Worth R240,000 a year", "The quote expires tomorrow, 24 November", "It would be school 12 of 15"],
+        button: "Have Claude draft it", prompt: "Draft an email renewing my quote to Hillside Primary, which expires tomorrow. Show me the draft before anything is sent." },
+      { id: "u-top3", play: "demo", helps: ["keep-customers"], urgent: false,
+        line: "Call your three biggest schools", fact: "They bring in 41% of your sales, and none has placed a term 1 order yet.",
+        ctx: ["41% of your sales come from these three", "Last order from each: August", "Term 1 orders usually arrive by mid-November"],
+        button: "Have Claude draft the messages", prompt: "Draft a short, friendly check-in to each of my three biggest schools, none of which has placed a term 1 order yet. Show me the drafts before anything is sent." },
+      { id: "u-quotes", play: "demo", helps: ["win-customers"], urgent: false, moves: "Your goal",
+        line: "Send four new quotes this month", fact: "At your win rate, 15 schools by June needs about 18 more quotes.",
+        ctx: ["2 of 9 quotes won this year", "5 quotes open now", "About 18 more needed for 4 new schools by June"],
+        button: "Have Claude find schools to approach", prompt: "Suggest ten schools near my current schools that I have not quoted, and draft a short introduction for the first four. Show me everything before anything is sent." },
+      { id: "u-sipho", play: "demo", helps: ["win-customers"], urgent: false, moves: "Your goal",
+        line: "Follow up Friday's meeting with Sipho", fact: "No email to him since the meeting.",
+        ctx: ["Met on Friday 20 November", "No email to him since"],
+        button: "Have Claude draft it", prompt: "Draft a follow-up email to Sipho after our meeting on Friday. Show me the draft before anything is sent." },
+      { id: "u-chase", play: "demo", helps: ["get-paid"], urgent: true,
+        line: "Chase R148,200 overdue from 3 schools", fact: "All more than 60 days late.",
+        button: "Have Claude draft reminders", prompt: "Draft polite payment reminders for the three schools whose invoices are more than 60 days overdue. Show me the drafts before anything is sent." },
+      { id: "u-newsletter", play: "demo", helps: ["save-time"], urgent: false,
+        line: "Read last month's newsletter stats", fact: "Open rate was 31%." }
+    ],
+    measures: [
+      { id: "cash", group: "health", label: "Cash in the bank", value: "R212,000", tone: "watch", helps: ["get-paid"], period: "October · from Xero",
+        note: "Covers 2 months of running costs.", trend: [3.1, 2.8, 2.6, 2.3, 2.0],
+        how: "Bank balance today, divided by average monthly running costs over the last 3 months: R212,000 ÷ R104,000. Under 3 months is Watch; under 1 month is Act now." },
+      { id: "debtor-days", group: "health", label: "How fast schools pay", value: "52 days", tone: "act", helps: ["get-paid"],
+        alert: "Schools take 52 days to pay you", note: "Up from 38 days in August. R552,000 is waiting to be paid.", trend: [38, 41, 45, 49, 52],
+        how: "What customers owe you, divided by October's sales, times 30 days: R551,900 ÷ R318,400 × 30. Your terms are 30 days; more than 15 days over them is Act now." },
+      { id: "gross-margin", group: "health", label: "Profit on each sale", value: "40%", tone: "watch", helps: ["get-paid"],
+        note: "Down from 43% in August. Materials cost 9% more.", trend: [43.1, 42.6, 41.5, 40.8, 40.2],
+        how: "Sales minus what it cost to make them, as a share of sales: (R318,400 − R190,400) ÷ R318,400. Watch when it falls more than 2 points in 3 months." },
+      { id: "net-profit", group: "health", label: "Profit after all costs", value: "R24,000", tone: "good", helps: ["get-paid"],
+        note: "7.5% of October's sales.", trend: [31, 29, 27, 22, 24], how: "October's sales minus every cost, before tax." },
+      { id: "break-even", group: "health", label: "Sales needed to cover costs", value: "R259,000", tone: "good", helps: ["get-paid"],
+        note: "A month. October was 23% above it.",
+        how: "Monthly running costs divided by profit on each sale: R104,000 ÷ 40.2%. Assumes running costs stay the same as sales change." },
+      { id: "cost-to-win", group: "growth", label: "Cost to win a school", value: "R48,000", tone: "good", helps: ["win-customers"], period: "Last 12 months · from Xero",
+        note: "R96,000 on marketing for 2 new schools.", how: "Marketing and sales costs over 12 months, divided by new schools won." },
+      { id: "lifetime-profit", group: "growth", label: "Profit from a school over its life", value: "R796,000", tone: "good", helps: ["win-customers", "keep-customers"],
+        note: "About 16 times what it costs to win one.", how: "Average yearly profit per school (R132,700) × the 6 years schools have stayed on average." },
+      { id: "quote-win-rate", group: "growth", label: "Quotes that win", value: "22%", tone: "watch", helps: ["win-customers"],
+        note: "2 of 9 quotes sent this year.", how: "Quotes marked accepted, divided by quotes sent." },
+      { id: "retention", group: "growth", label: "Schools that stay", value: "91%", tone: "good", helps: ["keep-customers"],
+        note: "10 of 11 renewed last year.", how: "Schools that renewed in the last 12 months, divided by schools whose contract came up." }
     ]
   }
 };
@@ -210,6 +342,7 @@ const PLAYS = [
       return {
         line: `Reply to ${listNames(names)}`,
         fact: waiting.length === 1 ? "1 email has waited more than two days" : `${waiting.length} emails have waited more than two days`,
+        ctx: [`The oldest has waited ${Math.floor((ctx.now - oldest) / DAY)} days`, `From ${listNames(names)}`],
         urgent: ctx.now - oldest > 4 * DAY,
         button: "Have Claude draft replies",
         prompt: `Find the emails in my inbox from ${listNames(names)} that have waited more than two days for a reply, and draft a reply to each. Show me every draft before anything is sent.`
@@ -230,6 +363,7 @@ const PLAYS = [
       return {
         line: `Follow up with ${listNames(names)}`,
         fact: silent.length === 1 ? "1 email you sent has had no reply in four days" : `${silent.length} emails you sent have had no reply in four days`,
+        ctx: [`Sent between 4 and 14 days ago`, `No reply from ${listNames(names)}`],
         urgent: false,
         button: "Have Claude draft follow-ups",
         prompt: `Find the emails I sent to ${listNames(names)} in the last two weeks that have had no reply, and draft a short follow-up to each. Show me every draft before anything is sent.`
@@ -252,7 +386,8 @@ const PLAYS = [
       const who = listNames(outsiders(first, own).map(attendeeName));
       return {
         line: `Prepare for ${clean(first.summary) || "your meeting"}`,
-        fact: `${when}, with ${who}` + (meetings.length > 1 ? `. ${meetings.length - 1} more outside meeting${meetings.length > 2 ? "s" : ""} in the next two days` : ""),
+        fact: `${when}, with ${who}.`,
+        ctx: [when, `With ${who}`].concat(meetings.length > 1 ? [`${meetings.length - 1} more outside meeting${meetings.length > 2 ? "s" : ""} in the next two days`] : []),
         urgent: start - ctx.now < DAY,
         button: "Have Claude prepare a brief",
         prompt: `I have a meeting, "${clean(first.summary)}", on ${when} with ${who}. From my email and calendar, prepare a one-page brief: who they are, what we last discussed, and what I should ask for.`
@@ -281,7 +416,8 @@ const PLAYS = [
       const day = new Date(e.end.dateTime).toLocaleString(undefined, { weekday: "long" });
       return {
         line: `Follow up ${day}'s meeting with ${attendeeName(guest)}`,
-        fact: `No email to them since "${clean(e.summary)}"` + (open.length > 1 ? `. ${open.length - 1} more like this` : ""),
+        fact: `No email to them since "${clean(e.summary)}".`,
+        ctx: [`Met on ${day}`, "No email to them since"].concat(open.length > 1 ? [`${open.length - 1} more meeting${open.length > 2 ? "s" : ""} like this`] : []),
         urgent: false,
         button: "Have Claude draft it",
         prompt: `Draft a follow-up email to ${attendeeName(guest)} after our meeting "${clean(e.summary)}" on ${day}. Use what you can find in my email for context. Show me the draft before anything is sent.`
@@ -291,17 +427,31 @@ const PLAYS = [
 ];
 
 /* ============================================================================================
-   3. THE PAGE — do not change below this line when filling in a founder's dashboard.
+   3. MEASURES — the numbers under Business health and Growth, and the goal's progress. Claude
+      writes and proves these during setup from the founder's own accounting and shop data
+      (see measures.md). Each reads through `read(server, tool, input)` and returns one number,
+      or null when the data is not there. A measure with group "goal" updates the goal instead.
+   ============================================================================================ */
+const MEASURES = [];
+
+/* ============================================================================================
+   4. THE PAGE — do not change below this line when filling in a founder's dashboard.
    ============================================================================================ */
 const $ = (id) => document.getElementById(id);
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+const MOVES = { "win-customers": "Winning customers", "keep-customers": "Keeping customers", "get-paid": "Cash", "deliver-work": "Delivering work", "save-time": "Your time" };
+const WORDS = { good: "Healthy", watch: "Watch", act: "Act now" };
 
-// ponytail: "done" and "not for me" are remembered per browser (localStorage). Move this to
-// the artifact `db` capability once founders open the dashboard on more than one device.
-const MEMORY_KEY = "whats-next-memory-v1";
+// ponytail: "done", "not for me" and the theme are remembered per browser (localStorage).
+// Move them to the artifact `db` capability once founders use more than one device.
+const store = {
+  get(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } },
+  set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} }
+};
+const MEMORY_KEY = "whats-next-memory-v1", THEME_KEY = "whats-next-theme";
 const memory = {
-  read() { try { return JSON.parse(localStorage.getItem(MEMORY_KEY)) || {}; } catch { return {}; } },
-  mark(id, kind) { const m = this.read(); m[id] = { kind, at: Date.now() }; try { localStorage.setItem(MEMORY_KEY, JSON.stringify(m)); } catch {} }
+  read() { return store.get(MEMORY_KEY, {}); },
+  mark(id, kind) { const m = this.read(); m[id] = { kind, at: Date.now() }; store.set(MEMORY_KEY, m); }
 };
 
 // The Eisenhower rule. Important = the item helps something in the founder's focus.
@@ -312,26 +462,82 @@ function choose(items, focus, mem, now) {
     const m = mem[i.id];
     return !m || (m.kind === "done" && now - m.at >= 7 * DAY);
   }).map((i) => ({ ...i, important: (i.helps || []).some((h) => focus.includes(h)), again: !!mem[i.id] }));
-  const score = (i) => (i.urgent ? 1 : 0);
   return {
-    next: open.filter((i) => i.important).sort((a, b) => score(b) - score(a)).slice(0, 3),
+    next: open.filter((i) => i.important).sort((a, b) => (b.urgent ? 1 : 0) - (a.urgent ? 1 : 0)).slice(0, 3),
     hand: open.filter((i) => !i.important && i.urgent).slice(0, 2)
   };
 }
 
+const money = (n, cur) => (n < 0 ? "−" : "") + (cur || "R") + Math.round(Math.abs(n)).toLocaleString("en-GB");
+const goalNumber = (g, n) => g.money ? money(n, g.currency) : Math.round(n).toLocaleString("en-GB");
+const monthName = (d, today) => d.toLocaleDateString(undefined, d.getFullYear() === today.getFullYear() || d - today < 300 * DAY ? { month: "long" } : { month: "long", year: "numeric" });
+
+// The goal's progress, pace and status, worked out from where it stands, the target, the date
+// and how fast it has moved lately (ratePerMonth, from the goal measure or the setup).
+function goalView(g, today) {
+  if (!g || !g.title) return null;
+  const tracked = g.now != null && g.target != null && g.by;
+  const view = { title: g.title, tracked, key: g.key || [] };
+  if (!tracked) { view.pace = g.source ? `Tracked for you once ${g.source} is connected.` : "Ask Claude how this goal can be counted."; return view; }
+  const end = new Date(g.by), months = Math.max(0.25, (end - today) / (30.44 * DAY)), left = g.target - g.now;
+  view.now = goalNumber(g, g.now);
+  view.of = "of " + goalNumber(g, g.target) + (g.unit ? " " + g.unit : "");
+  view.fill = Math.max(2, Math.min(100, Math.round(g.now / g.target * 100))) + "%";
+  view.short = goalNumber(g, g.target) + (g.unit ? " " + g.unit : "");
+  if (left <= 0) { view.tone = "good"; view.status = "Reached"; view.pace = "You have reached your goal. Ask Claude to set the next one."; return view; }
+  const needed = left / months, when = monthName(end, today);
+  if (g.money) view.pace = `You need to grow by about ${money(needed, g.currency)} a month to reach it by ${when}.`;
+  else {
+    const weeks = months * 4.345 / left;
+    view.pace = weeks >= 1.5 ? `You need ${goalNumber(g, left)} more by ${when}: about one every ${Math.round(weeks)} weeks.`
+                             : `You need ${goalNumber(g, left)} more by ${when}: about ${Math.round(left / (months * 4.345))} a week.`;
+  }
+  if (g.ratePerMonth != null) {
+    const onPace = g.ratePerMonth >= needed * 0.95;
+    view.tone = onPace ? "good" : "watch";
+    view.status = onPace ? "On pace" : "Behind pace";
+    const reach = g.now + g.ratePerMonth * months;
+    if (!onPace) view.pace += ` At your current pace you will reach ${goalNumber(g, g.money ? reach : Math.floor(reach))} by ${when}.`;
+  }
+  return view;
+}
+
+// The tile beside the queue: a number at Act now, with the work Claude can do about it, or
+// else the first thing Claude can take off the founder's hands.
+function sideView(measures, hand, mem, now) {
+  const fresh = (id) => { const m = mem[id]; return !m || (m.kind === "done" && now - m.at >= 7 * DAY); };
+  const act = measures.find((m) => m.tone === "act" && fresh("act-" + m.id));
+  if (act) {
+    const fix = hand.find((h) => (h.helps || []).some((x) => (act.helps || []).includes(x)));
+    return { kind: "act", label: "Act now", when: act.label, title: act.alert || `${act.label}: ${act.value}`,
+      body: fix ? `${fix.line}. ${fix.fact}` : act.note,
+      item: fix || { id: "act-" + act.id, button: "Ask Claude what to do",
+        prompt: `My ${act.label.toLowerCase()} is ${act.value}. ${act.note} Using my connected tools, what should I do about it first?` } };
+  }
+  if (hand[0]) return { kind: "hand", label: "Claude can take this off your hands", when: "", title: hand[0].line, body: hand[0].fact, item: hand[0] };
+  return null;
+}
+
 function selfCheck() {
-  const items = SETUP.snapshot.items, focus = ["win-customers", "keep-customers"], fails = [];
+  const s = SETUP.snapshot, focus = ["win-customers", "keep-customers"], fails = [];
   const ok = (cond, what) => { if (!cond) fails.push(what); };
-  let r = choose(items, focus, {}, 0);
-  ok(r.next.length === 3 && r.next[0].id === "demo-quote", "urgent and important leads");
-  ok(r.hand.length === 1 && r.hand[0].id === "demo-invoices", "urgent but not important is offered to Claude");
-  ok(![...r.next, ...r.hand].some((i) => i.id === "demo-newsletter"), "neither urgent nor important is never shown");
-  r = choose(items, focus, { "demo-quote": { kind: "done", at: 0 } }, DAY);
-  ok(r.next.length === 2, "a done item leaves and the list is not padded");
-  r = choose(items, focus, { "demo-quote": { kind: "done", at: 0 } }, 8 * DAY);
-  ok(r.next.length === 3 && r.next[0].again, "a done item returns after a week");
-  r = choose(items, focus, { "demo-quote": { kind: "skip", at: 0 } }, 999 * DAY);
-  ok(r.next.length === 2, "a not-for-me item stays away");
+  let r = choose(s.items, focus, {}, 0);
+  ok(r.next.length === 3 && r.next[0].id === "u-hillside", "urgent and important leads");
+  ok(r.hand.length === 1 && r.hand[0].id === "u-chase", "urgent but not important is offered to Claude");
+  ok(![...r.next, ...r.hand].some((i) => i.id === "u-newsletter"), "neither urgent nor important is never shown");
+  r = choose(s.items, focus, { "u-hillside": { kind: "done", at: 0 } }, DAY);
+  ok(r.next.length === 3 && r.next[2].id === "u-sipho", "a done item leaves and the next moves up");
+  r = choose(s.items, focus, { "u-hillside": { kind: "done", at: 0 } }, 8 * DAY);
+  ok(r.next[0].id === "u-hillside" && r.next[0].again, "a done item returns after a week");
+  r = choose(s.items, focus, { "u-hillside": { kind: "skip", at: 0 }, "u-sipho": { kind: "skip", at: 0 } }, 999 * DAY);
+  ok(r.next.length === 2, "a not-for-me item stays away and the list is not padded");
+  const side = sideView(s.measures, choose(s.items, focus, {}, 0).hand, {}, 0);
+  ok(side && side.kind === "act" && side.item.id === "u-chase", "a number at Act now carries the work that fixes it");
+  ok(!sideView(s.measures.filter((m) => m.tone !== "act"), [], {}, 0), "no act number and nothing to hand off: no side tile");
+  const g = goalView(SETUP.goal, new Date("2026-11-23T07:00:00+02:00"));
+  ok(g.status === "Behind pace" && /every 8 weeks/.test(g.pace) && /reach 12 by/.test(g.pace), "goal pace: " + g.pace);
+  ok(goalView({ title: "x", now: 98400, target: 150000, by: "2027-03-31", money: true, unit: "a month" }, new Date("2026-11-23")).short === "R150,000 a month", "money goal reads in rand");
+  ok(!goalView({ title: "x", source: "Xero" }, new Date()).tracked, "a goal with no number is shown without a bar");
   console.log("whats-next self-check:", fails.length ? fails : "ok");
 }
 
@@ -340,54 +546,158 @@ function toast(text) { const t = $("toast"); t.textContent = text; t.classList.a
 
 // Handing a job to Claude: copy a ready-made request for the founder to paste into Claude.
 // ponytail: copy-and-paste always works. Replace with a direct hand-off if testing finds one.
-async function handToClaude(item) {
-  try { await navigator.clipboard.writeText(item.prompt); toast("Copied. Paste it into Claude."); }
-  catch { toast("Couldn't copy. Ask Claude: " + item.line); }
+async function handToClaude(prompt, line) {
+  try { await navigator.clipboard.writeText(prompt); toast("Copied. Paste it into Claude."); }
+  catch { toast("Couldn't copy. Ask Claude: " + line); }
 }
 
-function actions(item, small) {
-  const wrap = el("div", "acts");
-  if (item.link) { const a = el("a", "btn" + (small ? " sm" : ""), item.button || "Open it"); a.href = item.link; a.target = "_blank"; a.rel = "noopener"; wrap.append(a); }
-  else if (item.prompt) { const b = el("button", "btn" + (small ? " sm" : ""), item.button || "Have Claude do it"); b.onclick = () => handToClaude(item); wrap.append(b); }
-  const done = el("button", "btn quiet sm", "Done"); done.onclick = () => { memory.mark(item.id, "done"); render(); };
-  const skip = el("button", "btn quiet sm", "Not for me"); skip.onclick = () => { memory.mark(item.id, "skip"); render(); };
-  wrap.append(done, skip);
-  return wrap;
+function actionButton(item, cls) {
+  if (item.link) { const a = el("a", cls, item.button || "Open it"); a.href = item.link; a.target = "_blank"; a.rel = "noopener"; return a; }
+  const b = el("button", cls, item.button || "Have Claude do it"); b.type = "button";
+  b.onclick = () => handToClaude(item.prompt || item.line, item.line);
+  return b;
 }
+function quietButton(text, onclick) { const b = el("button", "btn quiet", text); b.type = "button"; b.onclick = onclick; return b; }
 
-const state = { items: SETUP.snapshot.items, status: "", problems: [], rerun: null };
+const state = { items: SETUP.snapshot.items || [], measures: SETUP.snapshot.measures || [], goal: SETUP.goal || {},
+  live: null, problems: [], pick: null, flip: false, rerun: null, open: {} };
 
 function render() {
-  const { next, hand } = choose(state.items, SETUP.focus || [], memory.read(), Date.now());
-  const list = $("next"); list.replaceChildren();
-  next.forEach((item, i) => {
-    const li = el("li", "item" + (i === 0 ? " lead" : ""));
-    li.append(el("span", "n", i + 1), el("p", "line", item.line), el("p", "fact", (item.again ? "Still open. " : "") + (item.fact || "")), actions(item));
-    list.append(li);
-  });
-  $("empty").hidden = next.length > 0;
-  const handList = $("hand"); handList.replaceChildren();
-  hand.forEach((item) => {
-    const li = el("li"), text = el("div");
-    text.append(el("p", "line", item.line), el("p", "fact", item.fact || ""));
-    li.append(text, actions(item, true));
-    handList.append(li);
-  });
-  $("hand-wrap").hidden = hand.length === 0;
-  $("status").textContent = state.status;
+  const now = Date.now(), mem = memory.read();
+  const { next, hand } = choose(state.items, SETUP.focus || [], mem, now);
+  const goal = goalView(state.goal, new Date());
+
+  const hour = new Date().getHours();
+  $("headline").replaceChildren();
+  if (next.length) {
+    $("headline").append(el("span", "n", next.length),
+      `${next.length === 1 ? "thing moves" : "things move"} you toward ${goal && goal.tracked ? goal.short : "your goal"}`);
+  } else $("headline").textContent = "Nothing needs you right now";
+  $("hello").textContent = `Good ${hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening"}${SETUP.founder ? ", " + SETUP.founder : ""}. ${SETUP.snapshot.summary || ""}`.trim();
+
+  // Goal
+  const gt = $("goal"); gt.replaceChildren(); gt.hidden = !goal;
+  if (goal) {
+    const head = el("div"); head.append(Object.assign(el("p", "label"), { style: "margin-bottom:4px" }), el("h2", "", goal.title));
+    head.firstChild.append(el("span", "", "Your goal"));
+    gt.append(head);
+    if (goal.tracked) {
+      const count = el("div", "count"), num = el("span");
+      num.append(el("span", "big", goal.now), el("span", "of", goal.of));
+      count.append(num);
+      if (goal.status) count.append(el("span", "tone " + goal.tone, goal.status));
+      const bar = el("div", "bar"); bar.setAttribute("aria-hidden", "true"); const fill = el("i"); fill.style.width = goal.fill; bar.append(fill);
+      gt.append(count, bar, el("p", "pace", goal.pace));
+      if (goal.key.length) { const key = el("div", "key"); goal.key.forEach((k) => { const s = el("span"); s.append(el("b", "", k.b), " " + k.t); key.append(s); }); gt.append(key); }
+    } else {
+      const count = el("div", "count"); count.append(Object.assign(el("span", "", goal.pace), { style: "color:var(--dim)" })); gt.append(count);
+    }
+  }
+
+  // Lead and queue
+  const lead = $("lead"), queue = $("queue");
+  lead.replaceChildren(); queue.replaceChildren();
+  const current = next.find((i) => i.id === state.pick) || next[0];
+  if (current) {
+    const n = next.indexOf(current) + 1;
+    const body = el("div", "lead-body"); body.style.animationName = state.flip ? "in-a" : "in-b";
+    const who = el("p", "who"); who.append(el("span", "", `${n} of ${next.length}`),
+      el("span", "tag", "Moves: " + (current.moves || MOVES[(current.helps || [])[0]] || "Your goal")));
+    body.append(who, el("h2", "", current.line), el("p", "said", (current.again ? "Still open. " : "") + (current.fact || "")));
+    if (current.ctx && current.ctx.length) {
+      const box = el("div"), list = el("ul", "ctx");
+      current.ctx.forEach((c) => list.append(el("li", "", c)));
+      box.append(el("p", "label", "The numbers behind it"), list); body.append(box);
+    }
+    const acts = el("footer", "acts");
+    acts.append(actionButton(current, "btn"),
+      quietButton("Done", () => { memory.mark(current.id, "done"); state.pick = null; state.flip = !state.flip; render(); }),
+      quietButton("Not for me", () => { memory.mark(current.id, "skip"); state.pick = null; state.flip = !state.flip; render(); }),
+      el("span", "pos", "Claude shows you everything before it is sent"));
+    body.append(acts); lead.append(body);
+    const label = el("p", "label"); label.append(el("span", "", "What's next"), el("span", "", `${next.length} of 3`));
+    const list = el("ul");
+    next.forEach((item, i) => {
+      const b = el("button", "qi"); b.type = "button"; b.setAttribute("aria-current", item === current ? "true" : "false");
+      const text = el("span"); text.style.minWidth = "0"; text.append(el("span", "t", item.line), el("span", "f", item.fact || ""));
+      b.append(el("span", "num", i + 1), text);
+      b.onclick = () => { if (state.pick !== item.id) { state.pick = item.id; state.flip = !state.flip; render(); } };
+      const li = el("li"); li.append(b); list.append(li);
+    });
+    queue.append(label, list);
+  } else {
+    const zero = el("div", "zero"); zero.append(el("h2", "", "All clear"), el("p", "", "New things appear here as your tools change."));
+    lead.append(zero);
+  }
+  queue.hidden = !current;
+
+  // Side tile
+  const side = sideView(state.measures, hand, mem, now), st = $("side");
+  st.replaceChildren(); st.hidden = !side;
+  if (side) {
+    st.className = "tile side " + side.kind; st.setAttribute("aria-label", side.label);
+    const label = el("p", "label"); label.append(el("span", "", side.label), el("span", "", side.when));
+    const acts = el("div", "acts");
+    acts.append(actionButton(side.item, "btn sm"),
+      Object.assign(quietButton("Done", () => { memory.mark(side.item.id, "done"); render(); }), { className: "btn quiet sm" }));
+    st.append(label, el("h3", "", side.title), el("p", "", side.body), acts);
+  }
+
+  // Business health and growth
+  for (const group of ["health", "growth"]) {
+    const list = state.measures.filter((m) => m.group === group), box = $(group);
+    box.replaceChildren(); box.hidden = $(group + "-head").hidden = !list.length;
+    $(group + "-src").textContent = (list.find((m) => m.period) || {}).period || "";
+    list.forEach((m) => {
+      const tile = el("div", "tile metric"), label = el("p", "label");
+      label.append(el("span", "", m.label), el("span", "tone " + m.tone, WORDS[m.tone] || ""));
+      const row = el("div", "row"); row.append(el("span", "big", m.value));
+      if (m.trend && m.trend.length > 1) row.append(spark(m.trend, m.tone));
+      const open = !!state.open[m.id], link = el("button", "quietlink", open ? "Hide how it's worked out" : "How it's worked out");
+      link.type = "button"; link.setAttribute("aria-expanded", String(open));
+      link.onclick = () => { state.open[m.id] = !open; render(); };
+      tile.append(label, row, el("p", "note", m.note || ""), link);
+      if (open) tile.append(el("p", "how", m.how || ""));
+      box.append(tile);
+    });
+  }
+  const noNumbers = !state.measures.some((m) => m.group === "health" || m.group === "growth");
+  const connect = $("connect"); connect.replaceChildren(); connect.hidden = !noNumbers;
+  if (noNumbers) {
+    const tool = ((SETUP.tools || {}).next || [])[0] || "your accounting";
+    const b = el("button", "btn", "Connect " + tool); b.type = "button";
+    b.onclick = () => handToClaude(`Add ${tool} to my What's next dashboard.`, "Add " + tool);
+    connect.append(Object.assign(el("p", "label", "Business health"), { style: "margin-bottom:0" }), el("h3", "", "See how the business is really doing"),
+      el("p", "", `Connect ${tool} and this page shows your cash, your profit on each sale, and the numbers that move your goal.`), b);
+  }
+
+  // Status, problems, footer
+  const status = $("status");
+  status.lastChild.textContent = state.live || snapshotLabel();
+  status.classList.toggle("old", !state.live || /^Partly/.test(state.live));
   const notices = $("notices"); notices.replaceChildren();
   state.problems.forEach((text) => notices.append(el("li", "", text)));
-  if (state.problems.length && state.rerun) {
-    const again = el("button", "btn quiet sm", "Try again"); again.onclick = state.rerun;
-    notices.lastChild.append(again);
-  }
+  if (state.problems.length && state.rerun) notices.lastChild.append(Object.assign(quietButton("Try again", state.rerun), { className: "btn quiet sm" }));
+  const tools = SETUP.tools || {};
+  $("foot").textContent = (tools.connected && tools.connected.length ? `Reads ${listNames(tools.connected)}. ` : "") + "Nothing is changed or sent without you."
+    + (tools.next && tools.next.length ? ` Connect ${tools.next[0]} to see more: ask Claude to add it.` : "");
+}
+
+function spark(vals, tone) {
+  const ns = "http://www.w3.org/2000/svg", svg = document.createElementNS(ns, "svg"), line = document.createElementNS(ns, "polyline");
+  const lo = Math.min(...vals), hi = Math.max(...vals), span = (hi - lo) || 1;
+  svg.setAttribute("viewBox", "0 0 64 24"); svg.setAttribute("width", "64"); svg.setAttribute("height", "24");
+  svg.setAttribute("aria-hidden", "true"); svg.setAttribute("class", "spark " + tone);
+  line.setAttribute("points", vals.map((v, i) => `${(2 + i * 60 / (vals.length - 1)).toFixed(1)},${(21 - (v - lo) / span * 18).toFixed(1)}`).join(" "));
+  line.setAttribute("fill", "none"); line.setAttribute("stroke-width", "1.75"); line.setAttribute("stroke-linecap", "round"); line.setAttribute("stroke-linejoin", "round");
+  svg.append(line); return svg;
 }
 
 const at = (d) => d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
-const snapshotLabel = () => {
+function snapshotLabel() {
   const d = new Date(SETUP.snapshot.takenAt);
   return isNaN(d) ? "Snapshot" : `Snapshot · ${d.toLocaleDateString(undefined, { day: "numeric", month: "short" })}, ${at(d)}`;
-};
+}
 
 // What to tell the founder when a tool cannot be read. One line per tool, by cause.
 function explain(server, code) {
@@ -399,47 +709,56 @@ function explain(server, code) {
 const transient = (code) => ["server_unavailable", "upstream_error", "rate_limited", "cancelled"].includes(code);
 
 async function goLive(mcp) {
-  state.status = "Checking your tools…"; state.problems = []; render();
+  state.live = "Checking your tools…"; state.problems = []; render();
   const failed = new Map();            // server -> error code
   const read = async (server, tool, input) => {
     try { return (await mcp.callTool(server, tool, input || {}, { cache: { staleTime: 5 * 60e3, gcTime: 60 * 60e3 } })).payload || {}; }
     catch (e) { failed.set((e && e.server) || server, (e && e.code) || "upstream_error"); throw e; }
   };
   const ctx = { now: new Date(), setup: SETUP };
-  const items = [];
-  // One play at a time, so a founder sees one approval question at a time.
+  const keepOld = (tools) => { const codes = tools.map(([s]) => failed.get(s)).filter(Boolean); return codes.length && codes.every(transient); };
+  const items = [], measures = [];
+  let goal = SETUP.goal || {};
+  // One at a time, so a founder sees one approval question at a time.
   for (const play of PLAYS) {
     try {
       const found = await play.find(read, ctx);
       [].concat(found || []).forEach((it) => items.push({ helps: play.helps, play: play.id, ...it, id: it.id || play.id }));
-    } catch (e) {
-      // Keep this play's last snapshot item only when the failure was a passing one.
-      const codes = play.tools.map(([server]) => failed.get(server)).filter(Boolean);
-      if (codes.length && codes.every(transient)) items.push(...SETUP.snapshot.items.filter((s) => s.play === play.id));
-    }
+    } catch (e) { if (keepOld(play.tools)) items.push(...SETUP.snapshot.items.filter((s) => s.play === play.id)); }
   }
-  state.items = items;
+  for (const m of MEASURES) {
+    try {
+      const found = await m.find(read, ctx);
+      if (!found) continue;
+      if (m.group === "goal") goal = { ...goal, ...found };
+      else measures.push({ id: m.id, group: m.group, label: m.label, helps: m.helps, ...found });
+    } catch (e) { if (keepOld(m.tools)) measures.push(...(SETUP.snapshot.measures || []).filter((s) => s.id === m.id)); }
+  }
+  const servers = new Set([...PLAYS, ...MEASURES].flatMap((p) => p.tools.map((t) => t[0])));
+  state.items = items.length || !failed.size ? items : SETUP.snapshot.items;
+  state.measures = measures.length || !failed.size ? measures : (SETUP.snapshot.measures || []);
+  state.goal = goal;
   state.problems = [...failed].map(([server, code]) => explain(server, code));
-  state.status = failed.size === 0 ? `Live · ${at(new Date())}` : failed.size < new Set(PLAYS.flatMap((p) => p.tools.map((t) => t[0]))).size ? `Partly live · ${at(new Date())}` : snapshotLabel();
-  if (failed.size && !items.length) state.items = SETUP.snapshot.items;
+  state.live = failed.size === 0 ? `Live ${at(new Date())}` : failed.size < servers.size ? `Partly live ${at(new Date())}` : null;
   render();
 }
 
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  document.querySelectorAll("#theme button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.theme === theme)));
+}
+
 function start() {
-  // This page is light first: use the deep version of the founder's colour when there is one.
-  const accent = SETUP.accentLight || SETUP.accent;
-  if (/^#[0-9a-f]{6}$/i.test(accent || "")) document.documentElement.style.setProperty("--accent", accent);
-  const hour = new Date().getHours();
-  $("hello").textContent = `Good ${hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening"}${SETUP.founder ? ", " + SETUP.founder : ""}`;
+  const hex = /^#[0-9a-f]{6}$/i;
+  if (hex.test(SETUP.accent || "")) document.documentElement.style.setProperty("--accent-dark", SETUP.accent);
+  if (hex.test(SETUP.accentLight || "")) document.documentElement.style.setProperty("--accent-light", SETUP.accentLight);
+  applyTheme(store.get(THEME_KEY, "auto"));
+  document.querySelectorAll("#theme button").forEach((b) => b.onclick = () => { store.set(THEME_KEY, b.dataset.theme); applyTheme(b.dataset.theme); });
   $("biz").textContent = SETUP.business || "";
-  const goal = SETUP.goal && (SETUP.goal.title || SETUP.goal);
-  $("goal").textContent = goal ? "Goal: " + goal : "";
-  const next = (SETUP.tools && SETUP.tools.next) || [];
-  $("more").textContent = next.length ? `Connect ${next[0]} to see more: ask Claude to add it to your dashboard.` : "";
-  state.status = snapshotLabel();
+  $("date").textContent = new Date().toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" });
   render();
   if (SETUP.demo) selfCheck();
-  if (!window.claude || !PLAYS.length || SETUP.demo) return;
+  if (!window.claude || !(PLAYS.length + MEASURES.length) || SETUP.demo) return;
   window.claude.use("mcp").then((mcp) => {
     if (!mcp) { state.problems = ["Live data isn't available here. Ask Claude to refresh your What's next dashboard."]; render(); return; }
     state.rerun = () => goLive(mcp);

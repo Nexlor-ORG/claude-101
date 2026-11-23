@@ -70,7 +70,9 @@ Ideas, by kind of tool:
     if (!late.length) return null;          // nothing to do: return null
     return {
       line: `Chase ${late.length} overdue invoices`,   // starts with a verb, under 60 characters
-      fact: `R48,200 outstanding`,                     // the one fact that makes it concrete
+      fact: `R48,200 outstanding.`,                    // the one fact that makes it concrete
+      ctx: ["All more than 60 days late", "From 3 schools"],   // up to three short facts: "The numbers behind it"
+      moves: "Cash",                                   // optional; else taken from `helps`
       urgent: true,                                    // from dates: due, expiring, going stale
       button: "Draft reminders",                       // four words or fewer
       prompt: "Draft polite payment reminders for my overdue invoices. Show me each draft before anything is sent."
@@ -85,6 +87,9 @@ Rules for what `find` returns:
   in one line and put the count in the fact.
 - **`line` says what to do**, not why, how or who decided. It starts with a verb.
 - **`fact` is one fact from their data.** Never a number you estimated.
+- **`ctx` is up to three more facts** that show why it matters, each a few words. They
+  appear under "The numbers behind it" when the item is in the lead. Say "Your goal" in
+  `moves` when the item moves the founder's goal directly.
 - **`urgent` comes from a date in the data**, never from your opinion.
 - **`prompt` is what the founder will hand back to Claude.** Write it as their request, and
   end with "Show me … before anything is sent" whenever it would send or change something.

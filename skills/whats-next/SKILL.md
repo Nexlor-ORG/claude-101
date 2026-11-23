@@ -52,7 +52,9 @@ Do these in order. Read each file when you reach that step, not before.
    page is where the setup is saved, so they can stop and continue later.
 3. **Find and connect their tools** — `tools.md`.
 4. **Work out what the dashboard can notice** — `plays.md`.
-5. **Publish the finished dashboard** — `dashboard.md`. Update the same page; never make a
+5. **Work out the numbers** — `measures.md`. Only once a money tool (accounting or shop) is
+   connected.
+6. **Publish the finished dashboard** — `dashboard.md`. Update the same page; never make a
    second one.
 
 Finish with three lines: the link, what the three things are right now, and "open it any
@@ -65,10 +67,10 @@ Read the saved `SETUP` from their dashboard, then do only what they asked:
 | They say | Do |
 |---|---|
 | "Continue my setup" | Pick up at the first step not yet done. Never restart the interview. |
-| "Add my Shopify" / connect another tool | `tools.md` for that tool, `plays.md`, then update the page. |
+| "Add my Shopify" / connect another tool | `tools.md` for that tool, `plays.md`, `measures.md` if it holds money, then update the page. |
 | "My goal has changed" | Interview moves 2 to 4 only, confirm the new summary, update the page. |
-| "Refresh my dashboard" | Run every play yourself, update the snapshot, update the page. |
-| "That's wrong" / "stop showing me that" | Fix or remove the play, update the page. |
+| "Refresh my dashboard" | Run every play and measure yourself, rewrite the summary, update the snapshot and the page. |
+| "That's wrong" / "stop showing me that" | Fix or remove the play or measure, update the page. |
 | Anything else about the business | Help them, using the saved setup as context. |
 
 If they want to connect more tools than you recommended, help them. Never tell a founder a

@@ -49,8 +49,9 @@ Works today:
 Known limits:
 - "Done" and "Not for me" are remembered per device.
 - A button copies a request for you to paste into Claude; it does not start Claude itself.
-- The dashboard page is the first design. The new design (goal progress, business health and
-  growth numbers, light and dark) is next; the interview already collects what it needs.
+- The numbers under Business health and Growth are written by Claude during setup from your
+  own accounting or shop data. They have not yet been tested against a real Xero, QuickBooks
+  or Shopify account.
 - Not yet tested on a brand-new Pro account from start to finish.
 
 ## What is in here
@@ -62,6 +63,7 @@ skills/whats-next/
   interview.md             the ten-minute interview
   tools.md                 finding and connecting tools
   plays.md                 what the dashboard can notice, and how new checks are written
+  measures.md              the numbers on the dashboard, and how Claude proves them
   dashboard.md             building and publishing the dashboard
   dashboard-template.html  the dashboard page (open it in a browser to see a demo)
 ```
