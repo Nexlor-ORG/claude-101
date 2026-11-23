@@ -20,8 +20,14 @@ The dashboard only reads from your tools. Nothing is changed or sent without you
 You need the Claude desktop app on a paid plan.
 
 1. Open **Customize → Plugins**.
-2. Choose **Add**, then add this repository as a marketplace.
+2. Choose **Add**, then add this marketplace: `Nexlor-ORG/claude-101`
 3. Install **What's next**.
+
+In Claude Code:
+
+```
+/plugin install whats-next --marketplace Nexlor-ORG/claude-101
+```
 
 ## Use
 
