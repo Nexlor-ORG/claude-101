@@ -21,17 +21,26 @@ failure. Say so and show how to reconnect or switch it on.
 
 ## 2. Recommend where to start
 
-Suggest the one or two that matter most for their goal, in one line: "To get to 15 schools,
-start with Xero and Gmail. The rest can wait." Getting to a first dashboard in this sitting
-matters more than connecting everything.
+Recommend the money tools first: their accounting, and their shop if they sell online.
+The dashboard's numbers (cash, profit, how fast customers pay, the goal's progress) come
+from these; email and calendar alone give only a list of replies and meetings. Say it in
+one line: "To get to 15 schools, start with Xero. Gmail can come next." Getting to a first
+dashboard in this sitting matters more than connecting everything.
 
-**You recommend; they decide.** If they want to connect more, help them connect more.
+**You recommend; they decide.** If they want to connect more, help them connect more. If
+they have no accounting or shop connector, carry on with what they have and say what the
+dashboard will show once one is connected.
 
 ## 3. Prove each connection straight away
 
 After they connect a tool, make one real read and tell them what you see in one line:
 
 > Connected. I can see 43 invoices, 6 of them overdue.
+
+When the tool is the one the goal is counted in, read the goal's number today as well and
+confirm it with them: "Xero shows 11 schools with an active contract. Is that right?" Save
+it as `SETUP.goal.now`. If they say it is wrong, ask what you are missing; never take a
+number they type in its place.
 
 Then say in one line what you can see in that tool, and that nothing will be changed or
 sent without their say-so. If your line looks wrong to them, believe them and look again.

@@ -124,7 +124,10 @@ const SETUP = {
   version: 1,
   founder: "Thandi",
   business: "Demo Uniforms",
-  goal: "15 schools on contract by June",
+  model: "invoices",
+  customerWord: "school",
+  goal: { title: "15 schools on contract by June", measure: "schools with an active contract",
+          source: "Xero", now: 11, target: 15, by: "2027-06-30" },
   // What counts as important for this founder. Labels: win-customers, keep-customers,
   // get-paid, deliver-work, save-time.
   focus: ["win-customers", "keep-customers"],
@@ -136,8 +139,11 @@ const SETUP = {
     "You would hand off chasing payments tomorrow.",
     "Day to day you use Gmail, Google Calendar, Xero and Shopify."
   ],
+  books: { current: true, upTo: "2026-10" },
+  terms: 30,
   tools: { connected: ["Gmail", "Google Calendar"], next: ["Shopify"], notYet: ["Payfast"] },
-  accent: "#1F9D6B",
+  accent: "#8FB3F0",
+  accentLight: "#2B4C8C",
   // What the plays found the last time Claude ran them. Shown until live data arrives, and
   // whenever live data is not available.
   snapshot: {
@@ -420,11 +426,14 @@ async function goLive(mcp) {
 }
 
 function start() {
-  if (/^#[0-9a-f]{6}$/i.test(SETUP.accent || "")) document.documentElement.style.setProperty("--accent", SETUP.accent);
+  // This page is light first: use the deep version of the founder's colour when there is one.
+  const accent = SETUP.accentLight || SETUP.accent;
+  if (/^#[0-9a-f]{6}$/i.test(accent || "")) document.documentElement.style.setProperty("--accent", accent);
   const hour = new Date().getHours();
   $("hello").textContent = `Good ${hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening"}${SETUP.founder ? ", " + SETUP.founder : ""}`;
   $("biz").textContent = SETUP.business || "";
-  $("goal").textContent = SETUP.goal ? "Goal: " + SETUP.goal : "";
+  const goal = SETUP.goal && (SETUP.goal.title || SETUP.goal);
+  $("goal").textContent = goal ? "Goal: " + goal : "";
   const next = (SETUP.tools && SETUP.tools.next) || [];
   $("more").textContent = next.length ? `Connect ${next[0]} to see more: ask Claude to add it to your dashboard.` : "";
   state.status = snapshotLabel();

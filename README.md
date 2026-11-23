@@ -49,6 +49,8 @@ Works today:
 Known limits:
 - "Done" and "Not for me" are remembered per device.
 - A button copies a request for you to paste into Claude; it does not start Claude itself.
+- The dashboard page is the first design. The new design (goal progress, business health and
+  growth numbers, light and dark) is next; the interview already collects what it needs.
 - Not yet tested on a brand-new Pro account from start to finish.
 
 ## What is in here
