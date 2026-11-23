@@ -63,3 +63,7 @@ skills/whats-next/
   dashboard.md             building and publishing the dashboard
   dashboard-template.html  the dashboard page (open it in a browser to see a demo)
 ```
+
+## Licence
+
+MIT. See [LICENSE](LICENSE).
