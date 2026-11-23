@@ -1,0 +1,12 @@
+{
+  "name": "claude-101",
+  "owner": { "name": "Nexlor", "url": "https://nexlor.co" },
+  "description": "Plugins from the Claude 101 community. Independent training, not affiliated with Anthropic.",
+  "plugins": [
+    {
+      "name": "whats-next",
+      "source": "./",
+      "description": "A short interview, your tools connected, and a live dashboard of up to three things to do next."
+    }
+  ]
+}
