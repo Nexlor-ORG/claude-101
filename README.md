@@ -17,11 +17,23 @@ The dashboard only reads from your tools. Nothing is changed or sent without you
 
 ## Install
 
-You need the Claude desktop app on a paid plan.
+You need the Claude desktop app on a paid plan. You do not need a GitHub account.
 
-1. Open **Customize → Plugins**.
-2. Choose **Add**, then add this marketplace: `Nexlor-ORG/claude-101`
-3. Install **What's next**.
+1. In Claude, open **Customize**, then **Plugins**.
+2. Choose **Add**, then **Add marketplace**.
+3. Paste `Nexlor-ORG/claude-101` and confirm.
+4. Find **What's next** in your plugin list and install it. It is not listed under
+   **Discover**, which only shows Anthropic's directory.
+5. Start a new chat and type `/`, then pick **whats-next** from the list.
+
+If Claude asks you to connect GitHub, the name was typed differently: it must be exactly
+`Nexlor-ORG/claude-101`. This repository is public and needs no GitHub sign-in.
+
+**If adding the marketplace does not work** (for example, a work account where it is
+switched off): download
+[whats-next.zip](https://github.com/Nexlor-ORG/claude-101/releases/latest/download/whats-next.zip),
+then in **Customize → Plugins** choose **Add → Upload plugin** and pick the file. A plugin
+added this way does not update itself; download the file again for a new version.
 
 In Claude Code:
 
@@ -31,9 +43,12 @@ In Claude Code:
 
 ## Use
 
-Start a new chat and say:
+Start a new chat, type `/` and pick **whats-next**, or say:
 
 > Set up my What's next dashboard
+
+Picking it from the `/` list makes sure this plugin answers, even if you have other
+dashboard tools installed.
 
 Claude asks a few short questions (about ten minutes), helps you connect one or two tools,
 and gives you a link to your dashboard. Once a week, say "do my What's next weekly review"
@@ -72,3 +87,13 @@ skills/whats-next/
 ## Licence
 
 MIT. See [LICENSE](LICENSE).
+
+## Releasing a new version
+
+Bump `version` in `.claude-plugin/plugin.json`, push, then attach a fresh zip for the
+upload route:
+
+```
+git archive --format=zip -o whats-next.zip HEAD -- .claude-plugin/plugin.json skills README.md LICENSE
+gh release create v<version> whats-next.zip --title "What's next <version>" --notes "<what changed>"
+```
