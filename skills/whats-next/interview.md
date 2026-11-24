@@ -32,8 +32,12 @@ website answers a lot of this before you ask.
    schools with an active contract in your accounting. Does that match how you think
    about it?" A goal you cannot count in one of their tools still goes on the dashboard,
    without a progress bar; say so plainly.
-3. **What matters most** in getting there.
-4. **What they would hand off** tomorrow if they could.
+3. **What matters most, and what is holding them back.** "What gets in the way of that?"
+   Their answer shapes the first plan (`SKILL.md`, The weekly review); it does not appear
+   on the dashboard.
+4. **What they would hand off, and who works with them.** "What would you hand off
+   tomorrow if you could?" Then "Does anyone else run the business with you?" Note any
+   partner's first name; a founder on their own never sees owners on the dashboard.
 5. **Where the money lives.** Confirm the tools you can already see are connected, then
    ask about the two that matter most for the dashboard: "What do you use for your books
    and invoices?" and, if they sell online, "Where is your shop?" Then two quick checks:
@@ -116,6 +120,8 @@ Fill these into the dashboard's `SETUP` (see `dashboard.md`):
 | `terms` | Days customers get to pay, as a number; `null` if they do not invoice |
 | `tools` | What is connected, what to connect next, what has no connector yet |
 | `accent`, `accentLight` | The light and deep versions of their brand colour as `#RRGGBB`, only if they said yes |
+| `team` | First names of anyone who runs the business with them; empty if they work alone |
+| `goal.perCustomer` | What one more customer adds to the goal: `1` when the goal counts customers, the average monthly value of one customer for a money goal, left out when neither fits |
 
 **Focus labels.** These decide what the dashboard treats as important:
 

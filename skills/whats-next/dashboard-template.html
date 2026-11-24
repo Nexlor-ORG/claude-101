@@ -86,66 +86,53 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .label { font-size: 12.5px; font-weight: 500; letter-spacing: .01em; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
 .tag { display: inline-block; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 99px; background: var(--wash); color: var(--accent); white-space: nowrap; }
 
-.goal { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 28px; align-items: center; padding: 16px 22px; }
-.goal h2 { font-size: 17px; font-weight: 500; letter-spacing: -.01em; line-height: 1.25; }
-.goal .big { font-size: 40px; font-weight: 400; letter-spacing: -.04em; line-height: 1; }
-.goal .of { color: var(--dim); font-size: 13px; margin-left: 6px; }
-.goal .count { display: flex; align-items: baseline; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
-.goal .bar, .goal .pace, .goal .key { grid-column: 1 / -1; }
-.key { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; color: var(--dim); }
-.key b { color: var(--text); font-weight: 600; }
+.goal2 { grid-column: 1 / 8; display: flex; flex-direction: column; gap: 8px; padding: 18px 22px; }
+.goal2 .label, .quarter .label, .att .label { align-items: center; margin-bottom: 0; }
+.goal2 h2, .quarter h2 { font-size: 17px; font-weight: 500; letter-spacing: -.01em; line-height: 1.25; overflow-wrap: anywhere; }
+.goal2 .count { display: flex; align-items: baseline; gap: 8px; margin-top: 4px; }
+.goal2 .big { font-size: 44px; font-weight: 400; letter-spacing: -.04em; line-height: 1; }
+.goal2 .of, .dim { color: var(--dim); }
+.goal2 .one { margin-top: 4px; padding-top: 10px; box-shadow: inset 0 1px 0 var(--hair); font-size: 13.5px; }
 .bar { height: 8px; border-radius: 99px; background: var(--track); overflow: hidden; }
 .bar i { display: block; height: 100%; border-radius: 99px; background: var(--accent); }
-
-.lead { grid-column: 1 / 8; grid-row: span 2; display: flex; flex-direction: column; gap: 14px; padding: 20px 22px;
-  background: radial-gradient(90% 70% at 0% 0%, var(--wash), transparent 70%), var(--tile); box-shadow: var(--tile-lead-edge); }
-.lead-body { display: flex; flex-direction: column; gap: 14px; flex: 1; animation: 240ms var(--ease-out) both; }
-@keyframes in-a { from { opacity: 0; transform: translateY(5px); filter: blur(2px); } }
-@keyframes in-b { from { opacity: 0; transform: translateY(5px); filter: blur(2px); } }
-.who { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; color: var(--dim); font-size: 13px; }
-.lead h2 { font-size: clamp(22px, 2.3vw, 32px); font-weight: 500; letter-spacing: -.03em; line-height: 1.08; text-wrap: balance; overflow-wrap: anywhere; }
-.said { color: var(--dim); font-size: 15px; max-width: 52ch; overflow-wrap: anywhere; }
-.ctx li { display: flex; gap: 10px; padding: 7px 0; box-shadow: inset 0 1px 0 var(--hair); font-size: 13.5px; overflow-wrap: anywhere; }
-.ctx li::before { content: ""; flex: none; width: 5px; height: 5px; margin-top: 7px; border-radius: 50%; background: var(--accent); }
-.acts { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: auto; }
-.acts .pos { margin-left: auto; color: var(--dim); font-size: 12.5px; }
+.quarter { grid-column: 8 / 13; display: flex; flex-direction: column; gap: 8px; padding: 18px 22px; }
+.quarter.overdue { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--watch) 45%, transparent); }
+.block { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 10px; }
+.block .section-head { padding-top: 6px; }
+.rows { display: flex; flex-direction: column; gap: 10px; }
+.row-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px 16px; align-items: center; padding: 14px 18px; }
+.row-item.first { background: radial-gradient(90% 140% at 0% 0%, var(--wash), transparent 70%), var(--tile); box-shadow: var(--tile-lead-edge); }
+.row-item .num { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--chip); font-size: 12px; font-weight: 600; }
+.row-item.first .num { box-shadow: inset 0 0 0 1.5px var(--accent); background: var(--wash); }
+.row-item .t, .att .t { font-size: 16px; font-weight: 500; letter-spacing: -.01em; line-height: 1.3; overflow-wrap: anywhere; }
+.row-item .f, .att .note { font-size: 13px; color: var(--dim); overflow-wrap: anywhere; }
+.row-item .acts { margin-top: 0; justify-content: flex-end; flex-wrap: nowrap; }
+.owner { background: var(--chip); color: var(--text); margin-right: 4px; }
+.att-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.att { display: flex; flex-direction: column; gap: 6px; }
+.att.act { background: var(--act-tile); box-shadow: var(--act-edge); }
+.acts { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.att .acts { margin-top: 4px; }
 .btn { display: inline-flex; align-items: center; min-height: 40px; padding: 0 20px; border-radius: 99px; font-weight: 600; font-size: 13.5px; text-decoration: none;
   background: var(--text); color: var(--ink); white-space: nowrap; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
 .btn.quiet { background: var(--quiet); color: var(--text); box-shadow: var(--quiet-edge); }
 .btn.sm { min-height: 34px; padding: 0 14px; font-size: 12.5px; }
 .btn:active { transform: scale(.97); }
-.zero { display: grid; place-content: center; text-align: center; gap: 8px; min-height: 240px; }
-.zero h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 400; letter-spacing: -.04em; }
+.zero { display: grid; place-content: center; text-align: center; gap: 8px; min-height: 180px; }
+.zero h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 400; letter-spacing: -.04em; }
 .zero p { color: var(--dim); }
-
-.queue { grid-column: 8 / 13; padding: 16px 10px; }
-.queue .label { padding: 0 8px; }
-.qi { width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: center; padding: 8px; border-radius: 12px; transition: background-color 160ms ease; }
-.qi[aria-current="true"] { background: var(--current); }
-.qi .num { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--chip); font-size: 12px; font-weight: 600; }
-.qi[aria-current="true"] .num { box-shadow: inset 0 0 0 1.5px var(--accent); background: var(--wash); }
-.qi .t { display: block; font-size: 14.5px; font-weight: 500; letter-spacing: -.01em; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.qi .f { display: block; font-size: 12.5px; color: var(--dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-.side { grid-column: 8 / 13; display: flex; flex-direction: column; gap: 4px; }
-.side h3 { font-size: 17px; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; overflow-wrap: anywhere; }
-.side p { font-size: 13px; color: var(--dim); margin-bottom: 10px; }
-.side .acts { margin-top: 0; }
-.side.act { background: var(--act-tile); box-shadow: var(--act-edge); }
-.side.act .label { color: var(--act); }
+.seeall { grid-column: 1 / -1; display: flex; justify-content: center; }
 
 .section-head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 2px 0; font-size: 12.5px; color: var(--dim); }
 .section-head h2 { font-size: 15px; font-weight: 600; letter-spacing: -.01em; color: var(--text); }
 .metrics { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
 .metric { display: flex; flex-direction: column; gap: 6px; }
 .metric .label { margin-bottom: 2px; align-items: center; }
-.metric .row { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; }
 .metric .big { font-size: 30px; font-weight: 400; letter-spacing: -.04em; line-height: 1.05; }
 .metric .note { font-size: 12.5px; color: var(--dim); line-height: 1.45; }
 .tone { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 2px 9px; border-radius: 99px; white-space: nowrap; }
 .good { color: var(--good); } .watch { color: var(--watch); } .act { color: var(--act); }
 .tone.good { background: var(--good-bg); } .tone.watch { background: var(--watch-bg); } .tone.act { background: var(--act-bg); }
-.spark { flex: none; stroke: currentColor; }
 .quietlink { align-self: flex-start; min-height: 32px; color: var(--dim); font-size: 12.5px; text-decoration: underline dotted var(--underline); text-underline-offset: 3px; transition: color 160ms ease; }
 .how { padding-top: 8px; box-shadow: inset 0 1px 0 var(--hair); font-size: 12.5px; line-height: 1.5; color: var(--dim); transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out); }
 @starting-style { .how { opacity: 0; transform: translateY(-4px); } }
@@ -162,8 +149,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 @media (hover: hover) and (pointer: fine) {
   .btn:hover { background: var(--btn-hover); }
   .btn.quiet:hover { background: var(--quiet-hover); }
-  .qi:hover { background: var(--row-hover); }
-  .qi[aria-current="true"]:hover { background: var(--current); }
   .quietlink:hover, .seg button:hover { color: var(--text); }
 }
 @media (max-width: 860px) {
@@ -172,17 +157,14 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   .top { flex-wrap: wrap; }
   .hero { flex-direction: column; align-items: flex-start; gap: 10px; }
   .hero p { text-align: left; }
-  .lead, .queue, .side { grid-column: 1 / -1; grid-row: auto; }
-  .goal { grid-template-columns: minmax(0, 1fr); }
-  .goal .count { justify-content: flex-start; }
+  .goal2, .quarter { grid-column: 1 / -1; }
+  .row-item { grid-template-columns: auto minmax(0, 1fr); }
+  .row-item .acts { grid-column: 1 / -1; justify-content: flex-start; flex-wrap: wrap; }
   .right .date { display: none; }
   .right { width: 100%; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
-  .acts .pos { width: 100%; margin-left: 0; order: -1; }
 }
 @media (prefers-reduced-motion: reduce) {
-  @keyframes in-a { from { opacity: 0; } }
-  @keyframes in-b { from { opacity: 0; } }
-  .btn, .qi, .quietlink, .seg button, #toast { transition: none; }
+  .btn, .quietlink, .seg button, #toast { transition: none; }
   .btn:active { transform: none; }
   .how { transition: opacity 150ms ease; }
   @starting-style { .how { opacity: 0; transform: none; } }
@@ -204,15 +186,22 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   <section class="hero"><h1 id="headline"></h1><p id="hello"></p></section>
   <ul class="notices" id="notices"></ul>
   <div class="grid">
-    <section class="tile goal" id="goal" aria-label="Your goal"></section>
-    <article class="tile lead" id="lead" aria-label="What's next"></article>
-    <section class="tile queue" id="queue" aria-label="Up next"></section>
-    <section class="tile side" id="side" hidden></section>
+    <section class="tile goal2" id="goal" aria-label="Your goal"></section>
+    <section class="tile quarter" id="quarter" aria-label="This quarter"></section>
+    <section class="block" aria-label="This week">
+      <div class="section-head"><h2>This week</h2></div>
+      <ol class="rows" id="week"></ol>
+    </section>
+    <section class="block" id="attention-box" aria-label="Needs attention">
+      <div class="section-head"><h2>Needs attention</h2><span id="att-src"></span></div>
+      <div class="att-grid" id="attention"></div>
+    </section>
+    <section class="tile connect" id="connect" aria-label="Your numbers" hidden></section>
+    <div class="seeall" id="seeall"><button type="button" class="quietlink" id="seeall-btn" aria-expanded="false">See all numbers</button></div>
     <div class="section-head" id="health-head"><h2>Business health</h2><span id="health-src"></span></div>
     <div class="metrics" id="health"></div>
     <div class="section-head" id="growth-head"><h2>Growth</h2><span id="growth-src"></span></div>
     <div class="metrics" id="growth"></div>
-    <section class="tile connect" id="connect" aria-label="Business health" hidden></section>
   </div>
   <footer class="strip"><span id="foot"></span><span>Claude 101 by Nexlor</span></footer>
 </div>
@@ -225,22 +214,29 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
    ============================================================================================ */
 const SETUP = {
   demo: true,
-  version: 2,
+  version: 3,
   founder: "Thandi",
+  // Other people who run the business with the founder, by first name. When there are any,
+  // every item shows who owns it; `owners` maps a play's id to its owner (set at the weekly review).
+  team: [],
+  owners: {},
   business: "Demo Uniforms",
   model: "invoices",
   customerWord: "school",
+  // perCustomer: what one more customer adds, in the goal's own units (1 for a count of
+  // customers; the average monthly value for a money goal). It gives "One more school takes you to …".
   goal: { title: "15 schools on contract by June", measure: "schools with an active contract", source: "Xero",
-          now: 11, target: 15, by: "2027-06-30", unit: "schools", money: false, ratePerMonth: 0.17,
-          key: [{ b: "5", t: "quotes open" }, { b: "22%", t: "of quotes win" }, { b: "About 18", t: "more quotes needed" }] },
+          now: 11, target: 15, by: "2027-06-30", unit: "schools", money: false, ratePerMonth: 0.17, perCustomer: 1 },
+  // The quarter's objective, set and confirmed at the weekly review.
+  plan: { objective: "Win two new schools before the term 1 tenders close", reviewedAt: "2026-11-23" },
   // What counts as important for this founder. Labels: win-customers, keep-customers,
   // get-paid, deliver-work, save-time.
   focus: ["win-customers", "keep-customers"],
   heard: [
     "You make school uniforms; schools sign a contract and you invoice them each term.",
     "A great six months is 15 schools on contract by June, up from 11, counted in Xero.",
-    "What matters most is keeping your biggest schools ordering.",
-    "You would hand off chasing payments tomorrow.",
+    "What matters most is keeping your biggest schools ordering; few new quotes go out.",
+    "You would hand off chasing payments tomorrow. You run the business on your own.",
     "Your books are in Xero and up to date to October; schools get 30 days to pay."
   ],
   books: { current: true, upTo: "2026-10" },
@@ -252,23 +248,19 @@ const SETUP = {
   // arrives, and whenever live data is not available.
   snapshot: {
     takenAt: "2026-11-23T07:02:00+02:00",
-    summary: "You are making a profit, but cash is tight because schools take 52 days to pay. Winning 4 more schools by June needs more quotes out.",
+    summary: "You are making a profit, but cash is tight because schools take 52 days to pay.",
     items: [
-      { id: "u-hillside", play: "demo", helps: ["win-customers"], urgent: true, moves: "Your goal",
-        line: "Renew the Hillside Primary quote", fact: "Worth R240,000 a year, and it expires tomorrow.",
-        ctx: ["Worth R240,000 a year", "The quote expires tomorrow, 24 November", "It would be school 12 of 15"],
+      { id: "u-hillside", play: "demo", helps: ["win-customers"], urgent: true,
+        line: "Renew the Hillside Primary quote", fact: "Worth R240,000 a year. It expires tomorrow.",
         button: "Have Claude draft it", prompt: "Draft an email renewing my quote to Hillside Primary, which expires tomorrow. Show me the draft before anything is sent." },
       { id: "u-top3", play: "demo", helps: ["keep-customers"], urgent: false,
-        line: "Call your three biggest schools", fact: "They bring in 41% of your sales, and none has placed a term 1 order yet.",
-        ctx: ["41% of your sales come from these three", "Last order from each: August", "Term 1 orders usually arrive by mid-November"],
+        line: "Call your three biggest schools", fact: "41% of your sales. None has placed a term 1 order yet.",
         button: "Have Claude draft the messages", prompt: "Draft a short, friendly check-in to each of my three biggest schools, none of which has placed a term 1 order yet. Show me the drafts before anything is sent." },
-      { id: "u-quotes", play: "demo", helps: ["win-customers"], urgent: false, moves: "Your goal",
-        line: "Send four new quotes this month", fact: "At your win rate, 15 schools by June needs about 18 more quotes.",
-        ctx: ["2 of 9 quotes won this year", "5 quotes open now", "About 18 more needed for 4 new schools by June"],
-        button: "Have Claude find schools to approach", prompt: "Suggest ten schools near my current schools that I have not quoted, and draft a short introduction for the first four. Show me everything before anything is sent." },
-      { id: "u-sipho", play: "demo", helps: ["win-customers"], urgent: false, moves: "Your goal",
+      { id: "u-quotes", play: "demo", helps: ["win-customers"], urgent: false,
+        line: "Send four new quotes", fact: "You need about 18 more quotes to win 4 schools by June.",
+        button: "Have Claude find schools", prompt: "Suggest ten schools near my current schools that I have not quoted, and draft a short introduction for the first four. Show me everything before anything is sent." },
+      { id: "u-sipho", play: "demo", helps: ["win-customers"], urgent: false,
         line: "Follow up Friday's meeting with Sipho", fact: "No email to him since the meeting.",
-        ctx: ["Met on Friday 20 November", "No email to him since"],
         button: "Have Claude draft it", prompt: "Draft a follow-up email to Sipho after our meeting on Friday. Show me the draft before anything is sent." },
       { id: "u-chase", play: "demo", helps: ["get-paid"], urgent: true,
         line: "Chase R148,200 overdue from 3 schools", fact: "All more than 60 days late.",
@@ -278,16 +270,16 @@ const SETUP = {
     ],
     measures: [
       { id: "cash", group: "health", label: "Cash in the bank", value: "R212,000", tone: "watch", helps: ["get-paid"], period: "October · from Xero",
-        note: "Covers 2 months of running costs.", trend: [3.1, 2.8, 2.6, 2.3, 2.0],
+        alert: "Cash covers 2 months of costs", note: "R212,000 today. It was 3 months in June.",
         how: "Bank balance today, divided by average monthly running costs over the last 3 months: R212,000 ÷ R104,000. Under 3 months is Watch; under 1 month is Act now." },
       { id: "debtor-days", group: "health", label: "How fast schools pay", value: "52 days", tone: "act", helps: ["get-paid"],
-        alert: "Schools take 52 days to pay you", note: "Up from 38 days in August. R552,000 is waiting to be paid.", trend: [38, 41, 45, 49, 52],
-        how: "What customers owe you, divided by October's sales, times 30 days: R551,900 ÷ R318,400 × 30. Your terms are 30 days; more than 15 days over them is Act now." },
+        alert: "Schools take 52 days to pay you", note: "Up from 38 days in August. Your terms are 30 days.",
+        how: "What schools owe you, divided by October's sales, times 30 days: R551,900 ÷ R318,400 × 30. More than 15 days over your terms is Act now." },
       { id: "gross-margin", group: "health", label: "Profit on each sale", value: "40%", tone: "watch", helps: ["get-paid"],
-        note: "Down from 43% in August. Materials cost 9% more.", trend: [43.1, 42.6, 41.5, 40.8, 40.2],
+        alert: "Profit on each sale is slipping", note: "Down from 43% in August. Materials cost 9% more.",
         how: "Sales minus what it cost to make them, as a share of sales: (R318,400 − R190,400) ÷ R318,400. Watch when it falls more than 2 points in 3 months." },
       { id: "net-profit", group: "health", label: "Profit after all costs", value: "R24,000", tone: "good", helps: ["get-paid"],
-        note: "7.5% of October's sales.", trend: [31, 29, 27, 22, 24], how: "October's sales minus every cost, before tax." },
+        note: "7.5% of October's sales.", how: "October's sales minus every cost, before tax." },
       { id: "break-even", group: "health", label: "Sales needed to cover costs", value: "R259,000", tone: "good", helps: ["get-paid"],
         note: "A month. October was 23% above it.",
         how: "Monthly running costs divided by profit on each sale: R104,000 ÷ 40.2%. Assumes running costs stay the same as sales change." },
@@ -296,7 +288,7 @@ const SETUP = {
       { id: "lifetime-profit", group: "growth", label: "Profit from a school over its life", value: "R796,000", tone: "good", helps: ["win-customers", "keep-customers"],
         note: "About 16 times what it costs to win one.", how: "Average yearly profit per school (R132,700) × the 6 years schools have stayed on average." },
       { id: "quote-win-rate", group: "growth", label: "Quotes that win", value: "22%", tone: "watch", helps: ["win-customers"],
-        note: "2 of 9 quotes sent this year.", how: "Quotes marked accepted, divided by quotes sent." },
+        alert: "2 of 9 quotes win", note: "Below the 1 in 3 you need to reach 15 schools.", how: "Quotes marked accepted, divided by quotes sent." },
       { id: "retention", group: "growth", label: "Schools that stay", value: "91%", tone: "good", helps: ["keep-customers"],
         note: "10 of 11 renewed last year.", how: "Schools that renewed in the last 12 months, divided by schools whose contract came up." }
     ]
@@ -342,7 +334,6 @@ const PLAYS = [
       return {
         line: `Reply to ${listNames(names)}`,
         fact: waiting.length === 1 ? "1 email has waited more than two days" : `${waiting.length} emails have waited more than two days`,
-        ctx: [`The oldest has waited ${Math.floor((ctx.now - oldest) / DAY)} days`, `From ${listNames(names)}`],
         urgent: ctx.now - oldest > 4 * DAY,
         button: "Have Claude draft replies",
         prompt: `Find the emails in my inbox from ${listNames(names)} that have waited more than two days for a reply, and draft a reply to each. Show me every draft before anything is sent.`
@@ -363,7 +354,6 @@ const PLAYS = [
       return {
         line: `Follow up with ${listNames(names)}`,
         fact: silent.length === 1 ? "1 email you sent has had no reply in four days" : `${silent.length} emails you sent have had no reply in four days`,
-        ctx: [`Sent between 4 and 14 days ago`, `No reply from ${listNames(names)}`],
         urgent: false,
         button: "Have Claude draft follow-ups",
         prompt: `Find the emails I sent to ${listNames(names)} in the last two weeks that have had no reply, and draft a short follow-up to each. Show me every draft before anything is sent.`
@@ -386,8 +376,7 @@ const PLAYS = [
       const who = listNames(outsiders(first, own).map(attendeeName));
       return {
         line: `Prepare for ${clean(first.summary) || "your meeting"}`,
-        fact: `${when}, with ${who}.`,
-        ctx: [when, `With ${who}`].concat(meetings.length > 1 ? [`${meetings.length - 1} more outside meeting${meetings.length > 2 ? "s" : ""} in the next two days`] : []),
+        fact: `${when}, with ${who}.` + (meetings.length > 1 ? ` ${meetings.length - 1} more outside meeting${meetings.length > 2 ? "s" : ""} in the next two days.` : ""),
         urgent: start - ctx.now < DAY,
         button: "Have Claude prepare a brief",
         prompt: `I have a meeting, "${clean(first.summary)}", on ${when} with ${who}. From my email and calendar, prepare a one-page brief: who they are, what we last discussed, and what I should ask for.`
@@ -416,8 +405,7 @@ const PLAYS = [
       const day = new Date(e.end.dateTime).toLocaleString(undefined, { weekday: "long" });
       return {
         line: `Follow up ${day}'s meeting with ${attendeeName(guest)}`,
-        fact: `No email to them since "${clean(e.summary)}".`,
-        ctx: [`Met on ${day}`, "No email to them since"].concat(open.length > 1 ? [`${open.length - 1} more meeting${open.length > 2 ? "s" : ""} like this`] : []),
+        fact: `No email to them since "${clean(e.summary)}".` + (open.length > 1 ? ` ${open.length - 1} more like this.` : ""),
         urgent: false,
         button: "Have Claude draft it",
         prompt: `Draft a follow-up email to ${attendeeName(guest)} after our meeting "${clean(e.summary)}" on ${day}. Use what you can find in my email for context. Show me the draft before anything is sent.`
@@ -439,7 +427,6 @@ const MEASURES = [];
    ============================================================================================ */
 const $ = (id) => document.getElementById(id);
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
-const MOVES = { "win-customers": "Winning customers", "keep-customers": "Keeping customers", "get-paid": "Cash", "deliver-work": "Delivering work", "save-time": "Your time" };
 const WORDS = { good: "Healthy", watch: "Watch", act: "Act now" };
 
 // ponytail: "done", "not for me" and the theme are remembered per browser (localStorage).
@@ -464,7 +451,7 @@ function choose(items, focus, mem, now) {
   }).map((i) => ({ ...i, important: (i.helps || []).some((h) => focus.includes(h)), again: !!mem[i.id] }));
   return {
     next: open.filter((i) => i.important).sort((a, b) => (b.urgent ? 1 : 0) - (a.urgent ? 1 : 0)).slice(0, 3),
-    hand: open.filter((i) => !i.important && i.urgent).slice(0, 2)
+    hand: open.filter((i) => !i.important && i.urgent).slice(0, 3)
   };
 }
 
@@ -477,7 +464,7 @@ const monthName = (d, today) => d.toLocaleDateString(undefined, d.getFullYear() 
 function goalView(g, today) {
   if (!g || !g.title) return null;
   const tracked = g.now != null && g.target != null && g.by;
-  const view = { title: g.title, tracked, key: g.key || [] };
+  const view = { title: g.title, tracked };
   if (!tracked) { view.pace = g.source ? `Tracked for you once ${g.source} is connected.` : "Ask Claude how this goal can be counted."; return view; }
   const end = new Date(g.by), months = Math.max(0.25, (end - today) / (30.44 * DAY)), left = g.target - g.now;
   view.now = goalNumber(g, g.now);
@@ -499,23 +486,39 @@ function goalView(g, today) {
     const reach = g.now + g.ratePerMonth * months;
     if (!onPace) view.pace += ` At your current pace you will reach ${goalNumber(g, g.money ? reach : Math.floor(reach))} by ${when}.`;
   }
+  if (g.perCustomer) view.one = `One more ${SETUP.customerWord || "customer"} takes you to ${goalNumber(g, g.now + g.perCustomer)}`
+    + (g.money ? (g.unit ? " " + g.unit : "") : " of " + goalNumber(g, g.target)) + ".";
   return view;
 }
 
-// The tile beside the queue: a number at Act now, with the work Claude can do about it, or
-// else the first thing Claude can take off the founder's hands.
-function sideView(measures, hand, mem, now) {
+// The quarter's objective and how long ago the founder reviewed it. Past a week, it asks for
+// the weekly review.
+function planView(plan, today) {
+  if (!plan || !plan.objective) return { objective: "Your plan for the next three months", reviewed: "Not set yet", overdue: true };
+  const d = new Date(plan.reviewedAt), days = isNaN(d) ? 99 : Math.floor((today - d) / DAY);
+  const reviewed = days <= 0 ? "Reviewed today" : days === 1 ? "Reviewed yesterday"
+    : days < 7 ? "Reviewed " + d.toLocaleDateString(undefined, { weekday: "long" }) : `Reviewed ${days} days ago`;
+  return { objective: plan.objective, reviewed, overdue: days >= 7 };
+}
+
+// Needs attention: numbers at Act now, each carrying the work that fixes it when there is
+// some; then work Claude can take off the founder's hands; then numbers to watch. Three at most.
+function attentionView(measures, hand, mem, now) {
   const fresh = (id) => { const m = mem[id]; return !m || (m.kind === "done" && now - m.at >= 7 * DAY); };
-  const act = measures.find((m) => m.tone === "act" && fresh("act-" + m.id));
-  if (act) {
-    const fix = hand.find((h) => (h.helps || []).some((x) => (act.helps || []).includes(x)));
-    return { kind: "act", label: "Act now", when: act.label, title: act.alert || `${act.label}: ${act.value}`,
-      body: fix ? `${fix.line}. ${fix.fact}` : act.note,
-      item: fix || { id: "act-" + act.id, button: "Ask Claude what to do",
-        prompt: `My ${act.label.toLowerCase()} is ${act.value}. ${act.note} Using my connected tools, what should I do about it first?` } };
-  }
-  if (hand[0]) return { kind: "hand", label: "Claude can take this off your hands", when: "", title: hand[0].line, body: hand[0].fact, item: hand[0] };
-  return null;
+  const flagged = measures.filter((m) => (m.tone === "act" || m.tone === "watch") && fresh("att-" + m.id));
+  const used = new Set(), list = [];
+  const entry = (m, pair) => {
+    const fix = pair && hand.find((h) => !used.has(h.id) && (h.helps || []).some((x) => (m.helps || []).includes(x)));
+    if (fix) used.add(fix.id);
+    return { ids: ["att-" + m.id].concat(fix ? [fix.id] : []), label: m.label, tone: m.tone, title: m.alert || `${m.label}: ${m.value}`,
+      note: fix ? `${fix.line}. ${fix.fact || ""}`.trim() : (m.note || ""),
+      item: fix || { id: "att-" + m.id, line: m.label, button: "Ask Claude why",
+        prompt: `My ${m.label.toLowerCase()} is ${m.value}. ${m.note || ""} Using my connected tools, explain why and what I should do first.` } };
+  };
+  flagged.filter((m) => m.tone === "act").forEach((m) => list.push(entry(m, true)));
+  hand.filter((h) => !used.has(h.id)).forEach((h) => list.push({ ids: [h.id], label: "Claude can do this", tone: "hand", title: h.line, note: h.fact || "", item: h }));
+  flagged.filter((m) => m.tone === "watch").forEach((m) => list.push(entry(m, false)));
+  return list.slice(0, 3);
 }
 
 function selfCheck() {
@@ -531,13 +534,23 @@ function selfCheck() {
   ok(r.next[0].id === "u-hillside" && r.next[0].again, "a done item returns after a week");
   r = choose(s.items, focus, { "u-hillside": { kind: "skip", at: 0 }, "u-sipho": { kind: "skip", at: 0 } }, 999 * DAY);
   ok(r.next.length === 2, "a not-for-me item stays away and the list is not padded");
-  const side = sideView(s.measures, choose(s.items, focus, {}, 0).hand, {}, 0);
-  ok(side && side.kind === "act" && side.item.id === "u-chase", "a number at Act now carries the work that fixes it");
-  ok(!sideView(s.measures.filter((m) => m.tone !== "act"), [], {}, 0), "no act number and nothing to hand off: no side tile");
+  const hand = choose(s.items, focus, {}, 0).hand;
+  let att = attentionView(s.measures, hand, {}, 0);
+  ok(att.length === 3 && att[0].tone === "act" && att[0].item.id === "u-chase", "a number at Act now carries the work that fixes it");
+  ok(!att.some((a) => a.tone === "hand"), "work paired with a number is not shown twice");
+  att = attentionView(s.measures.filter((m) => m.tone !== "act"), hand, {}, 0);
+  ok(att[0].tone === "hand" && att[0].item.id === "u-chase", "work with no number at Act now is still offered");
+  const mem = { "att-debtor-days": { kind: "done", at: 0 }, "u-chase": { kind: "done", at: 0 } };
+  att = attentionView(s.measures, choose(s.items, focus, mem, DAY).hand, mem, DAY);
+  ok(!att.some((a) => a.ids.includes("u-chase") || a.ids.includes("att-debtor-days")), "Done clears the number and its work together");
   const g = goalView(SETUP.goal, new Date("2026-11-23T07:00:00+02:00"));
   ok(g.status === "Behind pace" && /every 8 weeks/.test(g.pace) && /reach 12 by/.test(g.pace), "goal pace: " + g.pace);
-  ok(goalView({ title: "x", now: 98400, target: 150000, by: "2027-03-31", money: true, unit: "a month" }, new Date("2026-11-23")).short === "R150,000 a month", "money goal reads in rand");
+  ok(g.one === "One more school takes you to 12 of 15.", "one more: " + g.one);
+  const mg = goalView({ title: "x", now: 184000, target: 300000, by: "2027-05-31", money: true, unit: "a month", perCustomer: 30000 }, new Date("2026-11-23"));
+  ok(mg.short === "R300,000 a month" && mg.one === "One more school takes you to R214,000 a month.", "money goal: " + mg.one);
   ok(!goalView({ title: "x", source: "Xero" }, new Date()).tracked, "a goal with no number is shown without a bar");
+  ok(planView({ objective: "x", reviewedAt: "2026-11-14" }, new Date("2026-11-23T12:00:00")).overdue, "a plan older than a week asks for a review");
+  ok(!planView({ objective: "x", reviewedAt: "2026-11-23" }, new Date("2026-11-23T12:00:00")).overdue, "a fresh plan does not");
   console.log("whats-next self-check:", fails.length ? fails : "ok");
 }
 
@@ -557,118 +570,104 @@ function actionButton(item, cls) {
   b.onclick = () => handToClaude(item.prompt || item.line, item.line);
   return b;
 }
-function quietButton(text, onclick) { const b = el("button", "btn quiet", text); b.type = "button"; b.onclick = onclick; return b; }
+function quietButton(text, onclick) { const b = el("button", "btn quiet sm", text); b.type = "button"; b.onclick = onclick; return b; }
 
 const state = { items: SETUP.snapshot.items || [], measures: SETUP.snapshot.measures || [], goal: SETUP.goal || {},
-  live: null, problems: [], pick: null, flip: false, rerun: null, open: {} };
+  live: null, problems: [], rerun: null, open: {}, all: false };
 
 function render() {
-  const now = Date.now(), mem = memory.read();
+  const now = Date.now(), today = new Date(), mem = memory.read();
   const { next, hand } = choose(state.items, SETUP.focus || [], mem, now);
-  const goal = goalView(state.goal, new Date());
+  const goal = goalView(state.goal, today), plan = planView(SETUP.plan, today), team = SETUP.team || [];
 
-  const hour = new Date().getHours();
+  const hour = today.getHours();
   $("headline").replaceChildren();
   if (next.length) {
     $("headline").append(el("span", "n", next.length),
-      `${next.length === 1 ? "thing moves" : "things move"} you toward ${goal && goal.tracked ? goal.short : "your goal"}`);
-  } else $("headline").textContent = "Nothing needs you right now";
+      `${next.length === 1 ? "thing this week moves" : "things this week move"} you toward ${goal && goal.tracked ? goal.short : "your goal"}`);
+  } else $("headline").textContent = "Nothing needs you this week";
   $("hello").textContent = `Good ${hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening"}${SETUP.founder ? ", " + SETUP.founder : ""}. ${SETUP.snapshot.summary || ""}`.trim();
 
-  // Goal
+  // Your goal
   const gt = $("goal"); gt.replaceChildren(); gt.hidden = !goal;
   if (goal) {
-    const head = el("div"); head.append(Object.assign(el("p", "label"), { style: "margin-bottom:4px" }), el("h2", "", goal.title));
-    head.firstChild.append(el("span", "", "Your goal"));
-    gt.append(head);
+    const label = el("p", "label"); label.append(el("span", "", "Your goal"));
+    if (goal.status) label.append(el("span", "tone " + goal.tone, goal.status));
+    gt.append(label, el("h2", "", goal.title));
     if (goal.tracked) {
-      const count = el("div", "count"), num = el("span");
-      num.append(el("span", "big", goal.now), el("span", "of", goal.of));
-      count.append(num);
-      if (goal.status) count.append(el("span", "tone " + goal.tone, goal.status));
+      const count = el("p", "count"); count.append(el("span", "big", goal.now), el("span", "of", goal.of));
       const bar = el("div", "bar"); bar.setAttribute("aria-hidden", "true"); const fill = el("i"); fill.style.width = goal.fill; bar.append(fill);
       gt.append(count, bar, el("p", "pace", goal.pace));
-      if (goal.key.length) { const key = el("div", "key"); goal.key.forEach((k) => { const s = el("span"); s.append(el("b", "", k.b), " " + k.t); key.append(s); }); gt.append(key); }
-    } else {
-      const count = el("div", "count"); count.append(Object.assign(el("span", "", goal.pace), { style: "color:var(--dim)" })); gt.append(count);
-    }
+      if (goal.one) gt.append(el("p", "one", goal.one));
+    } else gt.append(el("p", "pace dim", goal.pace));
   }
 
-  // Lead and queue
-  const lead = $("lead"), queue = $("queue");
-  lead.replaceChildren(); queue.replaceChildren();
-  const current = next.find((i) => i.id === state.pick) || next[0];
-  if (current) {
-    const n = next.indexOf(current) + 1;
-    const body = el("div", "lead-body"); body.style.animationName = state.flip ? "in-a" : "in-b";
-    const who = el("p", "who"); who.append(el("span", "", `${n} of ${next.length}`),
-      el("span", "tag", "Moves: " + (current.moves || MOVES[(current.helps || [])[0]] || "Your goal")));
-    body.append(who, el("h2", "", current.line), el("p", "said", (current.again ? "Still open. " : "") + (current.fact || "")));
-    if (current.ctx && current.ctx.length) {
-      const box = el("div"), list = el("ul", "ctx");
-      current.ctx.forEach((c) => list.append(el("li", "", c)));
-      box.append(el("p", "label", "The numbers behind it"), list); body.append(box);
-    }
-    const acts = el("footer", "acts");
-    acts.append(actionButton(current, "btn"),
-      quietButton("Done", () => { memory.mark(current.id, "done"); state.pick = null; state.flip = !state.flip; render(); }),
-      quietButton("Not for me", () => { memory.mark(current.id, "skip"); state.pick = null; state.flip = !state.flip; render(); }),
-      el("span", "pos", "Claude shows you everything before it is sent"));
-    body.append(acts); lead.append(body);
-    const label = el("p", "label"); label.append(el("span", "", "What's next"), el("span", "", `${next.length} of 3`));
-    const list = el("ul");
-    next.forEach((item, i) => {
-      const b = el("button", "qi"); b.type = "button"; b.setAttribute("aria-current", item === current ? "true" : "false");
-      const text = el("span"); text.style.minWidth = "0"; text.append(el("span", "t", item.line), el("span", "f", item.fact || ""));
-      b.append(el("span", "num", i + 1), text);
-      b.onclick = () => { if (state.pick !== item.id) { state.pick = item.id; state.flip = !state.flip; render(); } };
-      const li = el("li"); li.append(b); list.append(li);
-    });
-    queue.append(label, list);
-  } else {
-    const zero = el("div", "zero"); zero.append(el("h2", "", "All clear"), el("p", "", "New things appear here as your tools change."));
-    lead.append(zero);
-  }
-  queue.hidden = !current;
-
-  // Side tile
-  const side = sideView(state.measures, hand, mem, now), st = $("side");
-  st.replaceChildren(); st.hidden = !side;
-  if (side) {
-    st.className = "tile side " + side.kind; st.setAttribute("aria-label", side.label);
-    const label = el("p", "label"); label.append(el("span", "", side.label), el("span", "", side.when));
+  // This quarter
+  const q = $("quarter"); q.replaceChildren(); q.className = "tile quarter" + (plan.overdue ? " overdue" : "");
+  const ql = el("p", "label"); ql.append(el("span", "", "This quarter"), el("span", plan.overdue ? "tone watch" : "", plan.reviewed));
+  q.append(ql, el("h2", "", plan.objective));
+  if (plan.overdue) {
     const acts = el("div", "acts");
-    acts.append(actionButton(side.item, "btn sm"),
-      Object.assign(quietButton("Done", () => { memory.mark(side.item.id, "done"); render(); }), { className: "btn quiet sm" }));
-    st.append(label, el("h3", "", side.title), el("p", "", side.body), acts);
+    acts.append(actionButton({ line: "Weekly review", button: "Ask Claude for your weekly review", prompt: "Do my What's next weekly review." }, "btn sm"));
+    q.append(el("p", "pace dim", "Your plan is due a check. It takes about five minutes."), acts);
   }
 
-  // Business health and growth
+  // This week
+  const week = $("week"); week.replaceChildren();
+  next.forEach((item, i) => {
+    const li = el("li", "tile row-item" + (i === 0 ? " first" : "")), text = el("div"), acts = el("div", "acts");
+    text.style.minWidth = "0";
+    text.append(el("p", "t", item.line), el("p", "f", (item.again ? "Still open. " : "") + (item.fact || "")));
+    if (team.length) acts.append(el("span", "tag owner", (SETUP.owners || {})[item.play] || item.owner || SETUP.founder || ""));
+    acts.append(actionButton(item, "btn sm"),
+      quietButton("Done", () => { memory.mark(item.id, "done"); render(); }),
+      quietButton("Not for me", () => { memory.mark(item.id, "skip"); render(); }));
+    li.append(el("span", "num", i + 1), text, acts);
+    week.append(li);
+  });
+  if (!next.length) { const z = el("li", "tile zero"); z.append(el("h2", "", "All clear"), el("p", "", "New things appear here as your tools change.")); week.append(z); }
+
+  // Needs attention
+  const att = attentionView(state.measures, hand, mem, now), box = $("attention");
+  box.replaceChildren(); $("attention-box").hidden = !att.length;
+  $("att-src").textContent = (state.measures.find((m) => m.period) || {}).period || "";
+  att.forEach((a) => {
+    const tile = el("div", "tile att " + a.tone), label = el("p", "label"), acts = el("div", "acts");
+    label.append(el("span", "", a.label));
+    if (WORDS[a.tone]) label.append(el("span", "tone " + a.tone, WORDS[a.tone]));
+    acts.append(actionButton(a.item, "btn sm"), quietButton("Done", () => { a.ids.forEach((id) => memory.mark(id, "done")); render(); }));
+    tile.append(label, el("p", "t", a.title), el("p", "note", a.note), acts);
+    box.append(tile);
+  });
+
+  // No numbers yet: one card asking to connect the money tool
+  const hasNumbers = state.measures.some((m) => m.group === "health" || m.group === "growth");
+  const connect = $("connect"); connect.replaceChildren(); connect.hidden = hasNumbers;
+  if (!hasNumbers) {
+    const tool = ((SETUP.tools || {}).next || [])[0] || "your accounting";
+    connect.append(Object.assign(el("p", "label", "Your numbers"), { style: "margin-bottom:0" }), el("h3", "", "See how the business is really doing"),
+      el("p", "", `Connect ${tool} and this page tracks your goal and shows the one or two numbers that need you.`),
+      actionButton({ line: "Add " + tool, button: "Connect " + tool, prompt: `Add ${tool} to my What's next dashboard.` }, "btn"));
+  }
+
+  // All numbers, behind one link
+  $("seeall").hidden = !hasNumbers;
+  const sb = $("seeall-btn"); sb.textContent = state.all ? "Hide all numbers" : "See all numbers"; sb.setAttribute("aria-expanded", String(state.all));
   for (const group of ["health", "growth"]) {
-    const list = state.measures.filter((m) => m.group === group), box = $(group);
-    box.replaceChildren(); box.hidden = $(group + "-head").hidden = !list.length;
+    const list = state.measures.filter((m) => m.group === group), groupBox = $(group), show = state.all && list.length > 0;
+    groupBox.replaceChildren(); groupBox.hidden = $(group + "-head").hidden = !show;
+    if (!show) continue;
     $(group + "-src").textContent = (list.find((m) => m.period) || {}).period || "";
     list.forEach((m) => {
       const tile = el("div", "tile metric"), label = el("p", "label");
       label.append(el("span", "", m.label), el("span", "tone " + m.tone, WORDS[m.tone] || ""));
-      const row = el("div", "row"); row.append(el("span", "big", m.value));
-      if (m.trend && m.trend.length > 1) row.append(spark(m.trend, m.tone));
       const open = !!state.open[m.id], link = el("button", "quietlink", open ? "Hide how it's worked out" : "How it's worked out");
       link.type = "button"; link.setAttribute("aria-expanded", String(open));
       link.onclick = () => { state.open[m.id] = !open; render(); };
-      tile.append(label, row, el("p", "note", m.note || ""), link);
+      tile.append(label, el("p", "big", m.value), el("p", "note", m.note || ""), link);
       if (open) tile.append(el("p", "how", m.how || ""));
-      box.append(tile);
+      groupBox.append(tile);
     });
-  }
-  const noNumbers = !state.measures.some((m) => m.group === "health" || m.group === "growth");
-  const connect = $("connect"); connect.replaceChildren(); connect.hidden = !noNumbers;
-  if (noNumbers) {
-    const tool = ((SETUP.tools || {}).next || [])[0] || "your accounting";
-    const b = el("button", "btn", "Connect " + tool); b.type = "button";
-    b.onclick = () => handToClaude(`Add ${tool} to my What's next dashboard.`, "Add " + tool);
-    connect.append(Object.assign(el("p", "label", "Business health"), { style: "margin-bottom:0" }), el("h3", "", "See how the business is really doing"),
-      el("p", "", `Connect ${tool} and this page shows your cash, your profit on each sale, and the numbers that move your goal.`), b);
   }
 
   // Status, problems, footer
@@ -677,20 +676,10 @@ function render() {
   status.classList.toggle("old", !state.live || /^Partly/.test(state.live));
   const notices = $("notices"); notices.replaceChildren();
   state.problems.forEach((text) => notices.append(el("li", "", text)));
-  if (state.problems.length && state.rerun) notices.lastChild.append(Object.assign(quietButton("Try again", state.rerun), { className: "btn quiet sm" }));
+  if (state.problems.length && state.rerun) notices.lastChild.append(quietButton("Try again", state.rerun));
   const tools = SETUP.tools || {};
   $("foot").textContent = (tools.connected && tools.connected.length ? `Reads ${listNames(tools.connected)}. ` : "") + "Nothing is changed or sent without you."
-    + (tools.next && tools.next.length ? ` Connect ${tools.next[0]} to see more: ask Claude to add it.` : "");
-}
-
-function spark(vals, tone) {
-  const ns = "http://www.w3.org/2000/svg", svg = document.createElementNS(ns, "svg"), line = document.createElementNS(ns, "polyline");
-  const lo = Math.min(...vals), hi = Math.max(...vals), span = (hi - lo) || 1;
-  svg.setAttribute("viewBox", "0 0 64 24"); svg.setAttribute("width", "64"); svg.setAttribute("height", "24");
-  svg.setAttribute("aria-hidden", "true"); svg.setAttribute("class", "spark " + tone);
-  line.setAttribute("points", vals.map((v, i) => `${(2 + i * 60 / (vals.length - 1)).toFixed(1)},${(21 - (v - lo) / span * 18).toFixed(1)}`).join(" "));
-  line.setAttribute("fill", "none"); line.setAttribute("stroke-width", "1.75"); line.setAttribute("stroke-linecap", "round"); line.setAttribute("stroke-linejoin", "round");
-  svg.append(line); return svg;
+    + (tools.next && tools.next.length && hasNumbers ? ` Connect ${tools.next[0]} to see more: ask Claude to add it.` : "");
 }
 
 const at = (d) => d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
@@ -756,6 +745,7 @@ function start() {
   document.querySelectorAll("#theme button").forEach((b) => b.onclick = () => { store.set(THEME_KEY, b.dataset.theme); applyTheme(b.dataset.theme); });
   $("biz").textContent = SETUP.business || "";
   $("date").textContent = new Date().toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" });
+  $("seeall-btn").onclick = () => { state.all = !state.all; render(); };
   render();
   if (SETUP.demo) selfCheck();
   if (!window.claude || !(PLAYS.length + MEASURES.length) || SETUP.demo) return;

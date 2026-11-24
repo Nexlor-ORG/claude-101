@@ -60,10 +60,12 @@ Verdicts for Growth:
   no formulas, no jargon. Say the thresholds in the same sentence.
 - **`note` says what it means in one line**, with the comparison that matters: "Up from 38
   days in August. R552,000 is waiting to be paid."
-- **`alert`** is required when the verdict can be Act now: the number as a plain sentence
-  ("Schools take 52 days to pay you"). It heads the Act now tile.
+- **`alert`** is required when the verdict can be Watch or Act now: the number as a plain
+  sentence ("Schools take 52 days to pay you"). It heads the number's card under Needs
+  attention. Only Watch and Act now numbers appear there; the rest wait behind "See all
+  numbers".
 - **`helps`** uses the focus labels from `interview.md`. A measure and a play that share a
-  label are linked: when the measure is Act now, the Act now tile offers that play's work.
+  label are linked: when the measure is Act now, its card offers that play's work.
 - **Money** is written in the founder's currency, whole units, thousands with commas:
   "R212,000".
 - Only reads. A measure never changes anything in a tool.
@@ -72,10 +74,10 @@ Verdicts for Growth:
 
 If the goal is counted in a connected tool, write one more measure with `group: "goal"`.
 It returns `now` (the number today), and when there is history, `ratePerMonth` (how much
-it has moved each month, averaged over the last three to six months) and up to three `key`
-facts (`{ b: "5", t: "quotes open" }`). The page works out the pace, "Behind pace" or "On
-pace", and the progress bar from these and `SETUP.goal`. Without a `ratePerMonth` the page
-shows the pace needed and no verdict.
+it has moved each month, averaged over the last three to six months). For a money goal it may also return `perCustomer` (the average monthly
+value of one customer), which gives "One more client takes you to …". The page works out
+the pace, "Behind pace" or "On pace", and the progress bar from these and `SETUP.goal`.
+Without a `ratePerMonth` the page shows the pace needed and no verdict.
 
 ## The format
 
@@ -98,8 +100,7 @@ shows the pace needed and no verdict.
       alert: `Schools take ${days} days to pay you`,
       note: `${money(total)} is waiting to be paid.`,
       how: `What customers owe you, divided by last month's sales, times 30 days: ${money(total)} ÷ ${money(sales)} × 30. Your terms are ${terms} days.`,
-      period: "October · from Xero",     // the first measure in a group sets the group's line
-      trend: [/* up to six past values, oldest first, only if the tool gives them */]
+      period: "October · from Xero"      // the first measure in a group sets the group's line
     };
   }
 }

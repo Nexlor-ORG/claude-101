@@ -36,10 +36,11 @@ Start a new chat and say:
 > Set up my What's next dashboard
 
 Claude asks a few short questions (about ten minutes), helps you connect one or two tools,
-and gives you a link to your dashboard. Come back any time and say "add my Shopify to my
-dashboard", "my goal has changed" or "refresh my dashboard".
+and gives you a link to your dashboard. Once a week, say "do my What's next weekly review"
+(about five minutes). Come back any time and say "add my Shopify to my dashboard", "my goal
+has changed" or "refresh my dashboard".
 
-## Status: 0.2, in testing
+## Status: 0.3, in testing
 
 Works today:
 - The interview, the tool finding and connecting steps, and the dashboard page.

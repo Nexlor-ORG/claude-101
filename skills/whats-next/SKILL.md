@@ -1,6 +1,6 @@
 ---
 name: whats-next
-description: Use when someone wants to set up, open, update or refresh their "What's next" dashboard — "set up my What's next dashboard", "what should I do next in my business", "continue my What's next setup", "add my Shopify to my dashboard", "my goal has changed", "refresh my dashboard", or /whats-next. Interviews a founder about their business, finds and helps connect the tools they already use, and publishes a live dashboard of up to three things they can do next.
+description: Use when someone wants to set up, open, update, refresh or review their "What's next" dashboard — "set up my What's next dashboard", "what should I do next in my business", "continue my What's next setup", "do my What's next weekly review", "add my Shopify to my dashboard", "my goal has changed", "refresh my dashboard", or /whats-next. Interviews a founder about their business, finds and helps connect the tools they already use, and publishes a live dashboard of up to three things they can do next.
 ---
 
 # What's next
@@ -54,11 +54,14 @@ Do these in order. Read each file when you reach that step, not before.
 4. **Work out what the dashboard can notice** — `plays.md`.
 5. **Work out the numbers** — `measures.md`. Only once a money tool (accounting or shop) is
    connected.
-6. **Publish the finished dashboard** — `dashboard.md`. Update the same page; never make a
+6. **Set the first plan** — the quarter's objective, as in a weekly review (below), in two
+   or three minutes.
+7. **Publish the finished dashboard** — `dashboard.md`. Update the same page; never make a
    second one.
 
-Finish with three lines: the link, what the three things are right now, and "open it any
-time; ask me to add a tool or change your goal whenever you like".
+Finish with three lines: the link, what the three things are right now, and "once a week,
+say 'do my What's next weekly review'; ask me to add a tool or change your goal whenever
+you like".
 
 ## Coming back
 
@@ -69,9 +72,30 @@ Read the saved `SETUP` from their dashboard, then do only what they asked:
 | "Continue my setup" | Pick up at the first step not yet done. Never restart the interview. |
 | "Add my Shopify" / connect another tool | `tools.md` for that tool, `plays.md`, `measures.md` if it holds money, then update the page. |
 | "My goal has changed" | Interview moves 2 to 4 only, confirm the new summary, update the page. |
+| "Do my weekly review" | The weekly review, below. |
 | "Refresh my dashboard" | Run every play and measure yourself, rewrite the summary, update the snapshot and the page. |
 | "That's wrong" / "stop showing me that" | Fix or remove the play or measure, update the page. |
 | Anything else about the business | Help them, using the saved setup as context. |
 
 If they want to connect more tools than you recommended, help them. Never tell a founder a
 tool is not allowed.
+
+## The weekly review
+
+About five minutes, once a week, when the founder asks. The dashboard asks for it when the
+plan is more than a week old. It keeps the one judgement on the page, the quarter's
+objective, honest.
+
+1. **Refresh first.** Run every play and measure, as for "Refresh my dashboard".
+2. **Say what changed in two or three lines:** the goal's number since the last review,
+   what got done, and any number that moved to Watch or Act now.
+3. **Ask one question:** "What's got in the way this week?" Listen; do not lecture.
+4. **Propose the objective for the quarter**, one line that moves the goal: keep last
+   week's if it still fits, or offer a sharper one. They confirm or change it.
+5. **If they have a team**, show this week's items and who you would give each to; they
+   confirm or swap. Save it as `SETUP.owners` (play id to first name).
+6. **Save and publish:** `SETUP.plan` (`objective`, `reviewedAt` today), the summary, the
+   snapshot. Then read out this week's three things.
+
+Do not add steps, scores or a report. If the founder wants to talk strategy for longer,
+help them; the review itself stays short.

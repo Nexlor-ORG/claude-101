@@ -15,6 +15,8 @@ stays exactly as it is.
      brand colour
    - `goal.unit` (the word after the number: "schools", "a month") and `goal.money`
      (`true` when the goal is an amount of money)
+   - `plan` (`objective`, `reviewedAt`) from the first plan, and `owners` (empty until a
+     weekly review assigns them)
    - `snapshot` — see below
 2. **`PLAYS`** — keep the ready-made plays whose tools are connected, delete the others,
    and add the plays you wrote and proved (`plays.md`). With no tools connected yet, leave
@@ -72,10 +74,12 @@ Keep it to a few lines:
 - Here is your dashboard: the link.
 - The first time it opens it will ask whether it may read each tool. Say yes; it only
   reads.
-- Each thing has a button. Press it, paste what it copies into Claude, and Claude does the
-  work and shows you before anything is sent.
+- "This week" is up to three things. Each has a button: press it, paste what it copies into
+  Claude, and Claude does the work and shows you before anything is sent.
 - "Done" clears something for a week. "Not for me" clears it for good.
-- Tap "How it's worked out" under any number to see the sum behind it.
+- "Needs attention" shows only the numbers that need you. "See all numbers" shows the rest,
+  and "How it's worked out" shows the sum behind each.
+- Once a week, say "do my What's next weekly review". The page reminds you when it's due.
 - The switch at the top picks light or dark; Auto follows the phone or computer.
 - Open it any time, on your phone too. Ask me to add a tool or change your goal whenever
   you like.
