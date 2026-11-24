@@ -32,6 +32,11 @@ website answers a lot of this before you ask.
    schools with an active contract in your accounting. Does that match how you think
    about it?" A goal you cannot count in one of their tools still goes on the dashboard,
    without a progress bar; say so plainly.
+   **If the goal is personal**, such as a salary or what they take home, keep it and turn
+   it into a business goal for them: "To pay yourself R80,000 a month, the business needs
+   to bring in about R___ a month. I'll work out the exact number from your books once
+   they're connected. Shall we aim for that?" The business number is the goal; their
+   personal one goes in `heard`.
 3. **What matters most, and what is holding them back.** "What gets in the way of that?"
    Their answer shapes the first plan (`SKILL.md`, The weekly review); it does not appear
    on the dashboard.
@@ -121,6 +126,7 @@ Fill these into the dashboard's `SETUP` (see `dashboard.md`):
 | `tools` | What is connected, what to connect next, what has no connector yet |
 | `accent`, `accentLight` | The light and deep versions of their brand colour as `#RRGGBB`, only if they said yes |
 | `team` | First names of anyone who runs the business with them; empty if they work alone |
+| `writtenOff` | Customers whose old debts they do not expect to collect (asked in `tools.md`); empty otherwise |
 | `goal.perCustomer` | What one more customer adds to the goal: `1` when the goal counts customers, the average monthly value of one customer for a money goal, left out when neither fits |
 
 **Focus labels.** These decide what the dashboard treats as important:

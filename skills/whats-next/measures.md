@@ -68,6 +68,12 @@ Verdicts for Growth:
   label are linked: when the measure is Act now, its card offers that play's work.
 - **Money** is written in the founder's currency, whole units, thousands with commas:
   "R212,000".
+- **Several currencies.** Never add amounts in different currencies. Use the home-currency
+  amount the accounting tool gives for each invoice; if it gives none, convert at the
+  exchange rate on the invoice. Say so in `how` ("invoices in dollars, pounds and euros
+  converted at the rate on each invoice").
+- **Written off.** Leave out every customer in `SETUP.writtenOff` from money owed, how fast
+  customers pay, and anything that chases payment.
 - Only reads. A measure never changes anything in a tool.
 
 ## The goal
@@ -78,6 +84,12 @@ it has moved each month, averaged over the last three to six months). For a mone
 value of one customer), which gives "One more client takes you to …". The page works out
 the pace, "Behind pace" or "On pace", and the progress bar from these and `SETUP.goal`.
 Without a `ratePerMonth` the page shows the pace needed and no verdict.
+
+**Monthly income for a retainer or subscription business.** Count only income that repeats:
+clients billed in each of the last three months, at their latest monthly amount. Leave out
+one-off invoices, and use the new amount when a client's fee changed. If the books cannot
+show this cleanly, list the clients and amounts you found and ask the founder to confirm
+them once; their CRM may hold it better than the invoices do.
 
 ## The format
 

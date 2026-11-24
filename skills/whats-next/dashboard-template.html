@@ -240,6 +240,9 @@ const SETUP = {
     "Your books are in Xero and up to date to October; schools get 30 days to pay."
   ],
   books: { current: true, upTo: "2026-10" },
+  // Customers whose old debts the founder does not expect to collect. Left out of money owed,
+  // how fast customers pay, and every chase list.
+  writtenOff: [],
   terms: 30,
   tools: { connected: ["Xero", "Gmail", "Google Calendar"], next: ["Shopify"], notYet: ["Payfast"] },
   accent: "#8FB3F0",
@@ -312,9 +315,12 @@ const gmailName = (msg, address) => {
   const hit = (msg.addressDisplayNames || []).find((a) => a.emailAddress === address);
   return clean((hit && hit.displayName) || String(address || "").split("@")[0]);
 };
-// People on a calendar event who are not the founder and not in the founder's own domain.
+// People on a calendar event who are not the founder, not in the founder's own domain, and
+// have not declined.
 const outsiders = (event, ownDomain) => (event.attendees || [])
-  .filter((a) => a.email && !a.self && !a.resource && !a.email.endsWith("@" + ownDomain));
+  .filter((a) => a.email && !a.self && !a.resource && a.responseStatus !== "declined" && !a.email.endsWith("@" + ownDomain));
+// When a message arrived. Some Gmail answers carry only one of the two.
+const sentAt = (m) => Number(m.internalDate) || Date.parse(m.date) || NaN;
 const attendeeName = (a) => clean(a.displayName || a.email.split("@")[0]);
 
 const PLAYS = [
@@ -325,38 +331,18 @@ const PLAYS = [
     tools: [["Gmail", "search_threads"]],
     async find(read, ctx) {
       const r = await read("Gmail", "search_threads",
-        { query: "in:inbox category:primary newer_than:14d older_than:2d -from:me", pageSize: 30 });
+        { query: "in:inbox category:primary newer_than:14d older_than:2d -from:me", pageSize: 30, view: "THREAD_VIEW_MINIMAL" });
       const waiting = (r.threads || []).map((t) => (t.messages || []).at(-1))
         .filter((m) => m && !(m.labelIds || []).includes("SENT") && !robot.test(m.sender));
       if (!waiting.length) return null;
       const names = [...new Set(waiting.map((m) => gmailName(m, m.sender)))];
-      const oldest = Math.min(...waiting.map((m) => Date.parse(m.date)));
+      const oldest = Math.min(...waiting.map(sentAt));
       return {
         line: `Reply to ${listNames(names)}`,
         fact: waiting.length === 1 ? "1 email has waited more than two days" : `${waiting.length} emails have waited more than two days`,
-        urgent: ctx.now - oldest > 4 * DAY,
+        urgent: Number.isFinite(oldest) && ctx.now - oldest > 4 * DAY,
         button: "Have Claude draft replies",
         prompt: `Find the emails in my inbox from ${listNames(names)} that have waited more than two days for a reply, and draft a reply to each. Show me every draft before anything is sent.`
-      };
-    }
-  },
-  {
-    id: "gmail-no-reply-to-you",
-    what: "Emails the founder sent 4 to 14 days ago that nobody has answered.",
-    helps: ["win-customers"],
-    tools: [["Gmail", "search_threads"]],
-    async find(read) {
-      const r = await read("Gmail", "search_threads", { query: "in:sent newer_than:14d older_than:4d", pageSize: 30 });
-      const silent = (r.threads || []).map((t) => (t.messages || []).at(-1))
-        .filter((m) => m && (m.labelIds || []).includes("SENT") && (m.toRecipients || []).length && !robot.test(m.toRecipients[0]));
-      if (!silent.length) return null;
-      const names = [...new Set(silent.map((m) => gmailName(m, m.toRecipients[0])))];
-      return {
-        line: `Follow up with ${listNames(names)}`,
-        fact: silent.length === 1 ? "1 email you sent has had no reply in four days" : `${silent.length} emails you sent have had no reply in four days`,
-        urgent: false,
-        button: "Have Claude draft follow-ups",
-        prompt: `Find the emails I sent to ${listNames(names)} in the last two weeks that have had no reply, and draft a short follow-up to each. Show me every draft before anything is sent.`
       };
     }
   },
@@ -385,14 +371,17 @@ const PLAYS = [
   },
   {
     id: "calendar-follow-up",
-    what: "Meetings in the past week with someone outside the business, with no email to them since.",
+    what: "Meetings in the past week with one or two people from outside the business, with no email to them since. Bigger groups are delivery, not sales.",
     helps: ["win-customers", "keep-customers"],
     tools: [["Google Calendar", "list_events"], ["Gmail", "search_threads"]],
     async find(read, ctx) {
       const r = await read("Google Calendar", "list_events", {
         startTime: localTime(new Date(ctx.now.getTime() - 7 * DAY)), endTime: localTime(ctx.now), orderBy: "startTimeDesc", pageSize: 25 });
       const own = String(r.summary || "").split("@")[1] || "";
-      const held = (r.events || []).filter((e) => e.status !== "cancelled" && e.end && e.end.dateTime && outsiders(e, own).length).slice(0, 5);
+      const held = (r.events || []).filter((e) => {
+        const n = outsiders(e, own).length;
+        return e.status !== "cancelled" && e.end && e.end.dateTime && n >= 1 && n <= 2;
+      }).slice(0, 5);
       const open = [];
       for (const e of held) {
         const guest = outsiders(e, own)[0];

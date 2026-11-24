@@ -49,7 +49,24 @@ If a tool they just connected is not available to you in this conversation, say:
 worked. Start a new chat and say 'continue my What's next setup', and I'll pick up from
 here." Their setup is saved in the dashboard, so nothing is lost.
 
-## 4. The "not yet" list
+## 4. Use every connected tool
+
+Once the recommended tools are connected, look at **everything** the founder has
+connected, not only what they named. Each tool that holds this business's customers,
+deals, work, events or meetings gets plays (`plays.md`). Tell the founder in one line which
+tools the dashboard reads and which it leaves out, with the reason, so nothing is skipped
+silently.
+
+When you read the accounting tool for the first time, check two things with the founder:
+
+- **Old debts.** If some money owed is more than 90 days late, name the customers and ask:
+  "Do you still expect to be paid by them?" Any they have written off go into
+  `SETUP.writtenOff`, and are left out of money owed and every chase list. Suggest they
+  ask their bookkeeper to write it off in the books too.
+- **Currencies.** If invoices are in more than one currency, say you will show everything
+  in their home currency, at the rate on each invoice.
+
+## 5. The "not yet" list
 
 For tools with no connector:
 

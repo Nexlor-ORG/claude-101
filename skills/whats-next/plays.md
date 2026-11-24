@@ -16,24 +16,33 @@ thing twice.
 
 ## Ready-made plays
 
-`dashboard-template.html` ships with four, in its `PLAYS` list. They were checked against
-real data from these connectors on 2026-11-23:
+`dashboard-template.html` ships with three, in its `PLAYS` list:
 
 | Play | Reads | Notices |
 |---|---|---|
 | `gmail-waiting-on-you` | Gmail | People who have waited more than two days for a reply |
-| `gmail-no-reply-to-you` | Gmail | Emails the founder sent that nobody answered |
 | `calendar-prepare` | Google Calendar | Meetings in the next two days with outside people |
-| `calendar-follow-up` | Google Calendar and Gmail | A meeting last week with no email since |
+| `calendar-follow-up` | Google Calendar and Gmail | A meeting last week with one or two outside people, and no email since |
 
 Keep the ones whose tools this founder has connected and delete the rest. They are also
-your worked examples for writing new ones. (The calendar plays read attendees in Google's
-usual format, which was not present in the sample checked; confirm it in step 2 below.)
+your worked examples for writing new ones. They have run on two founders' accounts, but
+connectors change: prove each one on this founder's data (step 4 below) before keeping it.
+Guests who declined never count, and a meeting with more than two outside people is
+treated as delivery (a training, a webinar), not a sale to follow up.
 
 ## Writing plays for any other tool
 
-Do this for every connected tool that has no ready-made plays. Aim for one to three plays a
-tool. The founder should not see this work; tell them only what you found.
+Do this for **every connected tool that holds this business's customers, deals, work,
+events or meetings**, not only the ones the founder named or you recommended. A tool you
+skip is one line in your summary to the founder, with the reason ("Canva: nothing in it
+needs you this week"). Aim for one to three plays a tool. The founder should not see the
+work; tell them only what you found.
+
+- **Other businesses.** A CRM or task tool may also hold work for other companies or
+  clients the founder serves. Ask once which spaces, lists or pipelines belong to this
+  business, and read only those.
+- **Text answers.** Some connectors answer in text, not JSON. `read` then returns the text;
+  parse it in the play, and prove the parse on the real answer.
 
 1. **Read what the tool offers.** Look at its tools and their descriptions. Use only tools
    that read. A play never changes, sends or creates anything.
@@ -52,8 +61,11 @@ Ideas, by kind of tool:
 |---|---|---|
 | Accounting | Invoices overdue; a top customer with no invoice lately | `get-paid`, `keep-customers` |
 | Online shop | Orders not yet sent; best customers who have stopped ordering | `deliver-work`, `keep-customers` |
-| CRM or sales | Deals with no activity; quotes about to expire | `win-customers` |
-| Projects or tasks | Work for a customer that is overdue | `deliver-work` |
+| CRM or sales | Open deals with no contact in 14 days; quotes about to expire | `win-customers` |
+| Projects or tasks | The founder's own overdue tasks for this business | `deliver-work` |
+| Events or webinars | An event in the next three weeks with seats to fill | `win-customers` |
+| Meeting notes or recordings | Something the founder promised in a meeting and has not sent | `keep-customers` |
+| Community platform | New members who have not been welcomed; members about to lapse | `keep-customers` |
 | Email, calendar | See the ready-made plays | |
 
 ## The format
