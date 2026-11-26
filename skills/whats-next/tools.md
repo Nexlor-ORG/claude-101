@@ -37,10 +37,13 @@ After they connect a tool, make one real read and tell them what you see in one 
 
 > Connected. I can see 43 invoices, 6 of them overdue.
 
-When the tool is the one the goal is counted in, read the goal's number today as well and
+When the tool is the one a goal is counted in, read the goal's number today as well and
 confirm it with them: "Xero shows 11 schools with an active contract. Is that right?" Save
-it as `SETUP.goal.now`. If they say it is wrong, ask what you are missing; never take a
-number they type in its place.
+it as that goal's `now`. If they say it is wrong, ask what you are missing; never take a
+number they type in its place. If counting needs a rule only they know, see "A goal you
+cannot count yet" in `measures.md`.
+
+When the tool is their accounting or shop, save its name as `SETUP.moneyTool`.
 
 Then say in one line what you can see in that tool, and that nothing will be changed or
 sent without their say-so. If your line looks wrong to them, believe them and look again.
@@ -79,3 +82,8 @@ For tools with no connector:
 
 In `SETUP.tools`: `connected` (names exactly as Claude shows them), `next` (ready to
 connect, not yet connected, most useful first) and `notYet`.
+
+**Connector names.** The name a play reads with, and the name in the page's declaration, is
+the connector's display name, not its tool prefix: a tool listed to you as
+`mcp__apollo_io__search` belongs to the connector "Apollo io" or "Apollo.io". Check it in the
+connector list or directory rather than guessing; a wrong name fails without a clear error.

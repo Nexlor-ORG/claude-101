@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What's next</title>
-<style>
-/* Central Inbox's system (a framed surface, tiles lit from the top edge, a lead and a queue, pill
-   buttons) on Nexlor's colours. Light is the default; dark follows the device or the switch.
-   The founder's brand colour is the accent: --accent-light on light, --accent-dark on dark. */
+<meta charset="utf-8" data-own>
+<meta name="viewport" content="width=device-width, initial-scale=1" data-own>
+<title data-own>What's next</title>
+<style data-own>
+/* Central Inbox's system (a framed surface, tiles lit from the top edge, pill buttons) on Nexlor's
+   colours. Light is the default; dark follows the device or the switch. The founder's brand colour
+   is the accent: --accent-light on light, --accent-dark on dark. */
 :root {
   --accent-light: #B23A16; --accent-dark: #FF9A7A; --accent: var(--accent-light);
   --surface: #FFFFFF; --text: #17132E; --dim: rgba(23,19,46,.68); --hair: rgba(23,19,46,.09); --ink: #FFFFFF;
@@ -15,7 +15,7 @@
   --wash: color-mix(in srgb, var(--accent) 12%, transparent); --ring: color-mix(in srgb, var(--accent) 38%, transparent);
   --tile: rgba(23,19,46,.025); --tile-edge: inset 0 0 0 1px rgba(23,19,46,.07); --tile-lead-edge: inset 0 0 0 1px var(--ring);
   --quiet: rgba(23,19,46,.06); --quiet-edge: inset 0 0 0 1px rgba(23,19,46,.06); --quiet-hover: rgba(23,19,46,.11);
-  --btn-hover: #2E2858; --chip: rgba(23,19,46,.07); --current: rgba(23,19,46,.06); --row-hover: rgba(23,19,46,.035); --track: rgba(23,19,46,.08);
+  --btn-hover: #2E2858; --chip: rgba(23,19,46,.07); --current: rgba(23,19,46,.06); --track: rgba(23,19,46,.08);
   --good: #1E6B45; --good-bg: rgba(30,107,69,.10); --watch: #8A5300; --watch-bg: rgba(214,138,36,.16); --act: #A3261E; --act-bg: rgba(163,38,30,.09);
   --act-tile: radial-gradient(90% 80% at 100% 0%, rgba(163,38,30,.07), transparent 70%), #FFFFFF; --act-edge: inset 0 0 0 1px rgba(163,38,30,.22);
   --underline: rgba(23,19,46,.35); --ease-out: cubic-bezier(.23, 1, .32, 1);
@@ -29,7 +29,7 @@
     --tile: rgba(252,247,253,.04); --tile-edge: inset 0 1px 0 rgba(252,247,253,.11), inset 0 0 0 1px rgba(252,247,253,.045);
     --tile-lead-edge: inset 0 1px 0 rgba(252,247,253,.16), inset 0 0 0 1px var(--ring);
     --quiet: rgba(252,247,253,.09); --quiet-edge: inset 0 1px 0 rgba(252,247,253,.14); --quiet-hover: rgba(252,247,253,.16);
-    --btn-hover: #FFFFFF; --chip: rgba(252,247,253,.07); --current: rgba(252,247,253,.10); --row-hover: rgba(252,247,253,.06); --track: rgba(252,247,253,.08);
+    --btn-hover: #FFFFFF; --chip: rgba(252,247,253,.07); --current: rgba(252,247,253,.10); --track: rgba(252,247,253,.08);
     --good: #8EE0B2; --good-bg: rgba(142,224,178,.12); --watch: #FFB57A; --watch-bg: rgba(255,181,122,.13); --act: #FF9A8F; --act-bg: rgba(255,154,143,.14);
     --act-tile: radial-gradient(90% 80% at 100% 0%, rgba(255,154,143,.14), transparent 70%), rgba(252,247,253,.04);
     --act-edge: inset 0 1px 0 rgba(255,154,143,.35), inset 0 0 0 1px rgba(255,154,143,.22);
@@ -44,7 +44,7 @@
   --tile: rgba(252,247,253,.04); --tile-edge: inset 0 1px 0 rgba(252,247,253,.11), inset 0 0 0 1px rgba(252,247,253,.045);
   --tile-lead-edge: inset 0 1px 0 rgba(252,247,253,.16), inset 0 0 0 1px var(--ring);
   --quiet: rgba(252,247,253,.09); --quiet-edge: inset 0 1px 0 rgba(252,247,253,.14); --quiet-hover: rgba(252,247,253,.16);
-  --btn-hover: #FFFFFF; --chip: rgba(252,247,253,.07); --current: rgba(252,247,253,.10); --row-hover: rgba(252,247,253,.06); --track: rgba(252,247,253,.08);
+  --btn-hover: #FFFFFF; --chip: rgba(252,247,253,.07); --current: rgba(252,247,253,.10); --track: rgba(252,247,253,.08);
   --good: #8EE0B2; --good-bg: rgba(142,224,178,.12); --watch: #FFB57A; --watch-bg: rgba(255,181,122,.13); --act: #FF9A8F; --act-bg: rgba(255,154,143,.14);
   --act-tile: radial-gradient(90% 80% at 100% 0%, rgba(255,154,143,.14), transparent 70%), rgba(252,247,253,.04);
   --act-edge: inset 0 1px 0 rgba(255,154,143,.35), inset 0 0 0 1px rgba(255,154,143,.22);
@@ -57,8 +57,9 @@ body { margin: 0; padding: 12px; min-height: 100vh; color: var(--text); backgrou
 :where(h1, h2, h3, p, ul, ol) { margin: 0; }
 :where(ul, ol) { padding: 0; list-style: none; }
 :where(button) { font: inherit; color: inherit; border: 0; background: none; padding: 0; text-align: left; cursor: pointer; }
-button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 [hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 .frame { max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; padding: 12px 26px 16px; border-radius: 28px;
   background: var(--surface); box-shadow: 0 0 0 1px var(--ring), 0 0 90px var(--halo); }
@@ -83,53 +84,140 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 
 .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; }
 .tile { min-width: 0; border-radius: 20px; padding: 16px 18px; background: var(--tile); box-shadow: var(--tile-edge); }
-.label { font-size: 12.5px; font-weight: 500; letter-spacing: .01em; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.label { font-size: 12.5px; font-weight: 500; letter-spacing: .01em; color: var(--dim); display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; }
 .tag { display: inline-block; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 99px; background: var(--wash); color: var(--accent); white-space: nowrap; }
+.goaltag { background: var(--chip); color: var(--text); white-space: normal; }
+.goaltag::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: var(--accent); vertical-align: 1px; }
+.dim { color: var(--dim); }
 
-.goal2 { grid-column: 1 / 8; display: flex; flex-direction: column; gap: 8px; padding: 18px 22px; }
-.goal2 .label, .quarter .label, .att .label { align-items: center; margin-bottom: 0; }
-.goal2 h2, .quarter h2 { font-size: 17px; font-weight: 500; letter-spacing: -.01em; line-height: 1.25; overflow-wrap: anywhere; }
-.goal2 .count { display: flex; align-items: baseline; gap: 8px; margin-top: 4px; }
-.goal2 .big { font-size: 44px; font-weight: 400; letter-spacing: -.04em; line-height: 1; }
-.goal2 .of, .dim { color: var(--dim); }
-.goal2 .one { margin-top: 4px; padding-top: 10px; box-shadow: inset 0 1px 0 var(--hair); font-size: 13.5px; }
+/* Goals: full width, side by side when there are two */
+.goals { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); column-gap: 40px; row-gap: 16px; align-items: start; padding: 18px 22px; }
+.goal { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.goal + .goal { padding-left: 40px; box-shadow: inset 1px 0 0 var(--hair); }
+.goal .label { margin-bottom: 0; }
+.goal h2 { font-size: 17px; font-weight: 500; letter-spacing: -.01em; line-height: 1.25; overflow-wrap: anywhere; }
+.goal .count { display: flex; align-items: baseline; gap: 8px; margin-top: 4px; }
+.goal .big { font-size: 44px; font-weight: 400; letter-spacing: -.04em; line-height: 1; }
+.goal.second .big { font-size: 36px; }
+.goal .of { color: var(--dim); }
+.goal .one { margin-top: 4px; padding-top: 10px; box-shadow: inset 0 1px 0 var(--hair); font-size: 13.5px; }
 .bar { height: 8px; border-radius: 99px; background: var(--track); overflow: hidden; }
 .bar i { display: block; height: 100%; border-radius: 99px; background: var(--accent); }
-.quarter { grid-column: 8 / 13; display: flex; flex-direction: column; gap: 8px; padding: 18px 22px; }
+
+/* This quarter: one strip */
+.quarter { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 12px 14px 12px 22px; }
 .quarter.overdue { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--watch) 45%, transparent); }
+.quarter .qlabel { font-size: 12.5px; font-weight: 500; color: var(--dim); }
+.quarter h2 { flex: 1; min-width: 240px; font-size: 15px; font-weight: 500; letter-spacing: -.01em; overflow-wrap: anywhere; }
+.quarter .qrev { font-size: 12.5px; color: var(--dim); }
+.quarter.overdue .qrev { color: var(--watch); font-weight: 600; }
+.quarter .prompt-box { flex-basis: 100%; }
+
 .block { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 10px; }
-.block .section-head { padding-top: 6px; }
 .rows { display: flex; flex-direction: column; gap: 10px; }
-.row-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px 16px; align-items: center; padding: 14px 18px; }
+.row-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px 16px; align-items: start; padding: 14px 18px; }
 .row-item.first { background: radial-gradient(90% 140% at 0% 0%, var(--wash), transparent 70%), var(--tile); box-shadow: var(--tile-lead-edge); }
-.row-item .num { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--chip); font-size: 12px; font-weight: 600; }
+.row-item .num { width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; display: grid; place-items: center; background: var(--chip); font-size: 12px; font-weight: 600; }
 .row-item.first .num { box-shadow: inset 0 0 0 1.5px var(--accent); background: var(--wash); }
-.row-item .t, .att .t { font-size: 16px; font-weight: 500; letter-spacing: -.01em; line-height: 1.3; overflow-wrap: anywhere; }
-.row-item .f, .att .note { font-size: 13px; color: var(--dim); overflow-wrap: anywhere; }
-.row-item .acts { margin-top: 0; justify-content: flex-end; flex-wrap: nowrap; }
-.owner { background: var(--chip); color: var(--text); margin-right: 4px; }
+.row-item .t, .att .t, .idea .t { font-size: 16px; font-weight: 500; letter-spacing: -.01em; line-height: 1.3; overflow-wrap: anywhere; }
+.row-item .f, .att .note, .idea .note { font-size: 13px; color: var(--dim); overflow-wrap: anywhere; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 6px; }
+.owner-name { font-size: 12.5px; color: var(--dim); }
+.owner-name::before { content: "· "; }
+.side-acts { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.links { display: flex; gap: 14px; }
+.textbtn { min-height: 28px; font-size: 12.5px; color: var(--dim); transition: color 160ms ease; }
+.busy-line { display: flex; align-items: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1.1s ease-in-out infinite; flex: none; }
+.btn .dot { width: 7px; height: 7px; margin-right: 8px; background: currentColor; }
+@keyframes pulse { 50% { opacity: .25; } }
+.more { align-self: flex-start; padding-left: 4px; }
+.checked { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 2px 4px; font-size: 12.5px; color: var(--dim); }
+.checked-head { font-weight: 500; color: var(--text); }
+.checked ul { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.checked li { position: relative; padding-left: 16px; }
+.checked li::before { content: ""; position: absolute; left: 1px; top: 5px; width: 8px; height: 4px; border: solid var(--good); border-width: 0 0 1.5px 1.5px; transform: rotate(-45deg); }
+
+/* The prompt being copied, shown */
+.prompt-box { grid-column: 2 / -1; display: flex; flex-direction: column; gap: 6px; margin-top: 4px; padding: 10px 14px 12px; border-radius: 14px; background: var(--quiet); box-shadow: var(--quiet-edge);
+  transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out); }
+@starting-style { .prompt-box { opacity: 0; transform: translateY(-4px); } }
+.prompt-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 12.5px; color: var(--dim); }
+.prompt-text { font-size: 13.5px; line-height: 1.55; max-width: 76ch; white-space: pre-line; overflow-wrap: anywhere; }
+
+/* Drafts, inside the item */
+.inline-drafts { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 12px; margin-top: 6px; padding-top: 14px; box-shadow: inset 0 1px 0 var(--hair);
+  transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out); }
+@starting-style { .inline-drafts { opacity: 0; transform: translateY(-4px); } }
+.drafts-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.drafts-head .note { font-size: 13px; color: var(--dim); }
+.draft-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.draft-grid.one { grid-template-columns: minmax(0, 680px); }
+.draft { display: flex; flex-direction: column; padding: 6px 20px 16px; border-radius: 16px; background: var(--surface); box-shadow: var(--tile-edge);
+  transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out); }
+@starting-style { .draft { opacity: 0; transform: translateY(6px); } }
+.draft:nth-child(2) { transition-delay: 40ms; } .draft:nth-child(3) { transition-delay: 80ms; }
+.field { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 8px; padding: 9px 0; font-size: 13px; box-shadow: inset 0 -1px 0 var(--hair); overflow-wrap: anywhere; }
+.field .k { color: var(--dim); }
+.field .subj { font-size: 13.5px; font-weight: 600; }
+.draft .body { flex: 1; padding-top: 12px; font-size: 14px; line-height: 1.6; white-space: pre-line; max-width: 64ch; overflow-wrap: anywhere; }
+.draft .acts { margin-top: 8px; }
+.safe { font-size: 12.5px; color: var(--dim); }
+.btn.saved { color: var(--good); }
+
 .att-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
-.att { display: flex; flex-direction: column; gap: 6px; }
+.att, .idea { display: flex; flex-direction: column; gap: 6px; }
+.att .label { margin-bottom: 0; }
 .att.act { background: var(--act-tile); box-shadow: var(--act-edge); }
+.att .prompt-box, .idea .prompt-box { margin-top: 8px; }
+.ideas-empty { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.ideas-empty p { color: var(--dim); }
 .acts { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
-.att .acts { margin-top: 4px; }
+.att .acts, .idea .acts { margin-top: 4px; }
 .btn { display: inline-flex; align-items: center; min-height: 40px; padding: 0 20px; border-radius: 99px; font-weight: 600; font-size: 13.5px; text-decoration: none;
   background: var(--text); color: var(--ink); white-space: nowrap; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
 .btn.quiet { background: var(--quiet); color: var(--text); box-shadow: var(--quiet-edge); }
 .btn.sm { min-height: 34px; padding: 0 14px; font-size: 12.5px; }
 .btn:active { transform: scale(.97); }
+.btn[aria-busy="true"] { pointer-events: none; }
 .zero { display: grid; place-content: center; text-align: center; gap: 8px; min-height: 180px; }
 .zero h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 400; letter-spacing: -.04em; }
 .zero p { color: var(--dim); }
 .seeall { grid-column: 1 / -1; display: flex; justify-content: center; }
 
+/* Weekly review, on the page */
+.review { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 16px; padding: 18px 22px 20px; box-shadow: var(--tile-lead-edge);
+  background: radial-gradient(70% 120% at 100% 0%, var(--wash), transparent 70%), var(--tile);
+  transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out); }
+@starting-style { .review { opacity: 0; transform: translateY(-4px); } }
+.review-head { display: flex; justify-content: space-between; align-items: center; }
+.rv-title { font-size: 12.5px; font-weight: 500; color: var(--dim); margin-bottom: 6px; }
+.rv-list li { position: relative; padding: 3px 0 3px 16px; font-size: 14px; }
+.rv-list li::before { content: ""; position: absolute; left: 2px; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.rv-done { display: flex; flex-direction: column; gap: 4px; }
+.rv-done li { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 12px; font-size: 13.5px; }
+.rv-q { display: flex; flex-direction: column; gap: 10px; padding-top: 14px; box-shadow: inset 0 1px 0 var(--hair); }
+.rv-count { font-size: 12.5px; color: var(--dim); }
+.rv-ask { font-size: 19px; font-weight: 500; letter-spacing: -.02em; line-height: 1.25; max-width: 60ch; }
+.rv-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { min-height: 40px; padding: 0 16px; border-radius: 99px; font-size: 13.5px; font-weight: 500; background: var(--surface); box-shadow: inset 0 0 0 1px var(--ring);
+  transition: background-color 160ms ease, transform 160ms var(--ease-out); }
+.chip:active { transform: scale(.97); }
+.rv-own { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.rv-own input { flex: 1; min-width: 220px; min-height: 40px; padding: 0 14px; border-radius: 12px; border: 0; font: inherit; color: var(--text); background: var(--surface); box-shadow: inset 0 0 0 1px var(--hair); }
+.rv-plan { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px 32px; }
+.rv-objective { font-size: 17px; font-weight: 500; letter-spacing: -.01em; line-height: 1.3; }
+
 .section-head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 2px 0; font-size: 12.5px; color: var(--dim); }
+.block > .section-head { padding-top: 6px; }
 .section-head h2 { font-size: 15px; font-weight: 600; letter-spacing: -.01em; color: var(--text); }
 .metrics { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
 .metric { display: flex; flex-direction: column; gap: 6px; }
-.metric .label { margin-bottom: 2px; align-items: center; }
+.metric .label { margin-bottom: 2px; }
 .metric .big { font-size: 30px; font-weight: 400; letter-spacing: -.04em; line-height: 1.05; }
 .metric .note { font-size: 12.5px; color: var(--dim); line-height: 1.45; }
+.metric.missing { background: none; box-shadow: none; border: 1px dashed var(--underline); }
+.metric.missing .big { color: var(--dim); }
 .tone { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 2px 9px; border-radius: 99px; white-space: nowrap; }
 .good { color: var(--good); } .watch { color: var(--watch); } .act { color: var(--act); }
 .tone.good { background: var(--good-bg); } .tone.watch { background: var(--watch-bg); } .tone.act { background: var(--act-bg); }
@@ -149,7 +237,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 @media (hover: hover) and (pointer: fine) {
   .btn:hover { background: var(--btn-hover); }
   .btn.quiet:hover { background: var(--quiet-hover); }
-  .quietlink:hover, .seg button:hover { color: var(--text); }
+  .quietlink:hover, .seg button:hover, .textbtn:hover { color: var(--text); }
+  .chip:hover { background: var(--wash); }
 }
 @media (max-width: 860px) {
   body { padding: 8px; }
@@ -157,22 +246,29 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   .top { flex-wrap: wrap; }
   .hero { flex-direction: column; align-items: flex-start; gap: 10px; }
   .hero p { text-align: left; }
-  .goal2, .quarter { grid-column: 1 / -1; }
+  .goals { grid-template-columns: minmax(0, 1fr); }
+  .goal + .goal { padding-left: 0; padding-top: 14px; box-shadow: inset 0 1px 0 var(--hair); }
+  .quarter { padding: 14px 18px; }
+  .quarter h2 { min-width: 100%; }
   .row-item { grid-template-columns: auto minmax(0, 1fr); }
-  .row-item .acts { grid-column: 1 / -1; justify-content: flex-start; flex-wrap: wrap; }
+  .side-acts { grid-column: 1 / -1; align-items: flex-start; }
+  .prompt-box { grid-column: 1 / -1; }
+  .prompt-head, .drafts-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .rv-done li { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .right .date { display: none; }
   .right { width: 100%; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn, .quietlink, .seg button, #toast { transition: none; }
-  .btn:active { transform: none; }
-  .how { transition: opacity 150ms ease; }
-  @starting-style { .how { opacity: 0; transform: none; } }
+  .btn, .quietlink, .seg button, .textbtn, .chip, #toast { transition: none; }
+  .btn:active, .chip:active { transform: none; }
+  .dot { animation: none; }
+  .how, .prompt-box, .inline-drafts, .draft, .review { transition: opacity 150ms ease; transition-delay: 0ms; }
+  @starting-style { .how, .prompt-box, .inline-drafts, .draft, .review { opacity: 0; transform: none; } }
 }
 </style>
 </head>
 <body>
-<div class="frame">
+<div class="frame" data-own>
   <header class="top">
     <span class="brand" id="biz"></span>
     <span class="right">
@@ -186,15 +282,22 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   <section class="hero"><h1 id="headline"></h1><p id="hello"></p></section>
   <ul class="notices" id="notices"></ul>
   <div class="grid">
-    <section class="tile goal2" id="goal" aria-label="Your goal"></section>
+    <section class="tile goals" id="goals" aria-label="Your goals"></section>
     <section class="tile quarter" id="quarter" aria-label="This quarter"></section>
+    <section class="tile review" id="review" aria-label="Weekly review" hidden></section>
     <section class="block" aria-label="This week">
-      <div class="section-head"><h2>This week</h2></div>
+      <div class="section-head"><h2>This week</h2><span id="week-note"></span></div>
       <ol class="rows" id="week"></ol>
+      <button type="button" class="textbtn more" id="more" hidden></button>
+      <div class="checked" id="checked" hidden></div>
     </section>
     <section class="block" id="attention-box" aria-label="Needs attention">
       <div class="section-head"><h2>Needs attention</h2><span id="att-src"></span></div>
       <div class="att-grid" id="attention"></div>
+    </section>
+    <section class="block" id="ideas-box" aria-label="Ideas for your goal">
+      <div class="section-head"><h2>Ideas for your goal</h2><span id="ideas-src"></span></div>
+      <div id="ideas"></div>
     </section>
     <section class="tile connect" id="connect" aria-label="Your numbers" hidden></section>
     <div class="seeall" id="seeall"><button type="button" class="quietlink" id="seeall-btn" aria-expanded="false">See all numbers</button></div>
@@ -205,123 +308,152 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   </div>
   <footer class="strip"><span id="foot"></span><span>Claude 101 by Nexlor</span></footer>
 </div>
-<div id="toast" role="status" aria-live="polite"></div>
+<div id="toast" role="status" aria-live="polite" data-own></div>
 
-<script>
-/* ============================================================================================
-   1. SETUP — the founder's saved setup. Claude replaces this whole object (see dashboard.md).
-      The demo below is an invented business; `demo: true` also runs the self-check.
-   ============================================================================================ */
-const SETUP = {
-  demo: true,
-  version: 3,
-  founder: "Thandi",
-  // Other people who run the business with the founder, by first name. When there are any,
-  // every item shows who owns it; `owners` maps a play's id to its owner (set at the weekly review).
-  team: [],
-  owners: {},
-  business: "Demo Uniforms",
-  model: "invoices",
-  customerWord: "school",
-  // perCustomer: what one more customer adds, in the goal's own units (1 for a count of
-  // customers; the average monthly value for a money goal). It gives "One more school takes you to …".
-  goal: { title: "15 schools on contract by June", measure: "schools with an active contract", source: "Xero",
-          now: 11, target: 15, by: "2027-06-30", unit: "schools", money: false, ratePerMonth: 0.17, perCustomer: 1 },
-  // The quarter's objective, set and confirmed at the weekly review.
-  plan: { objective: "Win two new schools before the term 1 tenders close", reviewedAt: "2026-11-23" },
-  // What counts as important for this founder. Labels: win-customers, keep-customers,
-  // get-paid, deliver-work, save-time.
-  focus: ["win-customers", "keep-customers"],
-  heard: [
-    "You make school uniforms; schools sign a contract and you invoice them each term.",
-    "A great six months is 15 schools on contract by June, up from 11, counted in Xero.",
-    "What matters most is keeping your biggest schools ordering; few new quotes go out.",
-    "You would hand off chasing payments tomorrow. You run the business on your own.",
-    "Your books are in Xero and up to date to October; schools get 30 days to pay."
+<!-- ============================================================================================
+     1. SETUP — the founder's saved setup, as JSON. Claude replaces this whole block (dashboard.md),
+        and the page rewrites it when the founder saves a weekly review. The demo below is an
+        invented business; "demo": true also runs the self-check. Write each < as <.
+     ============================================================================================ -->
+<script type="application/json" id="setup" data-own>
+{
+ "demo": true,
+ "version": 4,
+ "founder": "Thandi",
+ "business": "Demo Uniforms",
+ "about": "I'm Thandi and I run Demo Uniforms. We make school uniforms and supply schools on contract; parents can also order online. My goal is 15 schools on contract by June. We have 11 today.",
+ "model": "invoices",
+ "customerWord": "school",
+ "team": [],
+ "owners": {},
+ "goals": [
+  { "title": "15 schools on contract by June", "measure": "schools with an active contract", "source": "Xero", "countedBy": "tool",
+    "now": 11, "target": 15, "by": "2027-06-30", "unit": "schools", "money": false, "ratePerMonth": 0.17, "perCustomer": 1,
+    "helps": ["win-customers", "keep-customers"] }
+ ],
+ "plan": { "objective": "Win two new schools before the term 1 tenders close", "reviewedAt": "2026-11-23" },
+ "ideas": [
+  { "id": "idea-march", "goal": "Keeps your 11 schools", "title": "Offer early term 1 orders to the 6 schools that ordered last March",
+    "note": "They spent R184,000 between them last March, and none has been in touch since September.",
+    "prompt": "Task: Six schools ordered last March but haven't been in touch since September. Offer them early term 1 orders.\n\nFind: the six schools and what each ordered last March in Xero, and the right contact at each from my email.\n\nWrite: one short email per school, offering to repeat last March's order with delivery before term if they confirm by 12 December. Under 100 words each, signed Thandi." },
+  { "id": "idea-drive", "goal": "Claude connector", "title": "Connect Google Drive", "kind": "setup",
+    "note": "Claude could then reuse your past tender documents when it drafts quotes.",
+    "prompt": "Task: Help me connect Google Drive to Claude, so you can reuse my past tender documents when you draft quotes.\n\nHow: give me the steps in the Claude app one at a time, as if I've never done it before, and wait for me to finish each one. Then add Google Drive to my What's next dashboard." }
+ ],
+ "ideasFrom": "2026-11-23",
+ "focus": ["win-customers", "keep-customers"],
+ "heard": [
+  "You make school uniforms; schools sign a contract and you invoice them each term.",
+  "A great six months is 15 schools on contract by June, up from 11, counted in Xero.",
+  "What matters most is keeping your biggest schools ordering; few new quotes go out.",
+  "You would hand off chasing payments tomorrow. You run the business on your own.",
+  "Your books are in Xero and up to date to October; schools get 30 days to pay."
+ ],
+ "books": { "current": true, "upTo": "2026-10" },
+ "writtenOff": [],
+ "terms": 30,
+ "termsConfirmed": true,
+ "moneyTool": "Xero",
+ "missing": [],
+ "tools": { "connected": ["Xero", "Gmail", "Google Calendar"], "next": ["Shopify"], "notYet": ["Payfast"] },
+ "accent": "#8FB3F0",
+ "accentLight": "#2B4C8C",
+ "snapshot": {
+  "takenAt": "2026-11-23T07:02:00+02:00",
+  "summary": "You are making a profit, but cash is tight because schools take 52 days to pay.",
+  "clear": ["Gmail, Primary inbox, last 14 days: no one is waiting on a reply from you"],
+  "items": [
+   { "id": "u-hillside", "play": "demo", "helps": ["win-customers"], "urgent": true, "due": "2026-11-24", "doHere": true,
+     "line": "Renew the Hillside Primary quote", "fact": "Worth R240,000 a year. It expires tomorrow.", "doButton": "Draft it here",
+     "prompt": "Task: Renew my 2027 quote to Hillside Primary. It expires tomorrow and is worth about R240,000 a year.\n\nFind: the quote in Xero, and my October emails with their bursar.\n\nWrite: one email to the bursar renewing the quote at the same prices for another 30 days. Warm and professional, under 120 words, signed Thandi." },
+   { "id": "u-top3", "play": "demo", "helps": ["keep-customers"], "urgent": false, "doHere": true,
+     "line": "Contact your three biggest schools", "fact": "41% of your sales. None has placed a term 1 order yet.", "doButton": "Draft the 3 messages here",
+     "prompt": "Task: Check in with my three biggest schools before term 1. Together they are 41% of my sales, and none has placed a term 1 order yet.\n\nFind: each school's term 1 order from last year in Xero, and my latest email with each contact.\n\nWrite: one short email to each, offering to repeat last year's order. Friendly, under 90 words each, signed Thandi." },
+   { "id": "u-quotes", "play": "demo", "helps": ["win-customers"], "urgent": false,
+     "line": "Find four schools to quote", "fact": "You need about 18 more quotes to win 4 schools by June.", "button": "Copy prompt for a new chat",
+     "prompt": "Task: I need about 18 more quotes to win 4 new schools by June. Find schools near my current 11 schools that I haven't quoted yet.\n\nFind: my current schools and their areas from my Xero contacts, and any school I've already quoted. Use web search for nearby schools.\n\nWrite: a list of ten schools, each with one line on why it fits, then a short introduction email to the first four. Under 100 words each, signed Thandi." },
+   { "id": "u-sipho", "play": "demo", "helps": ["win-customers"], "urgent": false, "doHere": true,
+     "line": "Follow up Friday's meeting with Sipho", "fact": "No email to him since the meeting.", "doButton": "Draft it here",
+     "prompt": "Task: Follow up Friday's meeting with Sipho. I haven't emailed him since.\n\nFind: Friday's calendar entry and my earlier emails with him.\n\nWrite: a short thank-you with the next step we agreed. Under 90 words, signed Thandi." },
+   { "id": "u-chase", "play": "demo", "helps": ["get-paid"], "urgent": true, "doHere": true,
+     "line": "Chase R148,200 overdue from 3 schools", "fact": "All more than 60 days late.", "doButton": "Draft reminders here",
+     "prompt": "Task: Chase overdue payments. Three schools owe R148,200 on invoices more than 60 days late. My terms are 30 days.\n\nFind: the overdue invoices in Xero (school, invoice number, amount, due date), and who handles payment at each school from my email.\n\nWrite: one polite reminder per school, listing its invoices and total. Firm but friendly, signed Thandi." },
+   { "id": "u-newsletter", "play": "demo", "helps": ["save-time"], "urgent": false,
+     "line": "Read last month's newsletter stats", "fact": "Open rate was 31%.", "prompt": "Task: Summarise last month's newsletter stats.", "kind": "brief" }
   ],
-  books: { current: true, upTo: "2026-10" },
-  // Customers whose old debts the founder does not expect to collect. Left out of money owed,
-  // how fast customers pay, and every chase list.
-  writtenOff: [],
-  terms: 30,
-  tools: { connected: ["Xero", "Gmail", "Google Calendar"], next: ["Shopify"], notYet: ["Payfast"] },
-  accent: "#8FB3F0",
-  accentLight: "#2B4C8C",
-  // What the plays and measures found the last time Claude ran them. Shown until live data
-  // arrives, and whenever live data is not available.
-  snapshot: {
-    takenAt: "2026-11-23T07:02:00+02:00",
-    summary: "You are making a profit, but cash is tight because schools take 52 days to pay.",
-    items: [
-      { id: "u-hillside", play: "demo", helps: ["win-customers"], urgent: true,
-        line: "Renew the Hillside Primary quote", fact: "Worth R240,000 a year. It expires tomorrow.",
-        button: "Have Claude draft it", prompt: "Draft an email renewing my quote to Hillside Primary, which expires tomorrow. Show me the draft before anything is sent." },
-      { id: "u-top3", play: "demo", helps: ["keep-customers"], urgent: false,
-        line: "Call your three biggest schools", fact: "41% of your sales. None has placed a term 1 order yet.",
-        button: "Have Claude draft the messages", prompt: "Draft a short, friendly check-in to each of my three biggest schools, none of which has placed a term 1 order yet. Show me the drafts before anything is sent." },
-      { id: "u-quotes", play: "demo", helps: ["win-customers"], urgent: false,
-        line: "Send four new quotes", fact: "You need about 18 more quotes to win 4 schools by June.",
-        button: "Have Claude find schools", prompt: "Suggest ten schools near my current schools that I have not quoted, and draft a short introduction for the first four. Show me everything before anything is sent." },
-      { id: "u-sipho", play: "demo", helps: ["win-customers"], urgent: false,
-        line: "Follow up Friday's meeting with Sipho", fact: "No email to him since the meeting.",
-        button: "Have Claude draft it", prompt: "Draft a follow-up email to Sipho after our meeting on Friday. Show me the draft before anything is sent." },
-      { id: "u-chase", play: "demo", helps: ["get-paid"], urgent: true,
-        line: "Chase R148,200 overdue from 3 schools", fact: "All more than 60 days late.",
-        button: "Have Claude draft reminders", prompt: "Draft polite payment reminders for the three schools whose invoices are more than 60 days overdue. Show me the drafts before anything is sent." },
-      { id: "u-newsletter", play: "demo", helps: ["save-time"], urgent: false,
-        line: "Read last month's newsletter stats", fact: "Open rate was 31%." }
-    ],
-    measures: [
-      { id: "cash", group: "health", label: "Cash in the bank", value: "R212,000", tone: "watch", helps: ["get-paid"], period: "October · from Xero",
-        alert: "Cash covers 2 months of costs", note: "R212,000 today. It was 3 months in June.",
-        how: "Bank balance today, divided by average monthly running costs over the last 3 months: R212,000 ÷ R104,000. Under 3 months is Watch; under 1 month is Act now." },
-      { id: "debtor-days", group: "health", label: "How fast schools pay", value: "52 days", tone: "act", helps: ["get-paid"],
-        alert: "Schools take 52 days to pay you", note: "Up from 38 days in August. Your terms are 30 days.",
-        how: "What schools owe you, divided by October's sales, times 30 days: R551,900 ÷ R318,400 × 30. More than 15 days over your terms is Act now." },
-      { id: "gross-margin", group: "health", label: "Profit on each sale", value: "40%", tone: "watch", helps: ["get-paid"],
-        alert: "Profit on each sale is slipping", note: "Down from 43% in August. Materials cost 9% more.",
-        how: "Sales minus what it cost to make them, as a share of sales: (R318,400 − R190,400) ÷ R318,400. Watch when it falls more than 2 points in 3 months." },
-      { id: "net-profit", group: "health", label: "Profit after all costs", value: "R24,000", tone: "good", helps: ["get-paid"],
-        note: "7.5% of October's sales.", how: "October's sales minus every cost, before tax." },
-      { id: "break-even", group: "health", label: "Sales needed to cover costs", value: "R259,000", tone: "good", helps: ["get-paid"],
-        note: "A month. October was 23% above it.",
-        how: "Monthly running costs divided by profit on each sale: R104,000 ÷ 40.2%. Assumes running costs stay the same as sales change." },
-      { id: "cost-to-win", group: "growth", label: "Cost to win a school", value: "R48,000", tone: "good", helps: ["win-customers"], period: "Last 12 months · from Xero",
-        note: "R96,000 on marketing for 2 new schools.", how: "Marketing and sales costs over 12 months, divided by new schools won." },
-      { id: "lifetime-profit", group: "growth", label: "Profit from a school over its life", value: "R796,000", tone: "good", helps: ["win-customers", "keep-customers"],
-        note: "About 16 times what it costs to win one.", how: "Average yearly profit per school (R132,700) × the 6 years schools have stayed on average." },
-      { id: "quote-win-rate", group: "growth", label: "Quotes that win", value: "22%", tone: "watch", helps: ["win-customers"],
-        alert: "2 of 9 quotes win", note: "Below the 1 in 3 you need to reach 15 schools.", how: "Quotes marked accepted, divided by quotes sent." },
-      { id: "retention", group: "growth", label: "Schools that stay", value: "91%", tone: "good", helps: ["keep-customers"],
-        note: "10 of 11 renewed last year.", how: "Schools that renewed in the last 12 months, divided by schools whose contract came up." }
-    ]
-  }
-};
+  "measures": [
+   { "id": "cash", "group": "health", "label": "Cash in the bank", "value": "R212,000", "tone": "watch", "helps": ["get-paid"], "period": "October · from Xero",
+     "alert": "Cash covers 2 months of costs", "note": "R212,000 today. It was 3 months in June.",
+     "how": "Bank balance today, divided by average monthly running costs over the last 3 months: R212,000 ÷ R104,000. Under 3 months is Watch; under 1 month is Act now." },
+   { "id": "debtor-days", "group": "health", "label": "How fast schools pay", "value": "52 days", "tone": "act", "helps": ["get-paid"],
+     "alert": "Schools take 52 days to pay you", "note": "Up from 38 days in August. Your terms are 30 days.",
+     "how": "What schools owe on invoices already due, divided by October's sales, times 30 days: R551,900 ÷ R318,400 × 30. More than 15 days over your terms is Act now." },
+   { "id": "gross-margin", "group": "health", "label": "Profit on each sale", "value": "40%", "tone": "watch", "helps": ["get-paid"],
+     "alert": "Profit on each sale is slipping", "note": "Down from 43% in August. Materials cost 9% more.",
+     "how": "Sales minus what it cost to make them, as a share of sales: (R318,400 − R190,400) ÷ R318,400. Watch when it falls more than 2 points in 3 months." },
+   { "id": "net-profit", "group": "health", "label": "Profit after all costs", "value": "R24,000", "tone": "good", "helps": ["get-paid"],
+     "note": "7.5% of October's sales.", "how": "October's sales minus every cost, before tax." },
+   { "id": "cost-to-win", "group": "growth", "label": "Cost to win a school", "value": "R48,000", "tone": "good", "helps": ["win-customers"], "period": "Last 12 months · from Xero",
+     "note": "R96,000 on marketing for 2 new schools.", "how": "Marketing and sales costs over 12 months, divided by new schools won." },
+   { "id": "quote-win-rate", "group": "growth", "label": "Quotes that win", "value": "22%", "tone": "watch", "helps": ["win-customers"],
+     "alert": "2 of 9 quotes win", "note": "Below the 1 in 3 you need to reach 15 schools.", "how": "Quotes marked accepted, divided by quotes sent." }
+  ]
+ }
+}
+</script>
+
+<script data-own>
+/* The page as it arrived, kept so a saved weekly review can publish the same page with new SETUP.
+   Only the page's own elements (data-own) are kept; anything a viewer adds is left out. */
+const PRISTINE = { head: document.head.cloneNode(true), body: document.body.cloneNode(true) };
+const SETUP = JSON.parse(document.getElementById("setup").textContent);
+// Setups saved before version 4 had one `goal`.
+if (!SETUP.goals) SETUP.goals = SETUP.goal ? [SETUP.goal] : [];
 
 /* ============================================================================================
    2. PLAYS — what the dashboard knows how to notice. Claude keeps the plays for the tools this
       founder has connected, removes the rest, and adds plays it wrote and proved during setup
       (see plays.md). Each play reads through `read(server, tool, input)` and returns one item,
-      or null when there is nothing to do.
+      or null when there is nothing to do; `clear` says what was checked when it finds nothing.
    ============================================================================================ */
 const DAY = 864e5;
 const gmailDate = (d) => `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`;
 const localTime = (d) => new Date(d.getTime() - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 19);
+const isoDay = (d) => localTime(d).slice(0, 10);
 const clean = (s) => String(s || "").replace(/[\r\n<>]/g, " ").trim().slice(0, 60);
 const listNames = (names) => names.length <= 2 ? names.join(" and ") : `${names[0]}, ${names[1]} and ${names.length - 2} more`;
 const robot = /no-?reply|notification|mailer|newsletter|donotreply|support@|billing@|info@/i;
+// The first list called `key` anywhere in a connector's answer, however deep: connectors nest
+// their lists differently (Zoho Books puts invoices a level deeper than Xero).
+function findList(obj, key) {
+  const queue = [obj];
+  for (let n = 0; queue.length && n < 500; n++) {
+    const o = queue.shift();
+    if (!o || typeof o !== "object") continue;
+    if (Array.isArray(o[key])) return o[key];
+    for (const v of Object.values(o)) if (v && typeof v === "object") queue.push(v);
+  }
+  return [];
+}
 // Gmail gives `sender` as an address and the display names in a separate list.
 const gmailName = (msg, address) => {
   const hit = (msg.addressDisplayNames || []).find((a) => a.emailAddress === address);
   return clean((hit && hit.displayName) || String(address || "").split("@")[0]);
 };
-// People on a calendar event who are not the founder, not in the founder's own domain, and
-// have not declined.
-const outsiders = (event, ownDomain) => (event.attendees || [])
-  .filter((a) => a.email && !a.self && !a.resource && a.responseStatus !== "declined" && !a.email.endsWith("@" + ownDomain));
-// When a message arrived. Some Gmail answers carry only one of the two.
+// The founder's own email domain, from their own entry on an event (the calendar's name is not
+// always an address).
+const ownDomain = (events, summary) => {
+  for (const e of events) { const me = (e.attendees || []).find((a) => a.self && a.email); if (me) return me.email.split("@")[1]; }
+  return String(summary || "").split("@")[1] || "";
+};
+// People on an event who are not the founder, not in the founder's domain, and have not declined.
+const outsiders = (event, own) => (event.attendees || [])
+  .filter((a) => a.email && !a.self && !a.resource && a.responseStatus !== "declined" && !(own && a.email.endsWith("@" + own)));
+// A sales meeting: one or two outside people, not a repeating meeting. Bigger groups are delivery.
+const salesMeeting = (e, own) => { const n = outsiders(e, own).length; return e.status !== "cancelled" && !e.recurringEventId && n >= 1 && n <= 2; };
 const sentAt = (m) => Number(m.internalDate) || Date.parse(m.date) || NaN;
 const attendeeName = (a) => clean(a.displayName || a.email.split("@")[0]);
+const me = () => SETUP.founder || "me";
 
 const PLAYS = [
   {
@@ -329,6 +461,7 @@ const PLAYS = [
     what: "People who emailed in the last two weeks and have waited more than two days for a reply.",
     helps: ["keep-customers", "win-customers"],
     tools: [["Gmail", "search_threads"]],
+    clear: "Gmail, Primary inbox, last 14 days: no one is waiting on a reply from you",
     async find(read, ctx) {
       const r = await read("Gmail", "search_threads",
         { query: "in:inbox category:primary newer_than:14d older_than:2d -from:me", pageSize: 30, view: "THREAD_VIEW_MINIMAL" });
@@ -341,52 +474,51 @@ const PLAYS = [
         line: `Reply to ${listNames(names)}`,
         fact: waiting.length === 1 ? "1 email has waited more than two days" : `${waiting.length} emails have waited more than two days`,
         urgent: Number.isFinite(oldest) && ctx.now - oldest > 4 * DAY,
-        button: "Have Claude draft replies",
-        prompt: `Find the emails in my inbox from ${listNames(names)} that have waited more than two days for a reply, and draft a reply to each. Show me every draft before anything is sent.`
+        doHere: true, doButton: waiting.length === 1 ? "Draft the reply here" : "Draft the replies here",
+        prompt: `Task: Reply to the emails in my Primary inbox from ${listNames(names)}. They have waited more than two days.\n\nFind: each email thread in Gmail.\n\nWrite: one short reply to each that answers what they asked. Warm and clear, signed ${me()}.`
       };
     }
   },
   {
     id: "calendar-prepare",
-    what: "Meetings in the next two days with people outside the business.",
+    what: "Meetings in the next two days with one or two people from outside the business, not repeating ones.",
     helps: ["win-customers", "keep-customers", "deliver-work"],
     tools: [["Google Calendar", "list_events"]],
+    clear: "Calendar, next two days: no meetings with outside people to prepare for",
     async find(read, ctx) {
       const r = await read("Google Calendar", "list_events", {
         startTime: localTime(ctx.now), endTime: localTime(new Date(ctx.now.getTime() + 2 * DAY)), orderBy: "startTime", pageSize: 25 });
-      const own = String(r.summary || "").split("@")[1] || "";
-      const meetings = (r.events || []).filter((e) => e.status !== "cancelled" && e.start && e.start.dateTime && outsiders(e, own).length);
+      const events = r.events || [], own = ownDomain(events, r.summary);
+      const meetings = events.filter((e) => e.start && e.start.dateTime && salesMeeting(e, own));
       if (!meetings.length) return null;
       const first = meetings[0], start = new Date(first.start.dateTime);
       const when = start.toLocaleString(undefined, { weekday: "long", hour: "numeric", minute: "2-digit" });
       const who = listNames(outsiders(first, own).map(attendeeName));
       return {
         line: `Prepare for ${clean(first.summary) || "your meeting"}`,
-        fact: `${when}, with ${who}.` + (meetings.length > 1 ? ` ${meetings.length - 1} more outside meeting${meetings.length > 2 ? "s" : ""} in the next two days.` : ""),
-        urgent: start - ctx.now < DAY,
-        button: "Have Claude prepare a brief",
-        prompt: `I have a meeting, "${clean(first.summary)}", on ${when} with ${who}. From my email and calendar, prepare a one-page brief: who they are, what we last discussed, and what I should ask for.`
+        fact: `${when}, with ${who}.` + (meetings.length > 1 ? ` ${meetings.length - 1} more like this in the next two days.` : ""),
+        urgent: start - ctx.now < DAY, due: isoDay(start), kind: "brief",
+        doHere: true, doButton: "Prepare a brief here",
+        prompt: `Task: Prepare me for "${clean(first.summary)}" on ${when} with ${who}.\n\nFind: the calendar entry and every email with them this year.\n\nGive me: a one-page brief in bullet points: who is coming and their roles, what we've discussed, anything they've asked that I haven't answered, and three questions I should ask.`
       };
     }
   },
   {
     id: "calendar-follow-up",
-    what: "Meetings in the past week with one or two people from outside the business, with no email to them since. Bigger groups are delivery, not sales.",
+    what: "Meetings in the past week with one or two people from outside the business, not repeating ones, with no email to them since.",
     helps: ["win-customers", "keep-customers"],
     tools: [["Google Calendar", "list_events"], ["Gmail", "search_threads"]],
+    clear: "Calendar, last 7 days: every meeting with outside people has had a follow-up",
     async find(read, ctx) {
       const r = await read("Google Calendar", "list_events", {
         startTime: localTime(new Date(ctx.now.getTime() - 7 * DAY)), endTime: localTime(ctx.now), orderBy: "startTimeDesc", pageSize: 25 });
-      const own = String(r.summary || "").split("@")[1] || "";
-      const held = (r.events || []).filter((e) => {
-        const n = outsiders(e, own).length;
-        return e.status !== "cancelled" && e.end && e.end.dateTime && n >= 1 && n <= 2;
-      }).slice(0, 5);
+      const events = r.events || [], own = ownDomain(events, r.summary);
+      const held = events.filter((e) => e.end && e.end.dateTime && salesMeeting(e, own)).slice(0, 5);
       const open = [];
       for (const e of held) {
         const guest = outsiders(e, own)[0];
         // Gmail's `after:` counts from midnight, so an email sent earlier on the meeting day counts as a follow-up.
-        const sent = await read("Gmail", "search_threads", { query: `in:sent to:${guest.email} after:${gmailDate(new Date(e.end.dateTime))}`, pageSize: 1 });
+        const sent = await read("Gmail", "search_threads", { query: `in:sent to:${guest.email} after:${gmailDate(new Date(e.end.dateTime))}`, pageSize: 1, view: "THREAD_VIEW_MINIMAL" });
         if (!(sent.threads || []).length) open.push({ e, guest });
       }
       if (!open.length) return null;
@@ -395,19 +527,19 @@ const PLAYS = [
       return {
         line: `Follow up ${day}'s meeting with ${attendeeName(guest)}`,
         fact: `No email to them since "${clean(e.summary)}".` + (open.length > 1 ? ` ${open.length - 1} more like this.` : ""),
-        urgent: false,
-        button: "Have Claude draft it",
-        prompt: `Draft a follow-up email to ${attendeeName(guest)} after our meeting "${clean(e.summary)}" on ${day}. Use what you can find in my email for context. Show me the draft before anything is sent.`
+        urgent: false, doHere: true, doButton: "Draft it here",
+        prompt: `Task: Follow up "${clean(e.summary)}" on ${day} with ${attendeeName(guest)}. I haven't emailed them since.\n\nFind: the calendar entry and my earlier emails with them, for what we discussed and agreed.\n\nWrite: a short thank-you with the next step we agreed. Under 90 words, signed ${me()}.`
       };
     }
   }
 ];
 
 /* ============================================================================================
-   3. MEASURES — the numbers under Business health and Growth, and the goal's progress. Claude
+   3. MEASURES — the numbers under Business health and Growth, and the goals' progress. Claude
       writes and proves these during setup from the founder's own accounting and shop data
       (see measures.md). Each reads through `read(server, tool, input)` and returns one number,
-      or null when the data is not there. A measure with group "goal" updates the goal instead.
+      or null when the data is not there. A measure with group "goal" (and `goal`, its index in
+      SETUP.goals) updates that goal instead.
    ============================================================================================ */
 const MEASURES = [];
 
@@ -416,10 +548,14 @@ const MEASURES = [];
    ============================================================================================ */
 const $ = (id) => document.getElementById(id);
 const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+const btn = (text, cls, onclick) => { const b = el("button", cls, text); b.type = "button"; if (onclick) b.onclick = onclick; return b; };
 const WORDS = { good: "Healthy", watch: "Watch", act: "Act now" };
+const END_DRAFTS = "Don't ask me questions first. Use my connected tools for anything you need, make sensible assumptions, and list them under the drafts so I can check them. Show me the drafts, and save them to my Gmail drafts only when I say yes. Never send anything.";
+const END_NO_GMAIL = "Don't ask me questions first. Use my connected tools for anything you need, make sensible assumptions, and list them under the drafts so I can check them. Show me the drafts. Never send anything.";
+const END_BRIEF = "Don't ask me questions first. Use my connected tools for anything you need, and list any assumptions at the end.";
 
 // ponytail: "done", "not for me" and the theme are remembered per browser (localStorage).
-// Move them to the artifact `db` capability once founders use more than one device.
+// Move them into SETUP once founders use more than one device.
 const store = {
   get(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } },
   set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} }
@@ -429,38 +565,49 @@ const memory = {
   read() { return store.get(MEMORY_KEY, {}); },
   mark(id, kind) { const m = this.read(); m[id] = { kind, at: Date.now() }; store.set(MEMORY_KEY, m); }
 };
+const fresh = (mem, id, now) => { const m = mem[id]; return !m || (m.kind === "done" && now - m.at >= 7 * DAY); };
 
 // The Eisenhower rule. Important = the item helps something in the founder's focus.
-// Urgent and important first, then important. Urgent but not important is offered to Claude.
-// Neither is never shown. Done items stay away for a week; "not for me" items stay away.
+// Urgent and important first, then important; equals are ordered by due date, then by play.
+// Urgent but not important is offered to Claude. Neither is never shown. The rest of the
+// important items wait behind "more", never silently cut.
 function choose(items, focus, mem, now) {
-  const open = items.filter((i) => {
-    const m = mem[i.id];
-    return !m || (m.kind === "done" && now - m.at >= 7 * DAY);
-  }).map((i) => ({ ...i, important: (i.helps || []).some((h) => focus.includes(h)), again: !!mem[i.id] }));
-  return {
-    next: open.filter((i) => i.important).sort((a, b) => (b.urgent ? 1 : 0) - (a.urgent ? 1 : 0)).slice(0, 3),
-    hand: open.filter((i) => !i.important && i.urgent).slice(0, 3)
-  };
+  const open = items.filter((i) => fresh(mem, i.id, now))
+    .map((i, n) => ({ ...i, n, important: (i.helps || []).some((h) => focus.includes(h)), again: !!mem[i.id] }));
+  const due = (i) => (i.due ? Date.parse(i.due) : Infinity);
+  const ranked = open.filter((i) => i.important)
+    .sort((a, b) => (b.urgent ? 1 : 0) - (a.urgent ? 1 : 0) || due(a) - due(b) || a.n - b.n);
+  return { next: ranked.slice(0, 3), more: ranked.slice(3), hand: open.filter((i) => !i.important && i.urgent).slice(0, 3) };
 }
 
 const money = (n, cur) => (n < 0 ? "−" : "") + (cur || "R") + Math.round(Math.abs(n)).toLocaleString("en-GB");
 const goalNumber = (g, n) => g.money ? money(n, g.currency) : Math.round(n).toLocaleString("en-GB");
 const monthName = (d, today) => d.toLocaleDateString(undefined, d.getFullYear() === today.getFullYear() || d - today < 300 * DAY ? { month: "long" } : { month: "long", year: "numeric" });
+const shortDate = (d) => d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
 
-// The goal's progress, pace and status, worked out from where it stands, the target, the date
-// and how fast it has moved lately (ratePerMonth, from the goal measure or the setup).
-function goalView(g, today) {
+// One goal's progress, pace and status. A goal is counted by a tool (a goal measure), by the
+// founder at each weekly review (countedBy "founder", when no connector can count it), or not
+// yet (needsAnswer: Claude needs one answer to count it).
+function goalView(g, today, index, count) {
   if (!g || !g.title) return null;
+  const view = { label: count > 1 ? `Goal ${index + 1}` : "Your goal", title: g.title, tracked: false };
+  if (g.needsAnswer) {
+    return { ...view, needs: true, now: g.needsAnswer.found || "", of: g.needsAnswer.of || "", tone: "watch", status: "Needs one answer",
+      pace: g.needsAnswer.why || "Claude needs one answer before it can count this. It asks at your weekly review." };
+  }
   const tracked = g.now != null && g.target != null && g.by;
-  const view = { title: g.title, tracked };
-  if (!tracked) { view.pace = g.source ? `Tracked for you once ${g.source} is connected.` : "Ask Claude how this goal can be counted."; return view; }
+  if (!tracked) {
+    view.pace = g.countedBy === "founder" ? "Claude asks you for this number at your weekly review."
+      : g.source ? `Tracked for you once ${g.source} is connected.` : "Ask Claude how this goal can be counted.";
+    return view;
+  }
+  view.tracked = true;
   const end = new Date(g.by), months = Math.max(0.25, (end - today) / (30.44 * DAY)), left = g.target - g.now;
   view.now = goalNumber(g, g.now);
   view.of = "of " + goalNumber(g, g.target) + (g.unit ? " " + g.unit : "");
   view.fill = Math.max(2, Math.min(100, Math.round(g.now / g.target * 100))) + "%";
   view.short = goalNumber(g, g.target) + (g.unit ? " " + g.unit : "");
-  if (left <= 0) { view.tone = "good"; view.status = "Reached"; view.pace = "You have reached your goal. Ask Claude to set the next one."; return view; }
+  if (left <= 0) { view.tone = "good"; view.status = "Reached"; view.pace = "You have reached this goal. Ask Claude to set the next one."; return view; }
   const needed = left / months, when = monthName(end, today);
   if (g.money) view.pace = `You need to grow by about ${money(needed, g.currency)} a month to reach it by ${when}.`;
   else {
@@ -468,16 +615,33 @@ function goalView(g, today) {
     view.pace = weeks >= 1.5 ? `You need ${goalNumber(g, left)} more by ${when}: about one every ${Math.round(weeks)} weeks.`
                              : `You need ${goalNumber(g, left)} more by ${when}: about ${Math.round(left / (months * 4.345))} a week.`;
   }
+  if (g.countedBy === "founder") {
+    const asked = g.askedAt ? new Date(g.askedAt) : null;
+    view.pace = `${g.source ? g.source + " has no Claude connector, so " : ""}Claude asks you for this number at each weekly review.`
+      + (asked && !isNaN(asked) ? ` Last answer ${shortDate(asked)}.` : "");
+  }
   if (g.ratePerMonth != null) {
     const onPace = g.ratePerMonth >= needed * 0.95;
     view.tone = onPace ? "good" : "watch";
     view.status = onPace ? "On pace" : "Behind pace";
     const reach = g.now + g.ratePerMonth * months;
-    if (!onPace) view.pace += ` At your current pace you will reach ${goalNumber(g, g.money ? reach : Math.floor(reach))} by ${when}.`;
+    if (!onPace && g.countedBy !== "founder") view.pace += ` At your current pace you will reach ${goalNumber(g, g.money ? reach : Math.floor(reach))} by ${when}.`;
   }
+  if (g.startsOn && new Date(g.startsOn) > today) { view.tone = "watch"; view.status = "Starts " + shortDate(new Date(g.startsOn)); }
+  if (g.stale) { view.tone = "watch"; view.status = "From " + g.stale; }
   if (g.perCustomer) view.one = `One more ${SETUP.customerWord || "customer"} takes you to ${goalNumber(g, g.now + g.perCustomer)}`
     + (g.money ? (g.unit ? " " + g.unit : "") : " of " + goalNumber(g, g.target)) + ".";
   return view;
+}
+
+// Which goal an item moves, as a short tag. Plays may set `goal` themselves.
+function goalTag(item, goals) {
+  if (item.goal) return item.goal;
+  const views = goals.map((g, i) => ({ g, short: (g.money ? goalNumber(g, g.target || 0) : (g.target != null ? goalNumber(g, g.target) : "")) + (g.unit ? " " + g.unit : ""), i }));
+  if (views.length === 1) return views[0].short.trim() ? "Toward " + views[0].short : "Toward your goal";
+  const hit = views.find((v) => (v.g.helps || []).some((h) => (item.helps || []).includes(h)));
+  if (hit) return `Goal ${hit.i + 1}: ${hit.short}`.trim();
+  return (item.helps || []).includes("get-paid") ? "Cash for your goals" : "Toward your goals";
 }
 
 // The quarter's objective and how long ago the founder reviewed it. Past a week, it asks for
@@ -490,19 +654,25 @@ function planView(plan, today) {
   return { objective: plan.objective, reviewed, overdue: days >= 7 };
 }
 
-// Needs attention: numbers at Act now, each carrying the work that fixes it when there is
-// some; then work Claude can take off the founder's hands; then numbers to watch. Three at most.
+// Payment terms the founder has not confirmed never push a number past Watch.
+function normalise(m) {
+  if (m.id === "debtor-days" && SETUP.termsConfirmed === false && m.tone === "act")
+    return { ...m, tone: "watch", note: `${m.note || ""} Your payment terms aren't confirmed yet, so this stays at Watch.`.trim() };
+  return m;
+}
+
+// Needs attention: numbers at Act now, each carrying the work that fixes it when there is some;
+// then work Claude can take off the founder's hands; then numbers to watch. Three at most.
 function attentionView(measures, hand, mem, now) {
-  const fresh = (id) => { const m = mem[id]; return !m || (m.kind === "done" && now - m.at >= 7 * DAY); };
-  const flagged = measures.filter((m) => (m.tone === "act" || m.tone === "watch") && fresh("att-" + m.id));
+  const flagged = measures.map(normalise).filter((m) => (m.tone === "act" || m.tone === "watch") && fresh(mem, "att-" + m.id, now));
   const used = new Set(), list = [];
   const entry = (m, pair) => {
     const fix = pair && hand.find((h) => !used.has(h.id) && (h.helps || []).some((x) => (m.helps || []).includes(x)));
     if (fix) used.add(fix.id);
     return { ids: ["att-" + m.id].concat(fix ? [fix.id] : []), label: m.label, tone: m.tone, title: m.alert || `${m.label}: ${m.value}`,
       note: fix ? `${fix.line}. ${fix.fact || ""}`.trim() : (m.note || ""),
-      item: fix || { id: "att-" + m.id, line: m.label, button: "Ask Claude why",
-        prompt: `My ${m.label.toLowerCase()} is ${m.value}. ${m.note || ""} Using my connected tools, explain why and what I should do first.` } };
+      item: fix || { id: "att-" + m.id, line: m.label, button: "Ask Claude why", kind: "brief",
+        prompt: `Task: My ${m.label.toLowerCase()} is ${m.value}. ${m.note || ""}\n\nFind: the numbers behind it in ${SETUP.moneyTool || "my connected tools"}.\n\nGive me: the biggest reasons in plain words, with the amounts, and the first thing I should do this week. Under 200 words.` } };
   };
   flagged.filter((m) => m.tone === "act").forEach((m) => list.push(entry(m, true)));
   hand.filter((h) => !used.has(h.id)).forEach((h) => list.push({ ids: [h.id], label: "Claude can do this", tone: "hand", title: h.line, note: h.fact || "", item: h }));
@@ -510,151 +680,488 @@ function attentionView(measures, hand, mem, now) {
   return list.slice(0, 3);
 }
 
+// Every prompt the founder copies carries what Claude needs, so a new chat asks them nothing.
+const gmailWrites = () => (SETUP.tools && (SETUP.tools.connected || []).includes("Gmail"));
+function fullPrompt(item) {
+  const end = item.kind === "brief" ? END_BRIEF : item.kind === "setup" ? "" : gmailWrites() ? END_DRAFTS : END_NO_GMAIL;
+  return [SETUP.about ? "About me: " + SETUP.about : "", item.prompt || item.line, end].filter(Boolean).join("\n\n");
+}
+
 function selfCheck() {
   const s = SETUP.snapshot, focus = ["win-customers", "keep-customers"], fails = [];
   const ok = (cond, what) => { if (!cond) fails.push(what); };
   let r = choose(s.items, focus, {}, 0);
   ok(r.next.length === 3 && r.next[0].id === "u-hillside", "urgent and important leads");
+  ok(r.more.length === 1 && r.more[0].id === "u-sipho", "a fourth important item waits behind more");
   ok(r.hand.length === 1 && r.hand[0].id === "u-chase", "urgent but not important is offered to Claude");
-  ok(![...r.next, ...r.hand].some((i) => i.id === "u-newsletter"), "neither urgent nor important is never shown");
+  ok(![...r.next, ...r.more, ...r.hand].some((i) => i.id === "u-newsletter"), "neither urgent nor important is never shown");
+  r = choose([{ id: "a", helps: ["x"] }, { id: "b", helps: ["x"], due: "2026-12-01" }, { id: "c", helps: ["x"], due: "2026-11-25" }], ["x"], {}, 0);
+  ok(r.next.map((i) => i.id).join() === "c,b,a", "equals are ordered by due date, then play order");
   r = choose(s.items, focus, { "u-hillside": { kind: "done", at: 0 } }, DAY);
-  ok(r.next.length === 3 && r.next[2].id === "u-sipho", "a done item leaves and the next moves up");
+  ok(r.next.length === 3 && r.next[2].id === "u-sipho" && !r.more.length, "a done item leaves and the next moves up");
   r = choose(s.items, focus, { "u-hillside": { kind: "done", at: 0 } }, 8 * DAY);
   ok(r.next[0].id === "u-hillside" && r.next[0].again, "a done item returns after a week");
-  r = choose(s.items, focus, { "u-hillside": { kind: "skip", at: 0 }, "u-sipho": { kind: "skip", at: 0 } }, 999 * DAY);
-  ok(r.next.length === 2, "a not-for-me item stays away and the list is not padded");
   const hand = choose(s.items, focus, {}, 0).hand;
   let att = attentionView(s.measures, hand, {}, 0);
   ok(att.length === 3 && att[0].tone === "act" && att[0].item.id === "u-chase", "a number at Act now carries the work that fixes it");
   ok(!att.some((a) => a.tone === "hand"), "work paired with a number is not shown twice");
-  att = attentionView(s.measures.filter((m) => m.tone !== "act"), hand, {}, 0);
-  ok(att[0].tone === "hand" && att[0].item.id === "u-chase", "work with no number at Act now is still offered");
-  const mem = { "att-debtor-days": { kind: "done", at: 0 }, "u-chase": { kind: "done", at: 0 } };
-  att = attentionView(s.measures, choose(s.items, focus, mem, DAY).hand, mem, DAY);
-  ok(!att.some((a) => a.ids.includes("u-chase") || a.ids.includes("att-debtor-days")), "Done clears the number and its work together");
-  const g = goalView(SETUP.goal, new Date("2026-11-23T07:00:00+02:00"));
-  ok(g.status === "Behind pace" && /every 8 weeks/.test(g.pace) && /reach 12 by/.test(g.pace), "goal pace: " + g.pace);
+  SETUP.termsConfirmed = false;
+  att = attentionView(s.measures, hand, {}, 0);
+  ok(!att.some((a) => a.tone === "act"), "unconfirmed terms never reach Act now");
+  SETUP.termsConfirmed = true;
+  const today = new Date("2026-11-23T07:00:00+02:00");
+  const g = goalView(SETUP.goals[0], today, 0, 1);
+  ok(g.label === "Your goal" && g.status === "Behind pace" && /every 8 weeks/.test(g.pace) && /reach 12 by/.test(g.pace), "goal pace: " + g.pace);
   ok(g.one === "One more school takes you to 12 of 15.", "one more: " + g.one);
-  const mg = goalView({ title: "x", now: 184000, target: 300000, by: "2027-05-31", money: true, unit: "a month", perCustomer: 30000 }, new Date("2026-11-23"));
-  ok(mg.short === "R300,000 a month" && mg.one === "One more school takes you to R214,000 a month.", "money goal: " + mg.one);
-  ok(!goalView({ title: "x", source: "Xero" }, new Date()).tracked, "a goal with no number is shown without a bar");
+  const two = [{ title: "x", now: 184000, target: 300000, by: "2027-05-31", money: true, unit: "a month", perCustomer: 30000, helps: ["win-customers"] },
+    { title: "y", now: 5, target: 40, by: "2027-03-31", unit: "members", countedBy: "founder", source: "Skool", askedAt: "2026-11-23", helps: ["keep-customers"] }];
+  const g1 = goalView(two[0], today, 0, 2), g2 = goalView(two[1], today, 1, 2);
+  ok(g1.label === "Goal 1" && g1.one === "One more school takes you to R214,000 a month.", "money goal: " + g1.one);
+  ok(g2.tracked && /Skool has no Claude connector/.test(g2.pace) && g2.fill === "13%", "founder-counted goal: " + g2.pace);
+  ok(goalTag({ helps: ["keep-customers"] }, two) === "Goal 2: 40 members", "tag: " + goalTag({ helps: ["keep-customers"] }, two));
+  ok(goalTag({ helps: ["win-customers"] }, SETUP.goals) === "Toward 15 schools", "one goal tag");
+  const na = goalView({ title: "z", needsAnswer: { found: "R226,000", of: "invoiced in October" } }, today, 0, 1);
+  ok(na.needs && na.status === "Needs one answer" && !na.tracked, "a goal that needs an answer shows no bar");
+  ok(!goalView({ title: "x", source: "Xero" }, new Date(), 0, 1).tracked, "a goal with no number is shown without a bar");
   ok(planView({ objective: "x", reviewedAt: "2026-11-14" }, new Date("2026-11-23T12:00:00")).overdue, "a plan older than a week asks for a review");
-  ok(!planView({ objective: "x", reviewedAt: "2026-11-23" }, new Date("2026-11-23T12:00:00")).overdue, "a fresh plan does not");
+  const p = fullPrompt(s.items[0]);
+  ok(p.startsWith("About me: I'm Thandi") && p.endsWith("Never send anything.") && /Task:/.test(p), "prompts carry full context");
+  ok(fullPrompt({ prompt: "x", kind: "brief" }).endsWith("at the end."), "a brief ends asking for assumptions");
+  ok(findList({ data: { page: { invoices: [1, 2] } } }, "invoices").length === 2 && !findList({}, "invoices").length, "lists are found at any depth");
+  ok(outsiders({ attendees: [{ email: "me@a.co", self: true }, { email: "pieter@a.co" }, { email: "x@b.co" }, { email: "y@b.co", responseStatus: "declined" }] }, "a.co").length === 1, "teammates and declined guests are not outsiders");
+  ok(!salesMeeting({ recurringEventId: "r", attendees: [{ email: "x@b.co" }] }, "a.co"), "repeating meetings are not sales meetings");
+  ok(ownDomain([{ attendees: [{ email: "me@a.co", self: true }] }], "Work calendar") === "a.co", "own domain comes from the founder's own entry");
+  const html = pageWith({ ...SETUP, founder: "Zo<e" });
+  ok(html.startsWith("<!DOCTYPE html>") && html.includes('"founder": "Zo\\u003ce"') && html.includes('<ol class="rows" id="week"></ol>'), "a saved review publishes the page as it arrived, with new setup");
   console.log("whats-next self-check:", fails.length ? fails : "ok");
+  document.documentElement.dataset.selfcheck = fails.length ? "fail: " + fails.join(" | ") : "ok";
 }
 
 let toastTimer;
-function toast(text) { const t = $("toast"); t.textContent = text; t.classList.add("on"); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("on"), 3200); }
-
-// Handing a job to Claude: copy a ready-made request for the founder to paste into Claude.
-// ponytail: copy-and-paste always works. Replace with a direct hand-off if testing finds one.
-async function handToClaude(prompt, line) {
-  try { await navigator.clipboard.writeText(prompt); toast("Copied. Paste it into Claude."); }
-  catch { toast("Couldn't copy. Ask Claude: " + line); }
+function toast(text) { if (!text) return; const t = $("toast"); t.textContent = text; t.classList.add("on"); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("on"), 3200); }
+async function copy(text, said) {
+  try { await navigator.clipboard.writeText(text); toast(said || "Copied. Paste it into a new chat with Claude."); return true; }
+  catch { toast("Couldn't copy. Select the text and copy it yourself."); return false; }
 }
 
-function actionButton(item, cls) {
-  if (item.link) { const a = el("a", cls, item.button || "Open it"); a.href = item.link; a.target = "_blank"; a.rel = "noopener"; return a; }
-  const b = el("button", cls, item.button || "Have Claude do it"); b.type = "button";
-  b.onclick = () => handToClaude(item.prompt || item.line, item.line);
-  return b;
-}
-function quietButton(text, onclick) { const b = el("button", "btn quiet sm", text); b.type = "button"; b.onclick = onclick; return b; }
+/* What the page can do in this view: read tools (mcp), ask Claude (sample, with tools), and save
+   (artifact). Each is null when not available; the page falls back to copying prompts. */
+const caps = { mcp: null, sample: null, tools: false, artifact: null };
+const ui = { promptOpen: null, active: null, phase: null, drafts: {}, saved: {}, more: false, all: false, open: {}, review: null };
+const state = { items: SETUP.snapshot.items || [], measures: SETUP.snapshot.measures || [], goals: SETUP.goals.map((g) => ({ ...g })),
+  clear: SETUP.snapshot.clear || [], live: null, problems: [], rerun: null };
+const canDraft = () => !!(caps.sample && caps.tools && caps.mcp && !SETUP.demo);
+const canReview = () => !!(canDraft() && caps.artifact);
 
-const state = { items: SETUP.snapshot.items || [], measures: SETUP.snapshot.measures || [], goal: SETUP.goal || {},
-  live: null, problems: [], rerun: null, open: {}, all: false };
+// The connector tools Claude may read while it drafts or reviews: everything the plays and
+// measures read, plus any extra reads Claude proved during setup (SETUP.reads).
+function readTool() {
+  const allowed = new Set([...PLAYS, ...MEASURES].flatMap((p) => p.tools).concat(SETUP.reads || []).map(([s, t]) => s + "/" + t));
+  return {
+    name: "read",
+    description: "Read from one of my connected tools. `server` and `tool` must be one of: " + [...allowed].join(", ")
+      + ". `input` is that tool's arguments. Returns the tool's answer as text, cut to 20,000 characters. Only reads; it never changes anything.",
+    inputSchema: { type: "object", properties: { server: { type: "string" }, tool: { type: "string" }, input: { type: "object" } }, required: ["server", "tool"] },
+    async execute(input) {
+      const server = String(input.server || ""), tool = String(input.tool || "");
+      if (!allowed.has(server + "/" + tool)) throw new Error("Not one of the allowed tools: " + [...allowed].join(", "));
+      const r = await caps.mcp.callTool(server, tool, input.input && typeof input.input === "object" ? input.input : {});
+      const payload = r && r.payload !== undefined ? r.payload : r;
+      return (typeof payload === "string" ? payload : JSON.stringify(payload)).slice(0, 20000);
+    }
+  };
+}
+function sampleProblem(e) {
+  const c = e && e.code;
+  if (c === "cancelled") return "";
+  if (["not_granted", "sampling_disabled", "not_declared", "capability_disabled", "capability_removed", "tools_unavailable"].includes(c)) {
+    caps.sample = null; return "Claude can't work on this page. Use Copy prompt instead.";
+  }
+  if (c === "rate_limited") return e.reason === "usage_limit" ? "You've reached your Claude usage limit for now. Try again later." : "Claude is busy. Try again in a minute.";
+  if (c === "session_expired") return "Sign in to Claude again, then try again.";
+  return "That didn't work. Try again, or use Copy prompt.";
+}
+const asText = (v, max) => String(v == null ? "" : v).slice(0, max || 4000);
+const validEmail = (s) => /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(String(s || ""));
+
+// "Do it here": Claude reads the founder's tools and drafts the work on the page. Nothing is sent.
+async function doHere(item) {
+  ui.active = item.id; ui.phase = "working"; render();
+  const ask = fullPrompt(item) + "\n\nYou are working inside my What's next dashboard. Use the read tool to look things up. Do not send or change anything."
+    + " Reply with only JSON: {\"note\": one sentence on what you used and anything I should check, \"drafts\": [{\"kind\": \"email\" | \"post\" | \"note\","
+    + " \"to\": the person's name and organisation, or where it goes, \"email\": their email address for an email, else \"\", \"subject\": \"\" when there is none,"
+    + " \"body\": plain text, greeting on its own line, blank lines between paragraphs, ending with a sign-off and my first name (not for a note or a brief)}]}."
+    + (item.kind === "brief" ? " Return the brief as one draft of kind \"note\", with \"to\" saying what it is for." : "");
+  try {
+    const r = await caps.sample.json(ask, { tools: [readTool()] });
+    const drafts = (r && Array.isArray(r.drafts) ? r.drafts : []).slice(0, 5).map((d) => ({
+      kind: ["email", "post", "note"].includes(d && d.kind) ? d.kind : "note", to: asText(d && d.to, 200), email: asText(d && d.email, 200).trim(),
+      subject: asText(d && d.subject, 200), body: asText(d && d.body, 6000) })).filter((d) => d.body.trim());
+    if (!drafts.length) throw { code: "empty_completion" };
+    ui.drafts[item.id] = { note: asText(r.note, 400), drafts };
+    ui.phase = ui.active === item.id ? "ready" : ui.phase;
+  } catch (e) { if (ui.active === item.id) { ui.active = null; ui.phase = null; } toast(sampleProblem(e)); }
+  render();
+}
+async function saveDraft(d, key) {
+  try {
+    await caps.mcp.callTool("Gmail", "create_draft", { to: [d.email], subject: d.subject, body: d.body });
+    ui.saved[key] = true; render(); return true;
+  } catch (e) { toast(explain("Gmail", e && e.code)); return false; }
+}
+
+/* The weekly review, on the page. Claude reads the week, asks up to three questions one at a
+   time, then proposes the quarter's plan and new ideas. Saving publishes the page with the new
+   SETUP. Bigger changes (the goal, a new tool) go to a chat with a full-context prompt. */
+function reviewContext() {
+  const mem = memory.read(), now = Date.now();
+  return {
+    today: isoDay(new Date()), team: SETUP.team || [],
+    goals: state.goals.map((g, i) => ({ index: i, title: g.title, now: g.now, target: g.target, by: g.by, unit: g.unit, countedBy: g.countedBy || "tool", needsAnswer: g.needsAnswer || null })),
+    plan: SETUP.plan || null,
+    thisWeek: state.items.map((i) => ({ id: i.id, play: i.play, line: i.line, fact: i.fact, done: !!(mem[i.id] && mem[i.id].kind === "done" && now - mem[i.id].at < 8 * DAY), notForMe: !!(mem[i.id] && mem[i.id].kind === "skip") })),
+    numbers: state.measures.map(normalise).filter((m) => m.tone !== "good").map((m) => ({ label: m.label, value: m.value, verdict: WORDS[m.tone] })),
+    lastIdeas: (SETUP.ideas || []).map((i) => i.title)
+  };
+}
+function pageQuestions() {
+  const qs = [];
+  state.goals.forEach((g, i) => {
+    if (g.needsAnswer && g.needsAnswer.question) qs.push({ key: "count-" + i, short: "Counting goal " + (i + 1), q: g.needsAnswer.question, options: (g.needsAnswer.options || []).slice(0, 3) });
+    else if (g.countedBy === "founder") qs.push({ key: "goal-" + i, short: g.unit ? "Your " + g.unit : "Goal " + (i + 1), kind: "number",
+      q: g.ask || `${g.source ? g.source + " has no Claude connector. " : ""}What is the number for "${g.title}" today?`, options: [] });
+  });
+  return qs;
+}
+async function startReview() {
+  const fixed = pageQuestions(), n = Math.max(1, 3 - fixed.length);
+  ui.review = { step: "reading", qi: 0, answers: [], text: "" }; ui.promptOpen = null; render();
+  const ask = (SETUP.about ? "About me: " + SETUP.about + "\n\n" : "")
+    + "You are running my weekly review inside my What's next dashboard. Here is what the dashboard knows, as JSON:\n" + JSON.stringify(reviewContext())
+    + "\n\nUse the read tool for a few quick checks of what changed this week. Then reply with only JSON: {\"summary\": [three short plain sentences on my week:"
+    + " a goal's number since the last review, what got done, anything that moved to Watch or Act now], \"questions\": [" + n + " question" + (n > 1 ? "s" : "")
+    + " at most, one idea each, in plain words: {\"key\": a short id, \"short\": two or three words, \"q\": the question, \"options\": two or three short answers I can tap}]}."
+    + " The last question must have key \"plan\" and ask whether this quarter's plan is still right: \"" + ((SETUP.plan || {}).objective || "not set yet")
+    + "\". Its options: \"Yes, keep it\" and one or two sharper alternatives. Ask nothing you could read in my tools.";
+  try {
+    const r = await caps.sample.json(ask, { tools: [readTool()] });
+    const theirs = (r && Array.isArray(r.questions) ? r.questions : []).slice(0, n).map((q, k) => ({
+      key: asText(q && q.key, 30) || "q" + k, short: asText(q && q.short, 40) || "Question", q: asText(q && q.q, 300),
+      options: (Array.isArray(q && q.options) ? q.options : []).slice(0, 3).map((o) => asText(o, 80)) })).filter((q) => q.q);
+    if (!ui.review) return;
+    ui.review = { ...ui.review, step: "q", summary: (Array.isArray(r && r.summary) ? r.summary : []).slice(0, 3).map((s) => asText(s, 240)), questions: fixed.concat(theirs) };
+    if (!ui.review.questions.length) return finishReview();
+  } catch (e) { ui.review = null; toast(sampleProblem(e)); }
+  render();
+}
+function answer(text) {
+  const rv = ui.review; if (!rv) return;
+  rv.answers.push(text); rv.text = "";
+  if (rv.answers.length < rv.questions.length) { rv.qi++; render(); return; }
+  finishReview();
+}
+async function finishReview() {
+  const rv = ui.review; rv.step = "thinking"; render();
+  const answered = rv.questions.map((q, k) => ({ key: q.key, question: q.q, answer: rv.answers[k] || "Skipped" }));
+  const toCount = answered.filter((a) => a.key.startsWith("count-") && a.answer !== "Skipped");
+  const ask = (SETUP.about ? "About me: " + SETUP.about + "\n\n" : "")
+    + "You are finishing my weekly review inside my What's next dashboard. What the dashboard knows:\n" + JSON.stringify(reviewContext())
+    + "\n\nMy answers:\n" + JSON.stringify(answered)
+    + (toCount.length ? "\n\nFor each answer with a key starting \"count-\", use the read tool to count that goal (the number after \"count-\" is its index) the way I said, and return it in goalNumbers." : "")
+    + "\n\nReply with only JSON: {\"objective\": this quarter's plan in one line (the same words if I said keep it), \"ideas\": [three ideas toward my goals, each {\"goal\": which goal it serves in five words or fewer,"
+    + " \"title\": what to do, starting with a verb, under 70 characters, \"note\": one sentence with a fact from my tools, \"prompt\": a request I can paste into a new chat, in the shape"
+    + " \"Task: …\\n\\nFind: …\\n\\nWrite: …\" (or \"Give me: …\" for a report), naming the people, amounts and tools involved, signed " + me() + "}], \"goalNumbers\": [{\"index\": 0, \"now\": a number}] only for goals you counted"
+    + ((SETUP.team || []).length ? ", \"owners\": {an item's play id: the first name of who should own it this week, from " + JSON.stringify([SETUP.founder].concat(SETUP.team)) + "}" : "")
+    + "}. When an idea is about adding a tool, suggest only a Claude connector. Use only facts from my tools and my answers.";
+  try {
+    const r = await caps.sample.json(ask, { tools: [readTool()] });
+    if (!ui.review) return;
+    rv.result = {
+      objective: asText(r && r.objective, 200) || (SETUP.plan || {}).objective || "",
+      ideas: (Array.isArray(r && r.ideas) ? r.ideas : []).slice(0, 3).map((i, k) => ({ id: "idea-" + Date.now().toString(36) + k, goal: asText(i && i.goal, 40),
+        title: asText(i && i.title, 90), note: asText(i && i.note, 240), prompt: asText(i && i.prompt, 3000) })).filter((i) => i.title),
+      goalNumbers: (Array.isArray(r && r.goalNumbers) ? r.goalNumbers : []).filter((g) => g && Number.isFinite(Number(g.now)) && state.goals[Number(g.index)]),
+      owners: r && r.owners && typeof r.owners === "object" ? r.owners : null
+    };
+    rv.step = "plan";
+  } catch (e) { ui.review = null; toast(sampleProblem(e)); }
+  render();
+}
+function reviewedSetup() {
+  const rv = ui.review, res = rv.result, next = JSON.parse(JSON.stringify(SETUP)), today = isoDay(new Date());
+  next.plan = { objective: res.objective, reviewedAt: today };
+  if (res.ideas.length) { next.ideas = res.ideas; next.ideasFrom = today; }
+  rv.questions.forEach((q, k) => {
+    const a = rv.answers[k], m = /^(goal|count)-(\d+)$/.exec(q.key);
+    if (!m || a === undefined || a === "Skipped" || !next.goals[Number(m[2])]) return;
+    const g = next.goals[Number(m[2])];
+    if (m[1] === "goal") { const n = parseFloat(String(a).replace(/[^\d.]/g, "")); g.now = Number.isFinite(n) ? n : 0; g.askedAt = today; }
+    else { g.countRule = a; }
+  });
+  res.goalNumbers.forEach((x) => { const g = next.goals[Number(x.index)]; g.now = Number(x.now); g.countedBy = g.countedBy === "founder" ? "founder" : "review"; delete g.needsAnswer; });
+  if (res.owners) next.owners = { ...(next.owners || {}), ...res.owners };
+  return next;
+}
+async function saveReview() {
+  try { await caps.artifact.publish(pageWith(reviewedSetup())); toast("Saved. Your dashboard is up to date."); }
+  catch (e) {
+    const c = e && e.code;
+    toast(c === "conflict" ? "The page changed just now. It will reload; do the review again if it didn't save."
+      : c === "not_granted" || c === "not_writer" ? "Only the owner of this dashboard can save a review." : "Couldn't save. Try again, or talk it through in a chat.");
+  }
+}
+function chatPrompt() {
+  const rv = ui.review || {};
+  return [SETUP.about ? "About me: " + SETUP.about : "",
+    "Task: I want to talk through bigger changes than my weekly review covers, such as my goal, my focus or a new tool. Then update my What's next dashboard.",
+    rv.summary && rv.summary.length ? "Where things stand: " + rv.summary.join(" ") : "",
+    "This quarter's plan: " + ((SETUP.plan || {}).objective || "not set yet") + ".",
+    rv.answers && rv.answers.length ? "What I said in this week's review: " + rv.answers.map((a, k) => rv.questions[k].short + ": " + a + ".").join(" ") : "",
+    "Ask me one question at a time, and suggest options when I'm unsure. Use my connected tools rather than asking me for numbers."].filter(Boolean).join("\n\n");
+}
+
+// The page as it arrived, with new setup: what a saved review publishes.
+function pageWith(setup) {
+  const own = (n) => n.nodeType !== 1 || n.hasAttribute("data-own");
+  const head = PRISTINE.head.cloneNode(true), body = PRISTINE.body.cloneNode(true);
+  [...head.childNodes].forEach((n) => { if (!own(n)) n.remove(); });
+  [...body.childNodes].forEach((n) => { if (!own(n)) n.remove(); });
+  body.querySelector("#setup").textContent = "\n" + JSON.stringify(setup, null, 1).replace(/</g, "\\u003c") + "\n";
+  return `<!DOCTYPE html>\n<html lang="en" data-theme="auto">\n<head>${head.innerHTML}</head>\n<body>${body.innerHTML}</body>\n</html>\n`;
+}
+
+// A box showing the prompt that was just copied.
+function promptBox(text, onClose) {
+  const box = el("div", "prompt-box"), head = el("p", "prompt-head"), acts = el("span", "links");
+  box.setAttribute("role", "region"); box.setAttribute("aria-label", "Prompt for a new chat");
+  acts.append(btn("Copy again", "textbtn", () => copy(text, "Copied again.")), btn("Close", "textbtn", onClose));
+  head.append(el("span", "", "Copied. Paste this into a new chat with Claude:"), acts);
+  box.append(head, el("p", "prompt-text", text));
+  return box;
+}
+function togglePrompt(id, text) {
+  if (ui.promptOpen === id) { ui.promptOpen = null; render(); return; }
+  ui.promptOpen = id; render(); copy(text);
+}
+
+function rowItem(item, i, team) {
+  const li = el("li", "tile row-item" + (i === 0 ? " first" : "")), text = el("div"), side = el("div", "side-acts"), links = el("div", "links");
+  text.style.minWidth = "0";
+  const doable = item.doHere && canDraft(), busy = ui.active === item.id && ui.phase === "working", open = ui.active === item.id && ui.phase === "ready";
+  const prompt = fullPrompt(item), meta = el("div", "meta");
+  text.append(el("p", "t", item.line));
+  if (busy) { const b = el("p", "f busy-line"); b.append(el("span", "dot"), "Claude is reading your tools and drafting…"); text.append(b); }
+  else text.append(el("p", "f", (item.again ? "Still open. " : "") + (item.fact || "")));
+  meta.append(el("span", "tag goaltag", goalTag(item, state.goals)));
+  if (team.length) meta.append(el("span", "owner-name", (SETUP.owners || {})[item.play] || (SETUP.owners || {})[item.id] || item.owner || SETUP.founder || ""));
+  text.append(meta);
+  let main;
+  if (item.link) { main = el("a", "btn sm" + (i ? " quiet" : ""), item.button || "Open it"); main.href = item.link; main.target = "_blank"; main.rel = "noopener"; }
+  else if (doable) {
+    main = btn("", "btn sm" + (i ? " quiet" : ""), () => { if (open) { ui.active = null; ui.phase = null; render(); } else doHere(item); });
+    if (busy) main.append(el("span", "dot"));
+    main.append(busy ? "Drafting…" : open ? "Hide drafts" : (item.doButton || "Do it here"));
+    main.setAttribute("aria-busy", String(busy)); main.setAttribute("aria-expanded", String(open));
+    links.append(btn(ui.promptOpen === item.id ? "Hide prompt" : "Copy prompt", "textbtn", () => togglePrompt(item.id, prompt)));
+  } else main = btn(ui.promptOpen === item.id ? "Hide prompt" : (item.button || "Copy prompt for a new chat"), "btn sm" + (i ? " quiet" : ""), () => togglePrompt(item.id, prompt));
+  links.append(btn("Done", "textbtn", () => { memory.mark(item.id, "done"); render(); }), btn("Not for me", "textbtn", () => { memory.mark(item.id, "skip"); render(); }));
+  side.append(main, links);
+  li.append(el("span", "num", i + 1), text, side);
+  if (ui.promptOpen === item.id) li.append(promptBox(prompt, () => togglePrompt(item.id, prompt)));
+  if (open && ui.drafts[item.id]) li.append(draftsPanel(item, ui.drafts[item.id]));
+  return li;
+}
+function draftsPanel(item, res) {
+  const box = el("div", "inline-drafts"), head = el("div", "drafts-head"), acts = el("div", "acts"), grid = el("div", "draft-grid" + (res.drafts.length === 1 ? " one" : ""));
+  const canSave = (d) => d.kind === "email" && validEmail(d.email) && gmailWrites();
+  const savable = res.drafts.map((d, k) => [d, item.id + ":" + k]).filter(([d]) => canSave(d));
+  const allSaved = savable.length && savable.every(([, k]) => ui.saved[k]);
+  if (savable.length) acts.append(btn(allSaved ? "All saved" : savable.length === 1 ? "Save to Gmail drafts" : `Save all ${savable.length} to Gmail drafts`, "btn sm", async () => {
+    let n = 0; for (const [d, k] of savable) if (ui.saved[k] || await saveDraft(d, k)) n++;
+    if (n) toast(n === 1 ? "Saved to your Gmail drafts." : `Saved ${n} drafts to Gmail.`);
+  }));
+  acts.append(btn("Close", "btn sm quiet", () => { ui.active = null; ui.phase = null; render(); }));
+  head.append(el("p", "note", res.note || "Check the facts before you send."), acts);
+  res.drafts.forEach((d, k) => {
+    const card = el("div", "draft"), a = el("div", "acts"), key = item.id + ":" + k;
+    const field = (label, value, cls) => { const f = el("div", "field"); f.append(el("span", "k", label), el("span", cls || "", value)); return f; };
+    card.append(field(d.kind === "email" ? "To" : d.kind === "post" ? "Where" : "For", d.email && d.to ? `${d.to} (${d.email})` : (d.to || d.email)));
+    if (d.subject) card.append(field("Subject", d.subject, "subj"));
+    card.append(el("p", "body", d.body));
+    if (canSave(d) && savable.length > 1) a.append(btn(ui.saved[key] ? "Saved" : "Save to Gmail", "btn sm quiet" + (ui.saved[key] ? " saved" : ""), async () => { if (await saveDraft(d, key)) toast("Saved to your Gmail drafts."); }));
+    a.append(btn("Copy", "btn sm quiet", () => copy((d.subject ? "Subject: " + d.subject + "\n\n" : "") + d.body, "Copied.")));
+    card.append(a); grid.append(card);
+  });
+  box.append(head, grid, el("p", "safe", gmailWrites() ? "Nothing is sent from this page. Saved emails wait in your Gmail drafts for you to check and send." : "Nothing is sent from this page."));
+  return box;
+}
+
+function renderReview() {
+  const box = $("review"), rv = ui.review; box.replaceChildren(); box.hidden = !rv;
+  if (!rv) return;
+  const head = el("div", "review-head"), label = el("p", "label", "Weekly review"); label.style.marginBottom = "0";
+  head.append(label, btn("Cancel", "textbtn", () => { ui.review = null; ui.promptOpen = null; render(); }));
+  box.append(head);
+  const working = (t) => { const p = el("p", "busy-line"); p.setAttribute("role", "status"); p.append(el("span", "dot"), t); return p; };
+  const doneList = () => { const ul = el("ul", "rv-done"); rv.answers.forEach((a, k) => { const li = el("li"); li.append(el("span", "dim", rv.questions[k].short), el("span", "", a)); ul.append(li); }); return ul; };
+  if (rv.step === "reading") box.append(working("Reading your week in " + listNames((SETUP.tools || {}).connected || ["your tools"]) + "…"));
+  if (rv.step === "thinking") box.append(working("Updating your plan and ideas…"));
+  if (rv.step === "q") {
+    const week = el("div"), ul = el("ul", "rv-list");
+    (rv.summary || []).forEach((s) => ul.append(el("li", "", s)));
+    week.append(el("p", "rv-title", "Your week"), ul);
+    box.append(week);
+    if (rv.answers.length) box.append(doneList());
+    const q = rv.questions[rv.qi], wrap = el("div", "rv-q"), opts = el("div", "rv-options"), own = el("div", "rv-own");
+    wrap.setAttribute("role", "group"); wrap.setAttribute("aria-label", `Question ${rv.qi + 1} of ${rv.questions.length}`);
+    (q.kind === "number" ? ["None yet"] : q.options).forEach((o) => opts.append(btn(o, "chip", () => answer(o === "None yet" && q.kind === "number" ? "0" : o))));
+    const input = el("input"), lab = el("label", "sr-only", q.kind === "number" ? "Type a number" : "Or answer in your own words");
+    input.id = "rv-own"; lab.htmlFor = "rv-own"; input.type = q.kind === "number" ? "number" : "text"; input.placeholder = lab.textContent; input.value = rv.text;
+    input.oninput = () => { rv.text = input.value; };
+    input.onkeydown = (e) => { if (e.key === "Enter" && input.value.trim()) answer(input.value.trim()); };
+    own.append(lab, input, btn("Answer", "btn sm quiet", () => { if (input.value.trim()) answer(input.value.trim()); }), btn("Skip", "textbtn", () => answer("Skipped")));
+    wrap.append(el("p", "rv-count", `Question ${rv.qi + 1} of ${rv.questions.length}`), el("p", "rv-ask", q.q), opts, own);
+    box.append(wrap);
+  }
+  if (rv.step === "plan") {
+    const res = rv.result, plan = el("div", "rv-plan"), a = el("div"), b = el("div"), c = el("div"), ideas = el("ul", "rv-list");
+    const t = el("p", "rv-title", "This quarter");
+    if (res.objective !== (SETUP.plan || {}).objective) { const tag = el("span", "tag", "Changed"); tag.style.marginLeft = "8px"; t.append(tag); }
+    a.append(t, el("p", "rv-objective", res.objective));
+    b.append(el("p", "rv-title", "What you told me"), doneList());
+    res.ideas.forEach((i) => { const li = el("li", "", i.title + " "); li.append(el("span", "dim", "· " + i.goal)); ideas.append(li); });
+    c.append(el("p", "rv-title", "New ideas for your goal"), ideas);
+    plan.append(a, b, c);
+    const acts = el("div", "acts"), cp = chatPrompt();
+    acts.append(btn("Save to my dashboard", "btn sm", saveReview),
+      btn(ui.promptOpen === "review-chat" ? "Hide prompt" : "Talk it through in chat", "btn sm quiet", () => togglePrompt("review-chat", cp)),
+      el("span", "dim", "For bigger changes, like your goal or a new tool."));
+    box.append(plan, acts);
+    if (ui.promptOpen === "review-chat") box.append(promptBox(cp, () => togglePrompt("review-chat", cp)));
+  }
+}
 
 function render() {
-  const now = Date.now(), today = new Date(), mem = memory.read();
-  const { next, hand } = choose(state.items, SETUP.focus || [], mem, now);
-  const goal = goalView(state.goal, today), plan = planView(SETUP.plan, today), team = SETUP.team || [];
+  const now = Date.now(), today = new Date(), mem = memory.read(), team = SETUP.team || [];
+  const { next, more, hand } = choose(state.items, SETUP.focus || [], mem, now);
+  const goals = state.goals.map((g, i) => goalView(g, today, i, state.goals.length)).filter(Boolean);
+  const plan = planView(SETUP.plan, today);
 
-  const hour = today.getHours();
+  const hour = today.getHours(), toward = goals.length > 1 ? `your ${goals.length === 2 ? "two" : goals.length} goals` : goals[0] && goals[0].short ? goals[0].short : "your goal";
   $("headline").replaceChildren();
-  if (next.length) {
-    $("headline").append(el("span", "n", next.length),
-      `${next.length === 1 ? "thing this week moves" : "things this week move"} you toward ${goal && goal.tracked ? goal.short : "your goal"}`);
-  } else $("headline").textContent = "Nothing needs you this week";
+  if (next.length) $("headline").append(el("span", "n", next.length), `${next.length === 1 ? "thing this week moves" : "things this week move"} you toward ${toward}`);
+  else $("headline").textContent = "Nothing needs you this week";
   $("hello").textContent = `Good ${hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening"}${SETUP.founder ? ", " + SETUP.founder : ""}. ${SETUP.snapshot.summary || ""}`.trim();
 
-  // Your goal
-  const gt = $("goal"); gt.replaceChildren(); gt.hidden = !goal;
-  if (goal) {
-    const label = el("p", "label"); label.append(el("span", "", "Your goal"));
-    if (goal.status) label.append(el("span", "tone " + goal.tone, goal.status));
-    gt.append(label, el("h2", "", goal.title));
-    if (goal.tracked) {
-      const count = el("p", "count"); count.append(el("span", "big", goal.now), el("span", "of", goal.of));
-      const bar = el("div", "bar"); bar.setAttribute("aria-hidden", "true"); const fill = el("i"); fill.style.width = goal.fill; bar.append(fill);
-      gt.append(count, bar, el("p", "pace", goal.pace));
-      if (goal.one) gt.append(el("p", "one", goal.one));
-    } else gt.append(el("p", "pace dim", goal.pace));
-  }
+  // Goals
+  const gt = $("goals"); gt.replaceChildren(); gt.hidden = !goals.length;
+  gt.setAttribute("aria-label", goals.length > 1 ? "Your goals" : "Your goal");
+  goals.forEach((g, i) => {
+    const box = el("div", "goal" + (i ? " second" : "")), label = el("p", "label");
+    label.append(el("span", "", g.label));
+    if (g.status) label.append(el("span", "tone " + g.tone, g.status));
+    box.append(label, el("h2", "", g.title));
+    if (g.tracked || g.needs) { const count = el("p", "count"); count.append(el("span", "big", g.now), el("span", "of", g.of)); box.append(count); }
+    if (g.tracked) { const bar = el("div", "bar"); bar.setAttribute("aria-hidden", "true"); const fill = el("i"); fill.style.width = g.fill; bar.append(fill); box.append(bar); }
+    box.append(el("p", "pace" + (g.tracked ? "" : " dim"), g.pace));
+    if (g.one) box.append(el("p", "one", g.one));
+    if (g.needs && canReview() && !ui.review) { const a = el("div", "acts"); a.append(btn("Answer it now", "btn sm", startReview)); box.append(a); }
+    gt.append(box);
+  });
 
-  // This quarter
+  // This quarter, and the weekly review
   const q = $("quarter"); q.replaceChildren(); q.className = "tile quarter" + (plan.overdue ? " overdue" : "");
-  const ql = el("p", "label"); ql.append(el("span", "", "This quarter"), el("span", plan.overdue ? "tone watch" : "", plan.reviewed));
-  q.append(ql, el("h2", "", plan.objective));
-  if (plan.overdue) {
-    const acts = el("div", "acts");
-    acts.append(actionButton({ line: "Weekly review", button: "Ask Claude for your weekly review", prompt: "Do my What's next weekly review." }, "btn sm"));
-    q.append(el("p", "pace dim", "Your plan is due a check. It takes about five minutes."), acts);
+  q.append(el("span", "qlabel", "This quarter"), el("h2", "", plan.objective), el("span", "qrev", plan.reviewed));
+  const reviewAsk = "Do my What's next weekly review.";
+  if (canReview()) { if (!ui.review) q.append(btn(plan.overdue ? "Do your weekly review" : "Weekly review", "btn sm" + (plan.overdue ? "" : " quiet"), startReview)); }
+  else {
+    q.append(btn(ui.promptOpen === "review" ? "Hide prompt" : plan.overdue ? "Ask Claude for your weekly review" : "Weekly review", "btn sm" + (plan.overdue ? "" : " quiet"), () => togglePrompt("review", reviewAsk)));
+    if (ui.promptOpen === "review") q.append(promptBox(reviewAsk, () => togglePrompt("review", reviewAsk)));
   }
+  renderReview();
 
   // This week
   const week = $("week"); week.replaceChildren();
-  next.forEach((item, i) => {
-    const li = el("li", "tile row-item" + (i === 0 ? " first" : "")), text = el("div"), acts = el("div", "acts");
-    text.style.minWidth = "0";
-    text.append(el("p", "t", item.line), el("p", "f", (item.again ? "Still open. " : "") + (item.fact || "")));
-    if (team.length) acts.append(el("span", "tag owner", (SETUP.owners || {})[item.play] || item.owner || SETUP.founder || ""));
-    acts.append(actionButton(item, "btn sm"),
-      quietButton("Done", () => { memory.mark(item.id, "done"); render(); }),
-      quietButton("Not for me", () => { memory.mark(item.id, "skip"); render(); }));
-    li.append(el("span", "num", i + 1), text, acts);
-    week.append(li);
-  });
+  const shown = ui.more ? next.concat(more) : next;
+  shown.forEach((item, i) => week.append(rowItem(item, i, team)));
   if (!next.length) { const z = el("li", "tile zero"); z.append(el("h2", "", "All clear"), el("p", "", "New things appear here as your tools change.")); week.append(z); }
+  $("week-note").textContent = team.length ? "Shared with " + listNames(team) : "";
+  const mb = $("more"); mb.hidden = !more.length;
+  mb.textContent = ui.more ? "Show only the top three" : more.length === 1 ? "1 more this week: " + more[0].line : `${more.length} more this week`;
+  mb.setAttribute("aria-expanded", String(ui.more));
+  const ck = $("checked"); ck.replaceChildren(); ck.hidden = !state.clear.length;
+  if (state.clear.length) { const ul = el("ul"); state.clear.forEach((t) => ul.append(el("li", "", t))); ck.append(el("p", "checked-head", "Also checked, nothing needed"), ul); }
 
   // Needs attention
   const att = attentionView(state.measures, hand, mem, now), box = $("attention");
   box.replaceChildren(); $("attention-box").hidden = !att.length;
   $("att-src").textContent = (state.measures.find((m) => m.period) || {}).period || "";
   att.forEach((a) => {
-    const tile = el("div", "tile att " + a.tone), label = el("p", "label"), acts = el("div", "acts");
+    const tile = el("div", "tile att " + a.tone), label = el("p", "label"), acts = el("div", "acts"), id = "att:" + a.ids[0], prompt = fullPrompt(a.item);
     label.append(el("span", "", a.label));
     if (WORDS[a.tone]) label.append(el("span", "tone " + a.tone, WORDS[a.tone]));
-    acts.append(actionButton(a.item, "btn sm"), quietButton("Done", () => { a.ids.forEach((id) => memory.mark(id, "done")); render(); }));
+    const what = String(a.item.button || a.item.doButton || "Ask Claude why").replace(/^Have Claude /, "").replace(/ here$/, "").replace(/^Copy prompt.*/, "ask Claude");
+    acts.append(btn(ui.promptOpen === id ? "Hide prompt" : "Copy prompt: " + what.charAt(0).toLowerCase() + what.slice(1), "btn sm", () => togglePrompt(id, prompt)),
+      btn("Done", "btn sm quiet", () => { a.ids.forEach((x) => memory.mark(x, "done")); render(); }));
     tile.append(label, el("p", "t", a.title), el("p", "note", a.note), acts);
+    if (ui.promptOpen === id) tile.append(promptBox(prompt, () => togglePrompt(id, prompt)));
     box.append(tile);
   });
 
-  // No numbers yet: one card asking to connect the money tool
-  const hasNumbers = state.measures.some((m) => m.group === "health" || m.group === "growth");
-  const connect = $("connect"); connect.replaceChildren(); connect.hidden = hasNumbers;
-  if (!hasNumbers) {
-    const tool = ((SETUP.tools || {}).next || [])[0] || "your accounting";
-    connect.append(Object.assign(el("p", "label", "Your numbers"), { style: "margin-bottom:0" }), el("h3", "", "See how the business is really doing"),
-      el("p", "", `Connect ${tool} and this page tracks your goal and shows the one or two numbers that need you.`),
-      actionButton({ line: "Add " + tool, button: "Connect " + tool, prompt: `Add ${tool} to my What's next dashboard.` }, "btn"));
+  // Ideas for your goal, from the last weekly review
+  const ideas = (SETUP.ideas || []).filter((i) => fresh(mem, i.id, now) && !(mem[i.id] && mem[i.id].kind === "skip")), ib = $("ideas");
+  ib.replaceChildren(); ib.className = ideas.length ? "att-grid" : "";
+  const from = SETUP.ideasFrom ? new Date(SETUP.ideasFrom) : null;
+  $("ideas-src").textContent = ideas.length && from && !isNaN(from) ? "From your weekly review on " + shortDate(from) : "";
+  ideas.forEach((i) => {
+    const tile = el("div", "tile idea"), acts = el("div", "acts"), id = "idea:" + i.id, prompt = fullPrompt(i), label = el("p", "label");
+    label.style.marginBottom = "2px"; label.append(el("span", "tag goaltag", i.goal || "Toward your goal"));
+    acts.append(btn(ui.promptOpen === id ? "Hide prompt" : i.kind === "setup" ? "Show me how" : "Work on it with Claude", "btn sm", () => togglePrompt(id, prompt)),
+      btn("Not for me", "textbtn", () => { memory.mark(i.id, "skip"); render(); }));
+    tile.append(label, el("p", "t", i.title), el("p", "note", i.note || ""), acts);
+    if (ui.promptOpen === id) tile.append(promptBox(prompt, () => togglePrompt(id, prompt)));
+    ib.append(tile);
+  });
+  if (!ideas.length) {
+    const empty = el("div", "tile ideas-empty");
+    empty.append(el("p", "", "Ideas arrive with your weekly review: two or three ways to reach your goal, drawn from your own tools."));
+    if (canReview() && !ui.review) empty.append(btn("Do your weekly review", "btn sm", startReview));
+    ib.append(empty);
   }
 
-  // All numbers, behind one link
-  $("seeall").hidden = !hasNumbers;
-  const sb = $("seeall-btn"); sb.textContent = state.all ? "Hide all numbers" : "See all numbers"; sb.setAttribute("aria-expanded", String(state.all));
+  // No money tool yet: one card asking to connect it
+  const numbers = state.measures.filter((m) => m.group === "health" || m.group === "growth"), missing = SETUP.missing || [];
+  const connect = $("connect"); connect.replaceChildren(); connect.hidden = !!SETUP.moneyTool || numbers.length > 0;
+  if (connect.hidden === false) {
+    const tool = ((SETUP.tools || {}).next || [])[0] || "your accounting", ask = `Task: Add ${tool} to my What's next dashboard. Walk me through connecting it one step at a time, then update the dashboard.`;
+    const l = el("p", "label", "Your numbers"); l.style.marginBottom = "0";
+    connect.append(l, el("h3", "", "See how the business is really doing"),
+      el("p", "", `Connect ${tool} and this page tracks your goal and shows the one or two numbers that need you.`),
+      btn(ui.promptOpen === "connect" ? "Hide prompt" : "Connect " + tool, "btn", () => togglePrompt("connect", fullPrompt({ prompt: ask, kind: "setup" }))));
+    if (ui.promptOpen === "connect") connect.append(promptBox(fullPrompt({ prompt: ask, kind: "setup" }), () => togglePrompt("connect")));
+  }
+
+  // All numbers, behind one link. Numbers that can't be shown yet say why.
+  $("seeall").hidden = !(numbers.length || missing.length);
+  const sb = $("seeall-btn"); sb.textContent = ui.all ? "Hide all numbers" : "See all numbers"; sb.setAttribute("aria-expanded", String(ui.all));
   for (const group of ["health", "growth"]) {
-    const list = state.measures.filter((m) => m.group === group), groupBox = $(group), show = state.all && list.length > 0;
+    const list = state.measures.filter((m) => m.group === group).map(normalise), gaps = group === "health" ? missing : [], groupBox = $(group), show = ui.all && (list.length + gaps.length) > 0;
     groupBox.replaceChildren(); groupBox.hidden = $(group + "-head").hidden = !show;
     if (!show) continue;
     $(group + "-src").textContent = (list.find((m) => m.period) || {}).period || "";
     list.forEach((m) => {
       const tile = el("div", "tile metric"), label = el("p", "label");
       label.append(el("span", "", m.label), el("span", "tone " + m.tone, WORDS[m.tone] || ""));
-      const open = !!state.open[m.id], link = el("button", "quietlink", open ? "Hide how it's worked out" : "How it's worked out");
-      link.type = "button"; link.setAttribute("aria-expanded", String(open));
-      link.onclick = () => { state.open[m.id] = !open; render(); };
+      const open = !!ui.open[m.id], link = btn(open ? "Hide how it's worked out" : "How it's worked out", "quietlink", () => { ui.open[m.id] = !open; render(); });
+      link.setAttribute("aria-expanded", String(open));
       tile.append(label, el("p", "big", m.value), el("p", "note", m.note || ""), link);
       if (open) tile.append(el("p", "how", m.how || ""));
+      groupBox.append(tile);
+    });
+    gaps.forEach((x) => {
+      const tile = el("div", "tile metric missing"), label = el("p", "label");
+      label.append(el("span", "", x.label), el("span", "dim", "Not shown yet"));
+      tile.append(label, el("p", "big", "—"), el("p", "note", x.why || ""));
       groupBox.append(tile);
     });
   }
@@ -665,16 +1172,16 @@ function render() {
   status.classList.toggle("old", !state.live || /^Partly/.test(state.live));
   const notices = $("notices"); notices.replaceChildren();
   state.problems.forEach((text) => notices.append(el("li", "", text)));
-  if (state.problems.length && state.rerun) notices.lastChild.append(quietButton("Try again", state.rerun));
+  if (state.problems.length && state.rerun) notices.lastChild.append(btn("Try again", "btn quiet sm", state.rerun));
   const tools = SETUP.tools || {};
-  $("foot").textContent = (tools.connected && tools.connected.length ? `Reads ${listNames(tools.connected)}. ` : "") + "Nothing is changed or sent without you."
-    + (tools.next && tools.next.length && hasNumbers ? ` Connect ${tools.next[0]} to see more: ask Claude to add it.` : "");
+  $("foot").textContent = (tools.connected && tools.connected.length ? `Reads ${listNames(tools.connected)}. ` : "") + "Nothing is sent without you."
+    + (tools.next && tools.next.length && numbers.length ? ` Connect ${tools.next[0]} to see more: ask Claude to add it.` : "");
 }
 
 const at = (d) => d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
 function snapshotLabel() {
   const d = new Date(SETUP.snapshot.takenAt);
-  return isNaN(d) ? "Snapshot" : `Snapshot · ${d.toLocaleDateString(undefined, { day: "numeric", month: "short" })}, ${at(d)}`;
+  return isNaN(d) ? "Snapshot" : `Snapshot · ${shortDate(d)}, ${at(d)}`;
 }
 
 // What to tell the founder when a tool cannot be read. One line per tool, by cause.
@@ -682,7 +1189,7 @@ function explain(server, code) {
   if (code === "needs_reauth") return `Reconnect ${server} in Claude: Settings → Connectors.`;
   if (["server_not_connected", "server_not_found", "selection_required"].includes(code)) return `Add ${server} in Claude: Settings → Connectors.`;
   if (["not_in_manifest", "approval_required", "consent_required", "blocked_by_policy", "not_granted"].includes(code)) return `${server} is not allowed for this page yet.`;
-  return `${server} did not answer just now. Showing the last snapshot for it.`;
+  return `${server} didn't answer just now. What you see from it is from ${snapshotLabel().replace("Snapshot · ", "")}.`;
 }
 const transient = (code) => ["server_unavailable", "upstream_error", "rate_limited", "cancelled"].includes(code);
 
@@ -690,32 +1197,39 @@ async function goLive(mcp) {
   state.live = "Checking your tools…"; state.problems = []; render();
   const failed = new Map();            // server -> error code
   const read = async (server, tool, input) => {
-    try { return (await mcp.callTool(server, tool, input || {}, { cache: { staleTime: 5 * 60e3, gcTime: 60 * 60e3 } })).payload || {}; }
+    try { const r = await mcp.callTool(server, tool, input || {}, { cache: { staleTime: 5 * 60e3, gcTime: 60 * 60e3 } }); return r && r.payload !== undefined ? r.payload : {}; }
     catch (e) { failed.set((e && e.server) || server, (e && e.code) || "upstream_error"); throw e; }
   };
-  const ctx = { now: new Date(), setup: SETUP };
+  const ctx = { now: new Date(), setup: SETUP, findList };
   const keepOld = (tools) => { const codes = tools.map(([s]) => failed.get(s)).filter(Boolean); return codes.length && codes.every(transient); };
-  const items = [], measures = [];
-  let goal = SETUP.goal || {};
+  const items = [], measures = [], clear = [];
+  const goals = SETUP.goals.map((g) => ({ ...g }));
+  const since = snapshotLabel().replace("Snapshot · ", "");
   // One at a time, so a founder sees one approval question at a time.
   for (const play of PLAYS) {
     try {
       const found = await play.find(read, ctx);
       [].concat(found || []).forEach((it) => items.push({ helps: play.helps, play: play.id, ...it, id: it.id || play.id }));
+      if (!found && play.clear) clear.push(play.clear);
     } catch (e) { if (keepOld(play.tools)) items.push(...SETUP.snapshot.items.filter((s) => s.play === play.id)); }
   }
   for (const m of MEASURES) {
     try {
       const found = await m.find(read, ctx);
       if (!found) continue;
-      if (m.group === "goal") goal = { ...goal, ...found };
+      if (m.group === "goal") goals[m.goal || 0] = { ...goals[m.goal || 0], ...found };
       else measures.push({ id: m.id, group: m.group, label: m.label, helps: m.helps, ...found });
-    } catch (e) { if (keepOld(m.tools)) measures.push(...(SETUP.snapshot.measures || []).filter((s) => s.id === m.id)); }
+    } catch (e) {
+      // A goal whose tool failed keeps its last number and says how old it is; it never shows 0.
+      if (m.group === "goal") goals[m.goal || 0] = { ...goals[m.goal || 0], stale: since };
+      else if (keepOld(m.tools)) measures.push(...(SETUP.snapshot.measures || []).filter((s) => s.id === m.id));
+    }
   }
   const servers = new Set([...PLAYS, ...MEASURES].flatMap((p) => p.tools.map((t) => t[0])));
   state.items = items.length || !failed.size ? items : SETUP.snapshot.items;
   state.measures = measures.length || !failed.size ? measures : (SETUP.snapshot.measures || []);
-  state.goal = goal;
+  state.goals = goals;
+  state.clear = clear;
   state.problems = [...failed].map(([server, code]) => explain(server, code));
   state.live = failed.size === 0 ? `Live ${at(new Date())}` : failed.size < servers.size ? `Partly live ${at(new Date())}` : null;
   render();
@@ -734,15 +1248,24 @@ function start() {
   document.querySelectorAll("#theme button").forEach((b) => b.onclick = () => { store.set(THEME_KEY, b.dataset.theme); applyTheme(b.dataset.theme); });
   $("biz").textContent = SETUP.business || "";
   $("date").textContent = new Date().toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" });
-  $("seeall-btn").onclick = () => { state.all = !state.all; render(); };
+  $("seeall-btn").onclick = () => { ui.all = !ui.all; render(); };
+  $("more").onclick = () => { ui.more = !ui.more; render(); };
   render();
-  if (SETUP.demo) selfCheck();
-  if (!window.claude || !(PLAYS.length + MEASURES.length) || SETUP.demo) return;
-  window.claude.use("mcp").then((mcp) => {
+  if (SETUP.demo) { selfCheck(); return; }
+  if (!window.claude) return;
+  const use = (name) => window.claude.use(name).catch(() => null);
+  use("sample").then(async (s) => {
+    if (!s) return;
+    const limits = await s.limits().catch(() => null);
+    caps.sample = s; caps.tools = !!(limits && limits.tools); render();
+  });
+  use("artifact").then((a) => { caps.artifact = a; render(); });
+  if (!(PLAYS.length + MEASURES.length)) return;
+  use("mcp").then((mcp) => {
     if (!mcp) { state.problems = ["Live data isn't available here. Ask Claude to refresh your What's next dashboard."]; render(); return; }
-    state.rerun = () => goLive(mcp);
+    caps.mcp = mcp; state.rerun = () => goLive(mcp);
     goLive(mcp);
-  }).catch(() => {});
+  });
 }
 start();
 </script>

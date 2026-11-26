@@ -30,8 +30,12 @@ website answers a lot of this before you ask.
 2. **Where they want to be, and how you will count it.** Open question, then offer a
    specific goal to react to. Once they agree, name where you will count it: "I'll count
    schools with an active contract in your accounting. Does that match how you think
-   about it?" A goal you cannot count in one of their tools still goes on the dashboard,
-   without a progress bar; say so plainly.
+   about it?" A goal you cannot count in one of their tools still goes on the dashboard:
+   if no tool will ever count it (a community platform with no connector), Claude asks them
+   for the number at each weekly review (`countedBy: "founder"`); say so plainly.
+   **Two goals.** If what they want has two parts that are counted differently (programme
+   clients and community members), keep both as two goals; at most two. If both are money,
+   offer one money goal that covers both instead.
    **If the goal is personal**, such as a salary or what they take home, keep it and turn
    it into a business goal for them: "To pay yourself R80,000 a month, the business needs
    to bring in about R___ a month. I'll work out the exact number from your books once
@@ -50,6 +54,8 @@ website answers a lot of this before you ask.
      are behind, say the money numbers will be rough until they catch up, and note it.
    - **"How long do you give customers to pay?"** Only if they send invoices. Their
      answer, not a rule of thumb, decides when slow payment turns from Watch to Act now.
+     If they are unsure, read the terms on their invoices, say what you found, and save
+     `termsConfirmed: false` until they or whoever invoices confirms it.
 6. **"Here's what I heard."** Five or six short lines, including the goal and where it is
    counted. They confirm or correct. Do not move on until they have.
 
@@ -118,16 +124,18 @@ Fill these into the dashboard's `SETUP` (see `dashboard.md`):
 | `business` | The business name |
 | `model` | One of the five above |
 | `customerWord` | Their word for one customer, singular: "school", "café", "client" |
-| `goal` | `title` (one line, specific), `measure` (what is counted), `source` (the tool it is counted in), `now` (read from that tool after connecting; `null` until then), `target` (a number), `by` (a date, `YYYY-MM-DD`) |
+| `about` | One or two sentences in their voice, starting "I'm [name] and I run …": what they sell, how, and the goals with today's numbers. Every prompt the page hands to Claude starts with it |
+| `goals` | One or two goals, each: `title` (one line, specific), `measure` (what is counted), `source` (the tool it is counted in), `countedBy` (`"tool"`, or `"founder"` when no connector can count it), `now` (read from the tool after connecting, or their answer; `null` until then), `target`, `by` (`YYYY-MM-DD`), `unit`, `money`, `helps` (the focus labels that move this goal) |
 | `focus` | One to three labels for what moves them toward the goal (below) |
 | `heard` | The confirmed "here's what I heard" lines, word for word |
 | `books` | `current`: `true`, `false` or `"unsure"`; `upTo`: the last month they are complete for |
 | `terms` | Days customers get to pay, as a number; `null` if they do not invoice |
+| `termsConfirmed` | `false` if they were unsure ("I think so", "my partner does invoicing"); until it is `true`, slow payment never shows as Act now |
 | `tools` | What is connected, what to connect next, what has no connector yet |
 | `accent`, `accentLight` | The light and deep versions of their brand colour as `#RRGGBB`, only if they said yes |
 | `team` | First names of anyone who runs the business with them; empty if they work alone |
 | `writtenOff` | Customers whose old debts they do not expect to collect (asked in `tools.md`); empty otherwise |
-| `goal.perCustomer` | What one more customer adds to the goal: `1` when the goal counts customers, the average monthly value of one customer for a money goal, left out when neither fits |
+| `goals[].perCustomer` | What one more customer adds to that goal: `1` when the goal counts customers, the average monthly value of one customer for a money goal, left out when neither fits |
 
 **Focus labels.** These decide what the dashboard treats as important:
 

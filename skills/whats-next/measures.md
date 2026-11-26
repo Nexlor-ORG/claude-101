@@ -21,7 +21,7 @@ fast schools pay", "Cost to win a café".
 | `id` | Label | Worked out as | Healthy / Watch / Act now |
 |---|---|---|---|
 | `cash` | Cash in the bank | Bank balance today ÷ average monthly running costs over the last 3 months, in months | 3 months or more / 1 to 3 / under 1 |
-| `debtor-days` | How fast [customers] pay | What customers owe ÷ last month's sales × 30, in days. Only for `invoices` and `services` | Within `SETUP.terms` + 7 days / up to `terms` + 15 / more |
+| `debtor-days` | How fast [customers] pay | What customers owe on invoices already due ÷ last month's sales × 30, in days. For any business that sends invoices (`SETUP.terms` is set), retainers included | Within `SETUP.terms` + 7 days / up to `terms` + 15 / more. Never Act now while `termsConfirmed` is `false` |
 | `gross-margin` | Profit on each sale | (Sales − cost of sales) ÷ sales, last full month | Steady or rising / fell 2 points or more in 3 months / fell 5 points or more |
 | `net-profit` | Profit after all costs | Sales − every cost, last full month, before tax | Profit / under 5% of sales / a loss |
 | `break-even` | Sales needed to cover costs | Monthly running costs ÷ gross margin | Sales 10% or more above it / within 10% / below it |
@@ -48,7 +48,12 @@ Verdicts for Growth:
 ## Rules
 
 - **Never estimate.** A measure the data cannot give is left out, not guessed. Five honest
-  numbers beat nine shaky ones.
+  numbers beat nine shaky ones. **Say what is missing:** add each number you could not show
+  to `SETUP.missing` as `{label, why}`, with the reason in plain words and what would fix it
+  (another connector, a report the connector lacks). The page shows these as "Not shown yet"
+  instead of asking the founder to connect a tool they already have.
+- **Find lists wherever they are.** Use `ctx.findList(answer, "invoices")` rather than a fixed
+  path into the answer; connectors nest lists differently.
 - **Books behind** (`SETUP.books.current` is not `true`): still show the numbers, but every
   `note` ends "Books up to <month>." and nothing from the accounting tool is Act now.
 - **Cost of sales and running costs** come from how the profit and loss report groups its
@@ -78,12 +83,26 @@ Verdicts for Growth:
 
 ## The goal
 
-If the goal is counted in a connected tool, write one more measure with `group: "goal"`.
+For each goal counted in a connected tool, write one more measure with `group: "goal"` and
+`goal`: the goal's index in `SETUP.goals` (0 or 1).
 It returns `now` (the number today), and when there is history, `ratePerMonth` (how much
 it has moved each month, averaged over the last three to six months). For a money goal it may also return `perCustomer` (the average monthly
 value of one customer), which gives "One more client takes you to …". The page works out
-the pace, "Behind pace" or "On pace", and the progress bar from these and `SETUP.goal`.
-Without a `ratePerMonth` the page shows the pace needed and no verdict.
+the pace, "Behind pace" or "On pace", and the progress bar from these and that goal in `SETUP.goals`.
+Without a `ratePerMonth` the page shows the pace needed and no verdict. If a goal measure
+fails to read, the page keeps the last number and says how old it is; it never shows 0.
+
+**A goal no tool can count** (a community platform with no connector) has `countedBy:
+"founder"`: no measure; Claude asks for the number at each weekly review and the page saves
+it with `askedAt`.
+
+**A goal you cannot count yet.** If counting needs a rule only the founder knows (which
+invoices are monthly fees, which small accounts are not real clients), do not guess: set
+`needsAnswer` on the goal, `{found, of, question, options}` ("R226,000", "invoiced in
+October", "Which invoices are your monthly programme fees?", two or three likely answers).
+The page shows the number without a bar and asks the question first at the weekly review.
+Once you have the answer, write the goal measure with that rule in it, and remove
+`needsAnswer`.
 
 **Monthly income for a retainer or subscription business.** Count only income that repeats:
 clients billed in each of the last three months, at their latest monthly amount. Leave out
